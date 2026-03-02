@@ -1,1 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TR&PC Consultoria | Atendimento Humanizado e Estratégico</title>
 
+<style>
+:root {
+    --primary: #1f4e8c;
+    --secondary: #f4f6f9;
+    --dark: #1c1c1c;
+    --light: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background: var(--light);
+    color: var(--dark);
+    line-height: 1.6;
+}
+
+header {
+    background: var(--primary);
+    color: var(--light);
+    padding: 20px 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+nav a {
+    color: var(--light);
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: 500;
+}
+
+.hero {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d');
+    background-size: cover;
+    background-position: center;
+    color: var(--light);
+    text-align: center;
+    padding: 120px 10%;
+}
+
+.hero h2 {
+    font-size: 38px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.btn {
+    background: var(--primary);
+    color: var(--light);
+    padding: 15px 30px;
+    border: none;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #163b6b;
+}
+
+section {
+    padding: 80px 10%;
+}
+
+.section-light {
+    background: var(--secondary);
+}
+
+h3 {
+    font-size: 30px;
+    margin-bottom: 20px;
+    color: var(--primary);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background: var(--light);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0px 5px 15px rgba(0,0,0,0.05);
+}
+
+footer {
+    background: var(--primary);
+    color: var(--light);
+    text-align: center;
+    padding: 40px 10%;
+}
+
+.whatsapp {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #25d366;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+@media(max-width:768px){
+    .hero h2 {
+        font-size: 28px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>TR&PC Consultoria</h1>
+    <nav>
+        <a href="#servicos">Serviços</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#contato">Contato</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <h2>Sua empresa está perdendo clientes pelo atendimento?</h2>
+    <p>Transformamos equipes comuns em times que encantam, fidelizam e vendem mais.</p>
+    <a href="#contato" class="btn">Agendar Diagnóstico Gratuito</a>
+</section>
+
+<section>
+    <h3>Você enfrenta esses problemas?</h3>
+    <div class="grid">
+        <div class="card">
+            <h4>Clientes que não retornam</h4>
+            <p>Atendimento frio e sem conexão gera perda silenciosa de faturamento.</p>
+        </div>
+        <div class="card">
+            <h4>Equipe despreparada</h4>
+            <p>Falta de treinamento impacta diretamente nas vendas e na imagem da empresa.</p>
+        </div>
+        <div class="card">
+            <h4>Alta rotatividade</h4>
+            <p>Contratações erradas geram custos ocultos e instabilidade no time.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section-light" id="servicos">
+    <h3>Nossas Soluções</h3>
+    <div class="grid">
+        <div class="card">
+            <h4>Consultoria em Atendimento</h4>
+            <p>Diagnóstico completo e implementação de processos humanizados e estratégicos.</p>
+        </div>
+        <div class="card">
+            <h4>Recrutamento Estratégico</h4>
+            <p>Seleção assertiva focada em perfil comportamental e cultura organizacional.</p>
+        </div>
+        <div class="card">
+            <h4>Treinamentos Personalizados</h4>
+            <p>Desenvolvimento de equipes para transformar atendimento em resultado.</p>
+        </div>
+    </div>
+</section>
+
+<section id="sobre">
+    <h3>Quem está por trás da TR&PC</h3>
+    <p>Somos duas profissionais com mais de 20 anos de experiência em recrutamento, seleção, atendimento e vendas. Unimos estratégia e humanização para construir equipes mais preparadas, empresas mais fortes e clientes mais satisfeitos.</p>
+</section>
+
+<section class="section-light" id="contato">
+    <h3>Pronto para transformar sua empresa?</h3>
+    <p>Agende uma conversa estratégica gratuita e descubra onde sua empresa pode melhorar.</p>
+    <br>
+    <a href="mailto:contato@trpcconsultoria.com.br" class="btn">Falar por E-mail</a>
+</section>
+
+<footer>
+    <p>© 2026 TR&PC Consultoria | Atendimento Humanizado com Resultado</p>
+</footer>
+
+<a class="whatsapp" href="https://wa.me/5500000000000" target="_blank">
+    WhatsApp
+</a>
+
+</body>
+</html>
