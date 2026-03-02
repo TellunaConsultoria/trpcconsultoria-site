@@ -1,1 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Planos TR&PC</title>
 
+<style>
+body{font-family:Arial;margin:0;background:#f4f6f9;}
+header{background:#1f4e8c;color:white;padding:20px;text-align:center;}
+
+.planos{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:30px;
+padding:60px 10%;
+}
+
+.plano{
+background:white;
+padding:40px;
+border-radius:10px;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+text-align:center;
+}
+
+.plano h2{color:#1f4e8c;}
+
+.plano ul{
+list-style:none;
+padding:0;
+text-align:left;
+margin:20px 0;
+}
+
+.plano ul li{
+margin-bottom:10px;
+}
+
+.botao{
+display:inline-block;
+padding:15px 25px;
+background:#2c6ecb;
+color:white;
+text-decoration:none;
+border-radius:5px;
+font-weight:bold;
+animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+0%{box-shadow:0 0 0 0 rgba(44,110,203,0.7);}
+70%{box-shadow:0 0 0 20px rgba(44,110,203,0);}
+100%{box-shadow:0 0 0 0 rgba(44,110,203,0);}
+}
+
+.botao:hover{background:#1f4e8c;}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Nossos Planos de Transformação</h1>
+</header>
+
+<section class="planos">
+
+<div class="plano">
+<h2>Essencial</h2>
+<ul>
+<li>Diagnóstico Estratégico</li>
+<li>Treinamento Base</li>
+<li>Padronização de Atendimento</li>
+<li>Alinhamento com Liderança</li>
+<li>30 dias de suporte</li>
+</ul>
+<a href="https://wa.me/5516992005854" class="botao">Agende seu Diagnóstico</a>
+</div>
+
+<div class="plano">
+<h2>Estratégico</h2>
+<ul>
+<li>Diagnóstico Profundo</li>
+<li>Treinamentos Avançados</li>
+<li>Recrutamento Estratégico</li>
+<li>Desenvolvimento de Liderança</li>
+<li>Plano de 90 dias</li>
+</ul>
+<a href="https://wa.me/5516992005854" class="botao">Agende seu Diagnóstico</a>
+</div>
+
+<div class="plano">
+<h2>Transformação Completa</h2>
+<ul>
+<li>Diagnóstico 360°</li>
+<li>Redesenho de Atendimento</li>
+<li>Implantação de Cultura</li>
+<li>Acompanhamento Executivo</li>
+<li>Treinamento Contínuo</li>
+</ul>
+<a href="https://wa.me/5516992005854" class="botao">Agende seu Diagnóstico</a>
+</div>
+
+</section>
+
+</body>
+</html>
