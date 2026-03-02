@@ -1,146 +1,242 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>TR&PC Consultoria | Atendimento Humanizado e Estratégico</title>
 
 <style>
 :root{
---azul-escuro:#1f4e8c;
---azul-medio:#2c6ecb;
---azul-claro:#4fa3f7;
---cinza:#f4f6f9;
---branco:#ffffff;
+  --azul-escuro:#1f4e8c;
+  --azul-medio:#2c6ecb;
+  --azul-claro:#4fa3f7;
+  --cinza:#f4f6f9;
+  --preto:#1c1c1c;
+  --branco:#ffffff;
 }
 
 *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,Helvetica,sans-serif;}
+body{background:var(--branco);color:var(--preto);line-height:1.6;}
 
-body{background:#fff;color:#1c1c1c;line-height:1.6;}
-
+/* HEADER */
 header{
-background:var(--azul-escuro);
-color:white;
-padding:20px 10%;
-display:flex;
-justify-content:space-between;
-align-items:center;
+  background:var(--azul-escuro);
+  color:var(--branco);
+  padding:18px 10%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
 }
 
-header img{height:50px;}
+.brand{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  min-width:0;
+}
+
+.brand img{
+  height:54px;
+  width:auto;
+}
+
+.brand .name{
+  font-weight:800;
+  letter-spacing:1px;
+  line-height:0.95;
+  font-size:110px; /* >= 100px como solicitado */
+  white-space:nowrap;
+}
+
+.brand .sub{
+  display:block;
+  font-size:14px;
+  font-weight:500;
+  opacity:.9;
+  margin-top:6px;
+  letter-spacing:0.6px;
+}
+
+nav{
+  display:flex;
+  align-items:center;
+  gap:18px;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+}
 
 nav a{
-color:white;
-margin-left:20px;
-text-decoration:none;
-font-weight:500;
+  color:var(--branco);
+  text-decoration:none;
+  font-weight:600;
+  font-size:14px;
+  opacity:.95;
 }
+nav a:hover{opacity:1;text-decoration:underline;}
 
+/* HERO */
 .hero{
-background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
-url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d');
-background-size:cover;
-background-position:center;
-color:white;
-text-align:center;
-padding:120px 10%;
+  background:
+    linear-gradient(rgba(0,0,0,0.62),rgba(0,0,0,0.62)),
+    url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d');
+  background-size:cover;
+  background-position:center;
+  color:var(--branco);
+  text-align:center;
+  padding:110px 10%;
 }
 
-.hero h1{font-size:38px;margin-bottom:20px;}
+.hero h1{
+  font-size:40px;
+  margin-bottom:14px;
+  font-weight:800;
+}
+
+.hero p{
+  font-size:18px;
+  max-width:900px;
+  margin:0 auto 26px auto;
+  opacity:.95;
+}
 
 .btn{
-background:var(--azul-medio);
-color:white;
-padding:15px 30px;
-text-decoration:none;
-border-radius:5px;
-font-weight:bold;
-transition:0.3s;
+  background:var(--azul-medio);
+  color:var(--branco);
+  padding:14px 26px;
+  text-decoration:none;
+  border-radius:6px;
+  font-weight:800;
+  transition:.25s;
+  display:inline-block;
 }
+.btn:hover{background:var(--azul-escuro);transform:translateY(-1px);}
 
-.btn:hover{background:var(--azul-escuro);}
-
-section{padding:80px 10%;}
-
+/* SEÇÕES */
+section{padding:70px 10%;}
 .section-light{background:var(--cinza);}
+h2{color:var(--azul-escuro);margin-bottom:18px;font-size:30px;}
+p.lead{max-width:980px;color:#2a2a2a;}
 
-h2{color:var(--azul-escuro);margin-bottom:30px;}
-
+/* CARDS */
 .grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:22px;
+  margin-top:26px;
 }
-
 .card{
-background:white;
-padding:25px;
-border-radius:8px;
-box-shadow:0 5px 15px rgba(0,0,0,0.05);
+  background:var(--branco);
+  padding:26px;
+  border-radius:10px;
+  box-shadow:0 6px 18px rgba(0,0,0,0.06);
 }
+.card h3{margin-bottom:8px;color:var(--azul-escuro);font-size:18px;}
 
 /* METODO */
+.metodo-wrap{
+  margin-top:22px;
+}
+
 .metodo-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:10px;
+  display:grid;
+  grid-template-columns:repeat(5, minmax(180px, 1fr));
+  gap:10px;
+  row-gap:24px; /* MAIS ESPAÇO ENTRE LINHA SUPERIOR E INFERIOR */
+  margin-top:18px;
+  overflow:visible; /* importante para tooltip */
 }
 
 .metodo-item{
-padding:25px;
-color:white;
-text-align:center;
-cursor:pointer;
-position:relative;
-transition:0.3s;
+  padding:26px 18px;
+  color:var(--branco);
+  text-align:center;
+  cursor:default;
+  position:relative;
+  transition:transform .18s ease;
+  border-radius:10px;
+  overflow:visible; /* evita cortar tooltip */
 }
 
-.metodo-item:hover{transform:scale(1.05);}
+.metodo-item:hover{transform:translateY(-2px);}
 
-.metodo-item span{
-display:block;
-font-weight:bold;
-font-size:18px;
+.metodo-item .title{
+  display:block;
+  font-weight:900;
+  font-size:18px;
 }
 
-.tooltip{
-visibility:hidden;
-opacity:0;
-position:absolute;
-bottom:-80px;
-left:50%;
-transform:translateX(-50%);
-background:#000;
-color:#fff;
-padding:10px;
-border-radius:5px;
-width:200px;
-font-size:13px;
-transition:0.3s;
+.metodo-item .tooltip{
+  visibility:hidden;
+  opacity:0;
+  position:absolute;
+
+  /* tooltip APARECE PARA CIMA (resolve o problema do topo ficar escondido) */
+  bottom:calc(100% + 12px);
+  left:50%;
+  transform:translateX(-50%);
+
+  background:#0f172a;
+  color:#fff;
+  padding:12px 12px;
+  border-radius:8px;
+  width:240px;
+  font-size:13px;
+  line-height:1.35;
+  box-shadow:0 10px 22px rgba(0,0,0,0.25);
+  transition:opacity .18s ease;
+  z-index:9999;
+  pointer-events:none;
+}
+
+.metodo-item .tooltip::after{
+  content:"";
+  position:absolute;
+  top:100%;
+  left:50%;
+  transform:translateX(-50%);
+  border-width:8px;
+  border-style:solid;
+  border-color:#0f172a transparent transparent transparent;
 }
 
 .metodo-item:hover .tooltip{
-visibility:visible;
-opacity:1;
+  visibility:visible;
+  opacity:1;
 }
 
+/* CONTATO */
 footer{
-background:var(--azul-escuro);
-color:white;
-text-align:center;
-padding:30px;
+  background:var(--azul-escuro);
+  color:var(--branco);
+  text-align:center;
+  padding:26px 10%;
 }
 
+/* WHATS */
 .whatsapp{
-position:fixed;
-bottom:20px;
-right:20px;
-background:#25d366;
-color:white;
-padding:15px 20px;
-border-radius:50px;
-text-decoration:none;
-font-weight:bold;
+  position:fixed;
+  bottom:18px;
+  right:18px;
+  background:#25d366;
+  color:white;
+  padding:14px 18px;
+  border-radius:999px;
+  text-decoration:none;
+  font-weight:900;
+  box-shadow:0 10px 22px rgba(0,0,0,0.18);
+}
+
+/* RESPONSIVO */
+@media (max-width: 1100px){
+  .brand .name{font-size:72px;}
+  .metodo-grid{grid-template-columns:repeat(2, minmax(180px, 1fr));}
+}
+@media (max-width: 768px){
+  header{flex-direction:column;align-items:flex-start;}
+  nav{justify-content:flex-start;}
+  .hero h1{font-size:30px;}
+  .brand .name{font-size:54px;white-space:normal;}
 }
 </style>
 </head>
@@ -148,96 +244,107 @@ font-weight:bold;
 <body>
 
 <header>
-<img src="assets/logo.png" alt="TR&PC Logo">
-<nav>
-<a href="planos.html">Planos</a>
-<a href="#metodo">Método</a>
-<a href="#contato">Contato</a>
-</nav>
+  <div class="brand">
+    <!-- Se quiser ocultar a imagem, pode remover a linha abaixo -->
+    <img src="assets/logo.png" alt="Logo TR&PC" />
+    <div>
+      <div class="name">TR&amp;PC</div>
+      <span class="sub">CONSULTORIA</span>
+    </div>
+  </div>
+
+  <nav>
+    <a href="planos.html">Planos</a>
+    <a href="#solucoes">Soluções</a>
+    <a href="#contato">Contato</a>
+  </nav>
 </header>
 
 <section class="hero">
-<h1>Consultoria estratégica que transforma atendimento através de pessoas.</h1>
-<br>
-<a href="planos.html" class="btn">Conheça nossos Planos</a>
+  <h1>Consultoria estratégica que transforma atendimento através de pessoas.</h1>
+  <p>Estruturamos atendimento e cultura com método, clareza e acompanhamento — para sua equipe resolver de verdade, fidelizar clientes e gerar resultado.</p>
+  <a href="planos.html" class="btn">Conheça nossos Planos</a>
 </section>
 
-<section class="section-light">
-<h2>Nossas Soluções</h2>
-<p>Aplicamos o Método T.R.A.N.S.F.O.R.M.A. para estruturar atendimento, cultura e resultado.</p>
+<!-- SOLUÇÕES + MÉTODO NO MESMO BLOCO (sem separação) -->
+<section class="section-light" id="solucoes">
+  <h2>Nossas Soluções</h2>
+
+  <!-- 100–150+ caracteres (na prática: bem mais) explicando método próprio -->
+  <p class="lead">
+    A TR&amp;PC atua com um método próprio para transformar o atendimento na prática: unimos desenvolvimento de pessoas, organização de processos e acompanhamento por métricas, garantindo consistência, humanização e resultados sustentáveis ao longo do tempo.
+  </p>
+
+  <div class="metodo-wrap">
+    <h2 style="margin-top:24px;">Método T.R.A.N.S.F.O.R.M.A.</h2>
+
+    <div class="metodo-grid">
+
+      <div class="metodo-item" style="background:var(--azul-escuro);">
+        <span class="title">T - Treinamento</span>
+        <div class="tooltip">Capacitação prática para atendimento e vendas consultivas, com foco em comportamento, postura, comunicação e experiência do cliente.</div>
+      </div>
+
+      <div class="metodo-item" style="background:var(--azul-claro);">
+        <span class="title">R - Recrutamento</span>
+        <div class="tooltip">Seleção estratégica com base em perfil comportamental e aderência cultural, reduzindo rotatividade e melhorando o desempenho do time.</div>
+      </div>
+
+      <div class="metodo-item" style="background:var(--azul-escuro);">
+        <span class="title">A - Alinhamento</span>
+        <div class="tooltip">Alinha liderança e equipe sobre padrão, expectativas e responsabilidades, criando uma cultura de atendimento consistente.</div>
+      </div>
+
+      <div class="metodo-item" style="background:var(--azul-claro);">
+        <span class="title">N - Nível de Atendimento</span>
+        <div class="tooltip">Eleva o padrão de atendimento com diretrizes claras e práticas aplicáveis, sem robotizar a comunicação com o cliente.</div>
+      </div>
+
+      <div class="metodo-item" style="background:var(--azul-escuro);">
+        <span class="title">S - Supervisão</span>
+        <div class="tooltip">Acompanhamento estratégico para correções rápidas, reforço do padrão e consistência na rotina do atendimento.</div>
+      </div>
+
+      <div class="metodo-item" style="background:var(--azul-claro);">
+        <span class="title">F - Foco em Resultado</span>
+        <div class="tooltip">Transforma atendimento em performance: conversão, retenção, satisfação e redução de ruídos no processo.</div>
+      </div>
+
+      <div class="metodo-item" style="background:var(--azul-escuro);">
+        <span class="title">O - Organização</span>
+        <div class="tooltip">Define fluxos, padrões e rotinas para reduzir retrabalho, dar previsibilidade e aumentar eficiência operacional.</div>
+      </div>
+
+      <div class="metodo-item" style="background:var(--azul-claro);">
+        <span class="title">R - Relacionamento</span>
+        <div class="tooltip">Fortalece conexão com cliente e equipe com comunicação humana, empática e objetiva, focada em solução.</div>
+      </div>
+
+      <div class="metodo-item" style="background:var(--azul-escuro);">
+        <span class="title">M - Métricas</span>
+        <div class="tooltip">Cria indicadores simples e úteis (qualidade, tempo de resposta, satisfação, conversão) para orientar decisões.</div>
+      </div>
+
+      <div class="metodo-item" style="background:var(--azul-claro);">
+        <span class="title">A - Acompanhamento</span>
+        <div class="tooltip">Suporte contínuo e ajustes ao longo do tempo para evolução sustentável, evitando que o padrão caia após o treinamento.</div>
+      </div>
+
+    </div>
+  </div>
 </section>
 
-<section id="metodo">
-<h2>Método T.R.A.N.S.F.O.R.M.A.</h2>
-
-<div class="metodo-grid">
-
-<div class="metodo-item" style="background:var(--azul-escuro);">
-<span>T - Treinamento</span>
-<div class="tooltip">Capacitação prática focada em comportamento e performance.</div>
-</div>
-
-<div class="metodo-item" style="background:var(--azul-claro);">
-<span>R - Recrutamento</span>
-<div class="tooltip">Seleção estratégica baseada em perfil e cultura.</div>
-</div>
-
-<div class="metodo-item" style="background:var(--azul-escuro);">
-<span>A - Alinhamento</span>
-<div class="tooltip">Conectar equipe, liderança e propósito organizacional.</div>
-</div>
-
-<div class="metodo-item" style="background:var(--azul-claro);">
-<span>N - Nível de Atendimento</span>
-<div class="tooltip">Elevação do padrão de experiência do cliente.</div>
-</div>
-
-<div class="metodo-item" style="background:var(--azul-escuro);">
-<span>S - Supervisão</span>
-<div class="tooltip">Acompanhamento estratégico para garantir consistência.</div>
-</div>
-
-<div class="metodo-item" style="background:var(--azul-claro);">
-<span>F - Foco em Resultado</span>
-<div class="tooltip">Indicadores e métricas aplicadas ao atendimento.</div>
-</div>
-
-<div class="metodo-item" style="background:var(--azul-escuro);">
-<span>O - Organização</span>
-<div class="tooltip">Estruturação de processos e fluxos internos.</div>
-</div>
-
-<div class="metodo-item" style="background:var(--azul-claro);">
-<span>R - Relacionamento</span>
-<div class="tooltip">Fortalecimento da conexão com clientes e equipe.</div>
-</div>
-
-<div class="metodo-item" style="background:var(--azul-escuro);">
-<span>M - Métricas</span>
-<div class="tooltip">Avaliação contínua de desempenho e satisfação.</div>
-</div>
-
-<div class="metodo-item" style="background:var(--azul-claro);">
-<span>A - Acompanhamento</span>
-<div class="tooltip">Suporte contínuo para evolução sustentável.</div>
-</div>
-
-</div>
+<section id="contato">
+  <h2>Pronto para transformar sua empresa?</h2>
+  <p class="lead">Agende um diagnóstico e descubra onde sua operação está perdendo clientes — e como virar esse jogo com pessoas, processo e método.</p>
+  <div style="margin-top:18px;">
+    <a href="https://wa.me/5516992005854" class="btn">Agende seu Diagnóstico</a>
+  </div>
 </section>
 
-<section id="contato" class="section-light">
-<h2>Pronto para transformar sua empresa?</h2>
-<br>
-<a href="https://wa.me/5516992005854" class="btn">Agende seu Diagnóstico</a>
-</section>
+<footer>© 2026 TR&amp;PC Consultoria</footer>
 
-<footer>
-© 2026 TR&PC Consultoria
-</footer>
-
-<a class="whatsapp" href="https://wa.me/5516992005854" target="_blank">
-WhatsApp
-</a>
+<a class="whatsapp" href="https://wa.me/5516992005854" target="_blank" rel="noopener">WhatsApp</a>
 
 </body>
 </html>
