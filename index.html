@@ -22,42 +22,64 @@ body{background:var(--branco);color:var(--preto);line-height:1.6;}
 header{
   background:var(--azul-escuro);
   color:var(--branco);
-  padding:18px 10%;
+  padding:16px 10%;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  gap:20px;
+  gap:22px;
 }
 
 .brand{
   display:flex;
   align-items:center;
-  gap:16px;
+  gap:14px;
   min-width:0;
 }
 
 .brand img{
-  height:54px;
+  height:56px;
   width:auto;
+  flex:0 0 auto;
 }
 
-.brand .name{
-  font-weight:800;
+.brand-text{
+  display:inline-block;
+  min-width:0;
+}
+
+/* Linha única: TR&PC CONSULTORIA */
+.brand-title{
+  font-weight:900;
   letter-spacing:1px;
-  line-height:0.95;
-  font-size:110px; /* >= 100px como solicitado */
-  white-space:nowrap;
+  line-height:1;
+  font-size:84px;         /* entre 75 e 90 */
+  white-space:nowrap;     /* garante 1 linha */
+  display:inline-block;   /* permite medir a largura */
 }
 
-.brand .sub{
-  display:block;
-  font-size:14px;
-  font-weight:500;
-  opacity:.9;
+/* Slogan abaixo, com largura "travada" ao título para não ultrapassar */
+.brand-slogan{
   margin-top:6px;
-  letter-spacing:0.6px;
+  font-weight:700;
+  font-size:46px;         /* entre 40 e 50 */
+  line-height:1.05;
+  opacity:0.95;
+
+  display:block;
+  width:fit-content;      /* fica do tamanho do texto por padrão */
+  max-width:100%;         /* segurança */
 }
 
+/* Vamos garantir que o slogan não ultrapasse a largura do título
+   colocando ambos dentro do mesmo container e limitando o slogan ao título */
+.brand-text{
+  display:inline-block;
+}
+.brand-text .brand-slogan{
+  max-width:100%;
+}
+
+/* NAV */
 nav{
   display:flex;
   align-items:center;
@@ -69,7 +91,7 @@ nav{
 nav a{
   color:var(--branco);
   text-decoration:none;
-  font-weight:600;
+  font-weight:700;
   font-size:14px;
   opacity:.95;
 }
@@ -90,12 +112,12 @@ nav a:hover{opacity:1;text-decoration:underline;}
 .hero h1{
   font-size:40px;
   margin-bottom:14px;
-  font-weight:800;
+  font-weight:900;
 }
 
 .hero p{
   font-size:18px;
-  max-width:900px;
+  max-width:980px;
   margin:0 auto 26px auto;
   opacity:.95;
 }
@@ -106,7 +128,7 @@ nav a:hover{opacity:1;text-decoration:underline;}
   padding:14px 26px;
   text-decoration:none;
   border-radius:6px;
-  font-weight:800;
+  font-weight:900;
   transition:.25s;
   display:inline-block;
 }
@@ -118,33 +140,16 @@ section{padding:70px 10%;}
 h2{color:var(--azul-escuro);margin-bottom:18px;font-size:30px;}
 p.lead{max-width:980px;color:#2a2a2a;}
 
-/* CARDS */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:22px;
-  margin-top:26px;
-}
-.card{
-  background:var(--branco);
-  padding:26px;
-  border-radius:10px;
-  box-shadow:0 6px 18px rgba(0,0,0,0.06);
-}
-.card h3{margin-bottom:8px;color:var(--azul-escuro);font-size:18px;}
-
 /* METODO */
-.metodo-wrap{
-  margin-top:22px;
-}
+.metodo-wrap{margin-top:18px;}
 
 .metodo-grid{
   display:grid;
   grid-template-columns:repeat(5, minmax(180px, 1fr));
   gap:10px;
-  row-gap:24px; /* MAIS ESPAÇO ENTRE LINHA SUPERIOR E INFERIOR */
-  margin-top:18px;
-  overflow:visible; /* importante para tooltip */
+  row-gap:26px;     /* mais espaço entre linhas */
+  margin-top:16px;
+  overflow:visible;
 }
 
 .metodo-item{
@@ -155,7 +160,7 @@ p.lead{max-width:980px;color:#2a2a2a;}
   position:relative;
   transition:transform .18s ease;
   border-radius:10px;
-  overflow:visible; /* evita cortar tooltip */
+  overflow:visible;
 }
 
 .metodo-item:hover{transform:translateY(-2px);}
@@ -166,16 +171,14 @@ p.lead{max-width:980px;color:#2a2a2a;}
   font-size:18px;
 }
 
+/* Tooltip para cima (não fica escondido) */
 .metodo-item .tooltip{
   visibility:hidden;
   opacity:0;
   position:absolute;
-
-  /* tooltip APARECE PARA CIMA (resolve o problema do topo ficar escondido) */
   bottom:calc(100% + 12px);
   left:50%;
   transform:translateX(-50%);
-
   background:#0f172a;
   color:#fff;
   padding:12px 12px;
@@ -205,7 +208,7 @@ p.lead{max-width:980px;color:#2a2a2a;}
   opacity:1;
 }
 
-/* CONTATO */
+/* FOOTER + WHATS */
 footer{
   background:var(--azul-escuro);
   color:var(--branco);
@@ -213,7 +216,6 @@ footer{
   padding:26px 10%;
 }
 
-/* WHATS */
 .whatsapp{
   position:fixed;
   bottom:18px;
@@ -228,15 +230,24 @@ footer{
 }
 
 /* RESPONSIVO */
+@media (max-width: 1200px){
+  .brand-title{font-size:72px;}
+  .brand-slogan{font-size:38px;}
+}
+
 @media (max-width: 1100px){
-  .brand .name{font-size:72px;}
   .metodo-grid{grid-template-columns:repeat(2, minmax(180px, 1fr));}
 }
-@media (max-width: 768px){
+
+@media (max-width: 860px){
   header{flex-direction:column;align-items:flex-start;}
   nav{justify-content:flex-start;}
+  .brand-title{
+    font-size:54px;
+    white-space:normal;  /* em mobile pode quebrar */
+  }
+  .brand-slogan{font-size:26px;}
   .hero h1{font-size:30px;}
-  .brand .name{font-size:54px;white-space:normal;}
 }
 </style>
 </head>
@@ -245,11 +256,10 @@ footer{
 
 <header>
   <div class="brand">
-    <!-- Se quiser ocultar a imagem, pode remover a linha abaixo -->
     <img src="assets/logo.png" alt="Logo TR&PC" />
-    <div>
-      <div class="name">TR&amp;PC</div>
-      <span class="sub">CONSULTORIA</span>
+    <div class="brand-text">
+      <div class="brand-title">TR&amp;PC CONSULTORIA</div>
+      <div class="brand-slogan">Atendimento que resolve. Cultura que sustenta resultados.</div>
     </div>
   </div>
 
@@ -266,17 +276,15 @@ footer{
   <a href="planos.html" class="btn">Conheça nossos Planos</a>
 </section>
 
-<!-- SOLUÇÕES + MÉTODO NO MESMO BLOCO (sem separação) -->
 <section class="section-light" id="solucoes">
   <h2>Nossas Soluções</h2>
 
-  <!-- 100–150+ caracteres (na prática: bem mais) explicando método próprio -->
   <p class="lead">
     A TR&amp;PC atua com um método próprio para transformar o atendimento na prática: unimos desenvolvimento de pessoas, organização de processos e acompanhamento por métricas, garantindo consistência, humanização e resultados sustentáveis ao longo do tempo.
   </p>
 
   <div class="metodo-wrap">
-    <h2 style="margin-top:24px;">Método T.R.A.N.S.F.O.R.M.A.</h2>
+    <h2 style="margin-top:22px;">Método T.R.A.N.S.F.O.R.M.A.</h2>
 
     <div class="metodo-grid">
 
