@@ -11,9 +11,13 @@
   --azul-medio:#2c6ecb;
   --azul-claro:#4fa3f7;
   --azul-marinho:#0B2A4A;
+
   --cinza:#f4f6f9;
   --preto:#1c1c1c;
   --branco:#ffffff;
+
+  --borda-clara:#e6e6e6;
+  --sombra:0 12px 28px rgba(0,0,0,0.10);
 }
 
 *{
@@ -29,8 +33,7 @@ body{
   line-height:1.6;
 }
 
-/* ================= HEADER ================= */
-
+/* HEADER */
 header{
   background:#ffffff;
   color:var(--azul-escuro);
@@ -39,34 +42,61 @@ header{
   justify-content:space-between;
   align-items:center;
   gap:22px;
-  border-bottom:2px solid #e6e6e6;
+  border-bottom:2px solid var(--borda-clara);
 }
 
 .brand{
   display:flex;
   align-items:center;
   gap:14px;
+  min-width:0;
 }
 
 .brand img{
   height:56px;
+  width:auto;
+  flex:0 0 auto;
 }
+
+.brand-text{display:inline-block;min-width:0;}
 
 .brand-title{
   font-weight:900;
   letter-spacing:1px;
+  line-height:1;
   font-size:50px;
+  white-space:nowrap;
+  display:inline-block;
   color:var(--azul-escuro);
 }
 
 .brand-slogan{
+  margin-top:6px;
   font-weight:700;
   font-size:15px;
+  line-height:1.05;
+  opacity:.95;
   color:var(--azul-escuro);
 }
 
-/* ================= HERO ================= */
+/* NAV */
+nav{
+  display:flex;
+  align-items:center;
+  gap:18px;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+}
+nav a{
+  color:var(--azul-escuro);
+  text-decoration:none;
+  font-weight:800;
+  font-size:14px;
+  opacity:.95;
+}
+nav a:hover{opacity:1;text-decoration:underline;}
 
+/* HERO */
 .hero{
   background:
     linear-gradient(rgba(0,0,0,0.62),rgba(0,0,0,0.62)),
@@ -80,72 +110,314 @@ header{
 
 .hero h1{
   font-size:40px;
-  font-weight:900;
   margin-bottom:14px;
+  font-weight:900;
 }
 
 .hero p{
   font-size:18px;
   max-width:980px;
   margin:0 auto 26px auto;
+  opacity:.95;
 }
 
-/* ================= AUTORIDADE ================= */
+.btn{
+  background:var(--azul-medio);
+  color:var(--branco);
+  padding:14px 26px;
+  text-decoration:none;
+  border-radius:6px;
+  font-weight:900;
+  transition:.25s;
+  display:inline-block;
+}
+.btn:hover{background:var(--azul-escuro);transform:translateY(-1px);}
 
+/* SEÇÕES */
+section{padding:70px 10%;}
+.section-light{background:var(--cinza);}
+h2{color:var(--azul-escuro);margin-bottom:18px;font-size:30px;}
+p.lead{max-width:980px;color:#2a2a2a;}
+
+/* PROVA DE AUTORIDADE */
 .authority{
   background:var(--azul-escuro);
   color:var(--branco);
   padding:70px 10%;
 }
 
-.authority-inner{
+.authority .authority-inner{
   max-width:980px;
   margin:0 auto;
 }
 
 .authority h2{
-  font-size:34px;
-  font-weight:900;
-  margin-bottom:22px;
   color:var(--branco);
+  font-size:34px;
+  margin-bottom:16px;
+  font-weight:900;
 }
 
 .authority p{
   font-size:18px;
-  margin-bottom:18px;
-  color:var(--branco);
+  opacity:.95;
+  margin-top:12px;
 }
 
-/* Caixa azul claro centralizada */
-
-.highlight{
+/* Caixa destaque dentro da autoridade */
+.authority .highlight{
   margin-top:30px;
   background:var(--azul-claro);
-  padding:24px 30px;
   border-radius:14px;
-  text-align:center;
+  padding:22px 26px;
   width:100%;
+  text-align:center;
+  box-shadow:0 14px 30px rgba(0,0,0,0.25);
+  border:1px solid rgba(255,255,255,0.22);
 }
 
-.highlight span{
-  font-size:24px;
-  font-weight:900;
+.authority .highlight span{
   color:var(--azul-marinho);
+  font-weight:900;
+  font-size:24px;
+  letter-spacing:0.2px;
   display:block;
 }
 
-/* ================= RESPONSIVO ================= */
-
-@media (max-width: 860px){
-
-  .brand-title{font-size:34px;}
-  .brand-slogan{font-size:14px;}
-
-  .authority h2{font-size:26px;}
-  .authority p{font-size:16px;}
-  .highlight span{font-size:18px;}
+/* =======================
+   PROVA SOCIAL (NOVO)
+   ======================= */
+.social{
+  background:var(--branco);
+  padding:70px 10%;
 }
 
+.social .social-inner{
+  max-width:1100px;
+  margin:0 auto;
+}
+
+.social .social-title{
+  color:var(--azul-escuro);
+  font-size:30px;
+  font-weight:900;
+  margin-bottom:8px;
+}
+
+.social .social-sub{
+  color:var(--azul-marinho);
+  opacity:.9;
+  margin-bottom:24px;
+}
+
+/* Blocos 1 e 2 lado a lado */
+.social-grid{
+  display:grid;
+  grid-template-columns:repeat(2, minmax(260px, 1fr));
+  gap:20px;
+}
+
+.social-card{
+  background:var(--branco);
+  border:1px solid var(--borda-clara);
+  border-radius:14px;
+  padding:26px 22px;
+  box-shadow:var(--sombra);
+}
+
+.social-card h3{
+  color:var(--azul-escuro);
+  font-size:18px;
+  font-weight:900;
+  margin-bottom:12px;
+}
+
+.social-list{
+  list-style:none;
+  padding-left:0;
+  margin:0;
+}
+
+.social-list li{
+  display:flex;
+  gap:10px;
+  align-items:flex-start;
+  color:var(--azul-marinho);
+  margin:10px 0;
+  font-weight:700;
+}
+
+.bullet{
+  flex:0 0 auto;
+  width:22px;
+  height:22px;
+  border-radius:6px;
+  background:rgba(79,163,247,0.18);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:var(--azul-escuro);
+  font-weight:900;
+  font-size:14px;
+}
+
+/* Bloco 3 centralizado e destacado */
+.before-after{
+  margin-top:26px;
+  background:var(--azul-claro);
+  border-radius:16px;
+  padding:30px 26px;
+  color:var(--branco);
+  box-shadow:0 18px 40px rgba(0,0,0,0.18);
+}
+
+.before-after h3{
+  font-size:20px;
+  font-weight:900;
+  margin-bottom:16px;
+  text-align:center;
+}
+
+.ba-grid{
+  display:grid;
+  grid-template-columns:repeat(2, minmax(240px, 1fr));
+  gap:18px;
+  margin-top:12px;
+}
+
+.ba-col{
+  background:rgba(255,255,255,0.14);
+  border:1px solid rgba(255,255,255,0.20);
+  border-radius:14px;
+  padding:18px 16px;
+}
+
+.ba-col .label{
+  font-weight:900;
+  letter-spacing:0.6px;
+  font-size:14px;
+  text-transform:uppercase;
+  margin-bottom:10px;
+  opacity:.95;
+}
+
+.ba-col ul{
+  margin:0;
+  padding-left:18px;
+}
+
+.ba-col li{
+  margin:8px 0;
+  font-weight:700;
+}
+
+/* METODO */
+.metodo-wrap{margin-top:18px;}
+
+.metodo-grid{
+  display:grid;
+  grid-template-columns:repeat(5, minmax(180px, 1fr));
+  gap:10px;
+  row-gap:26px;
+  margin-top:16px;
+  overflow:visible;
+}
+
+.metodo-item{
+  padding:26px 18px;
+  color:var(--branco);
+  text-align:center;
+  cursor:default;
+  position:relative;
+  transition:transform .18s ease;
+  border-radius:10px;
+  overflow:visible;
+}
+.metodo-item:hover{transform:translateY(-2px);}
+
+.metodo-item .title{
+  display:block;
+  font-weight:900;
+  font-size:18px;
+}
+
+.metodo-item .tooltip{
+  visibility:hidden;
+  opacity:0;
+  position:absolute;
+  bottom:calc(100% + 12px);
+  left:50%;
+  transform:translateX(-50%);
+  background:#0f172a;
+  color:#fff;
+  padding:12px 12px;
+  border-radius:8px;
+  width:240px;
+  font-size:13px;
+  line-height:1.35;
+  box-shadow:0 10px 22px rgba(0,0,0,0.25);
+  transition:opacity .18s ease;
+  z-index:9999;
+  pointer-events:none;
+}
+.metodo-item .tooltip::after{
+  content:"";
+  position:absolute;
+  top:100%;
+  left:50%;
+  transform:translateX(-50%);
+  border-width:8px;
+  border-style:solid;
+  border-color:#0f172a transparent transparent transparent;
+}
+.metodo-item:hover .tooltip{
+  visibility:visible;
+  opacity:1;
+}
+
+/* FOOTER + WHATS */
+footer{
+  background:var(--azul-escuro);
+  color:var(--branco);
+  text-align:center;
+  padding:26px 10%;
+}
+
+.whatsapp{
+  position:fixed;
+  bottom:18px;
+  right:18px;
+  background:#25d366;
+  color:white;
+  padding:14px 18px;
+  border-radius:999px;
+  text-decoration:none;
+  font-weight:900;
+  box-shadow:0 10px 22px rgba(0,0,0,0.18);
+}
+
+/* RESPONSIVO */
+@media (max-width: 1100px){
+  .metodo-grid{grid-template-columns:repeat(2, minmax(180px, 1fr));}
+  .social-grid{grid-template-columns:1fr;}
+  .ba-grid{grid-template-columns:1fr;}
+}
+
+@media (max-width: 860px){
+  header{flex-direction:column;align-items:flex-start;}
+  nav{justify-content:flex-start;}
+
+  .brand-title{font-size:54px;white-space:normal;}
+  .brand-slogan{font-size:16px;}
+
+  .hero h1{font-size:30px;}
+
+  .authority h2{font-size:28px;}
+  .authority p{font-size:16px;}
+  .authority .highlight span{font-size:18px;}
+
+  .social .social-title{font-size:26px;}
+}
 </style>
 </head>
 
@@ -153,22 +425,28 @@ header{
 
 <header>
   <div class="brand">
-    <img src="assets/logo.png" alt="Logo TR&PC">
-    <div>
-      <div class="brand-title">TR&PC CONSULTORIA</div>
+    <img src="assets/logo.png" alt="Logo TR&PC" />
+    <div class="brand-text">
+      <div class="brand-title">TR&amp;PC CONSULTORIA</div>
       <div class="brand-slogan">Atendimento que resolve. Cultura que sustenta resultados.</div>
     </div>
   </div>
+
+  <nav>
+    <a href="planos.html">Planos</a>
+    <a href="#solucoes">Soluções</a>
+    <a href="#contato">Contato</a>
+  </nav>
 </header>
 
 <section class="hero">
   <h1>Consultoria estratégica que transforma atendimento através de pessoas.</h1>
   <p>Estruturamos atendimento e cultura com método, clareza e acompanhamento para sua equipe resolver de verdade, fidelizar clientes e gerar resultado.</p>
+  <a href="planos.html" class="btn">Conheça nossos Planos</a>
 </section>
 
-<section class="authority">
+<section class="authority" id="autoridade">
   <div class="authority-inner">
-
     <h2>Experiência que sustenta resultado</h2>
 
     <p><strong>+20 anos de experiência combinada em Gestão de Pessoas e Gestão Comercial.</strong></p>
@@ -179,23 +457,160 @@ header{
     </p>
 
     <p>
-      Vivenciamos de perto os desafios reais das empresas: rotatividade elevada, desalinhamento de cultura,
-      falhas de comunicação, perda de clientes por atendimento inadequado e lideranças sem direcionamento claro.
+      Vivenciamos de perto os desafios reais das empresas: rotatividade elevada, desalinhamento de cultura, falhas de comunicação,
+      perda de clientes por atendimento inadequado e lideranças sem direcionamento claro.
     </p>
 
     <p>
-      Atuamos diretamente na construção de rotinas, definição de padrões, formação de equipes e implementação
-      de indicadores que sustentam desempenho ao longo do tempo, não apenas em momentos pontuais.
+      Atuamos diretamente na construção de rotinas, definição de padrões, formação de equipes e implementação de indicadores que
+      sustentam desempenho ao longo do tempo, não apenas em momentos pontuais.
     </p>
 
     <div class="highlight">
-      <span>
-        A TR&PC nasce dessa vivência transformando experiência real em método estratégico aplicado.
-      </span>
+      <span>A TR&amp;PC nasce dessa vivência transformando experiência real em método estratégico aplicado.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ✅ PROVA SOCIAL ESTRUTURADA (NOVO BLOCO) -->
+<section class="social" id="prova-social">
+  <div class="social-inner">
+    <div class="social-title">Resultados aplicados na prática</div>
+    <div class="social-sub">Vivência real transformada em estrutura estratégica.</div>
+
+    <!-- Bloco 1 e 2 lado a lado -->
+    <div class="social-grid">
+      <div class="social-card">
+        <h3>Cenários reais vivenciados</h3>
+        <ul class="social-list">
+          <li><span class="bullet">✓</span><span>Alta rotatividade por contratações desalinhadas</span></li>
+          <li><span class="bullet">✓</span><span>Atendimento improvisado e reativo, sem padrão definido</span></li>
+          <li><span class="bullet">✓</span><span>Falhas de comunicação que geravam retrabalho e insatisfação</span></li>
+          <li><span class="bullet">✓</span><span>Lideranças sobrecarregadas pela falta de processo</span></li>
+          <li><span class="bullet">✓</span><span>Perda de clientes por ausência de acompanhamento</span></li>
+        </ul>
+      </div>
+
+      <div class="social-card">
+        <h3>Impactos gerados com estrutura</h3>
+        <ul class="social-list">
+          <li><span class="bullet">✓</span><span>Padronização do atendimento sem robotizar a equipe</span></li>
+          <li><span class="bullet">✓</span><span>Melhoria de desempenho e consistência no dia a dia</span></li>
+          <li><span class="bullet">✓</span><span>Redução de ruídos internos e aumento de eficiência</span></li>
+          <li><span class="bullet">✓</span><span>Fortalecimento de cultura e alinhamento entre áreas</span></li>
+          <li><span class="bullet">✓</span><span>Atendimento convertido em ferramenta de resultado</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Bloco 3 centralizado e destacado -->
+    <div class="before-after">
+      <h3>Antes e Depois (na prática)</h3>
+
+      <div class="ba-grid">
+        <div class="ba-col">
+          <div class="label">Antes</div>
+          <ul>
+            <li>Atendimento improvisado</li>
+            <li>Processos informais</li>
+            <li>Cultura indefinida</li>
+            <li>Indicadores inexistentes</li>
+          </ul>
+        </div>
+
+        <div class="ba-col">
+          <div class="label">Depois</div>
+          <ul>
+            <li>Padrão claro de atendimento</li>
+            <li>Processo estruturado</li>
+            <li>Cultura alinhada</li>
+            <li>Métricas acompanhadas</li>
+          </ul>
+        </div>
+      </div>
     </div>
 
   </div>
 </section>
+
+<section class="section-light" id="solucoes">
+  <h2>Nossas Soluções</h2>
+
+  <p class="lead">
+    A TR&amp;PC atua com um método próprio para transformar o atendimento na prática: unimos desenvolvimento de pessoas,
+    organização de processos e acompanhamento por métricas, garantindo consistência, humanização e resultados sustentáveis ao longo do tempo.
+  </p>
+
+  <div class="metodo-wrap">
+    <h2 style="margin-top:22px;">Método T.R.A.N.S.F.O.R.M.A.</h2>
+
+    <div class="metodo-grid">
+
+      <div class="metodo-item" style="background:var(--azul-escuro);">
+        <span class="title">T - Treinamento</span>
+        <div class="tooltip">Capacitação prática para atendimento e vendas consultivas, com foco em comportamento, postura, comunicação e experiência do cliente.</div>
+      </div>
+
+      <div class="metodo-item" style="background:var(--azul-claro);">
+        <span class="title">R - Recrutamento</span>
+        <div class="tooltip">Seleção estratégica com base em perfil comportamental e aderência cultural, reduzindo rotatividade e melhorando o desempenho do time.</div>
+      </div>
+
+      <div class="metodo-item" style="background:var(--azul-escuro);">
+        <span class="title">A - Alinhamento</span>
+        <div class="tooltip">Alinha liderança e equipe sobre padrão, expectativas e responsabilidades, criando uma cultura de atendimento consistente.</div>
+      </div>
+
+      <div class="metodo-item" style="background:var(--azul-claro);">
+        <span class="title">N - Nível de Atendimento</span>
+        <div class="tooltip">Eleva o padrão de atendimento com diretrizes claras e práticas aplicáveis, sem robotizar a comunicação com o cliente.</div>
+      </div>
+
+      <div class="metodo-item" style="background:var(--azul-escuro);">
+        <span class="title">S - Supervisão</span>
+        <div class="tooltip">Acompanhamento estratégico para correções rápidas, reforço do padrão e consistência na rotina do atendimento.</div>
+      </div>
+
+      <div class="metodo-item" style="background:var(--azul-claro);">
+        <span class="title">F - Foco em Resultado</span>
+        <div class="tooltip">Transforma atendimento em performance: conversão, retenção, satisfação e redução de ruídos no processo.</div>
+      </div>
+
+      <div class="metodo-item" style="background:var(--azul-escuro);">
+        <span class="title">O - Organização</span>
+        <div class="tooltip">Define fluxos, padrões e rotinas para reduzir retrabalho, dar previsibilidade e aumentar eficiência operacional.</div>
+      </div>
+
+      <div class="metodo-item" style="background:var(--azul-claro);">
+        <span class="title">R - Relacionamento</span>
+        <div class="tooltip">Fortalece conexão com cliente e equipe com comunicação humana, empática e objetiva, focada em solução.</div>
+      </div>
+
+      <div class="metodo-item" style="background:var(--azul-escuro);">
+        <span class="title">M - Métricas</span>
+        <div class="tooltip">Cria indicadores simples e úteis (qualidade, tempo de resposta, satisfação, conversão) para orientar decisões.</div>
+      </div>
+
+      <div class="metodo-item" style="background:var(--azul-claro);">
+        <span class="title">A - Acompanhamento</span>
+        <div class="tooltip">Suporte contínuo e ajustes ao longo do tempo para evolução sustentável, evitando que o padrão caia após o treinamento.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="contato">
+  <h2>Pronto para transformar sua empresa?</h2>
+  <p class="lead">Agende um diagnóstico e descubra onde sua operação está perdendo clientes e como virar esse jogo com pessoas, processo e método.</p>
+  <div style="margin-top:18px;">
+    <a href="https://wa.me/5516992005854" class="btn">Agende seu Diagnóstico</a>
+  </div>
+</section>
+
+<footer>© 2026 TR&amp;PC Consultoria</footer>
+
+<a class="whatsapp" href="https://wa.me/5516992005854" target="_blank" rel="noopener">WhatsApp</a>
 
 </body>
 </html>
