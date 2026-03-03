@@ -185,7 +185,7 @@ p.lead{max-width:980px;color:#2a2a2a;}
 }
 
 /* =======================
-   PROVA SOCIAL (NOVO)
+   PROVA SOCIAL
    ======================= */
 .social{
   background:var(--branco);
@@ -203,7 +203,7 @@ p.lead{max-width:980px;color:#2a2a2a;}
   font-weight:900;
   margin-bottom:8px;
 }
-  
+
 /* Blocos 1 e 2 lado a lado */
 .social-grid{
   display:grid;
@@ -255,35 +255,44 @@ p.lead{max-width:980px;color:#2a2a2a;}
   font-size:14px;
 }
 
-/* Bloco 3 centralizado e destacado */
+/* =======================
+   ANTES E DEPOIS (AJUSTADO)
+   Fundo claro + letra azul marinho
+   Menos espaço vazio + conteúdo mais central
+   ======================= */
 .before-after{
   margin-top:26px;
-  background:var(--azul-claro);
+  background:rgba(79,163,247,0.18);
   border-radius:16px;
-  padding:30px 26px;
-  color:var(--branco);
-  box-shadow:0 18px 40px rgba(0,0,0,0.18);
+  padding:22px 20px;
+  color:var(--azul-marinho);
+  border:1px solid rgba(11,42,74,0.12);
+  box-shadow:0 10px 26px rgba(0,0,0,0.08);
 }
 
 .before-after h3{
-  font-size:20px;
+  font-size:22px;
   font-weight:900;
-  margin-bottom:16px;
+  margin-bottom:14px;
   text-align:center;
+  color:var(--azul-marinho);
 }
 
 .ba-grid{
   display:grid;
   grid-template-columns:repeat(2, minmax(240px, 1fr));
-  gap:18px;
-  margin-top:12px;
+  gap:14px;
+  margin-top:10px;
 }
 
 .ba-col{
-  background:rgba(255,255,255,0.14);
-  border:1px solid rgba(255,255,255,0.20);
+  background:#ffffff;
+  border:1px solid rgba(11,42,74,0.14);
   border-radius:14px;
-  padding:18px 16px;
+  padding:16px 16px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
 }
 
 .ba-col .label{
@@ -293,16 +302,18 @@ p.lead{max-width:980px;color:#2a2a2a;}
   text-transform:uppercase;
   margin-bottom:10px;
   opacity:.95;
+  color:var(--azul-marinho);
 }
 
 .ba-col ul{
   margin:0;
-  padding-left:18px;
+  padding-left:16px;
 }
 
 .ba-col li{
-  margin:8px 0;
+  margin:6px 0;
   font-weight:700;
+  color:var(--azul-marinho);
 }
 
 /* METODO */
@@ -466,12 +477,10 @@ footer{
   </div>
 </section>
 
-<!-- ✅ PROVA SOCIAL ESTRUTURADA (NOVO BLOCO) -->
 <section class="social" id="prova-social">
   <div class="social-inner">
     <div class="social-title">Resultados aplicados na prática</div>
 
-    <!-- Bloco 1 e 2 lado a lado -->
     <div class="social-grid">
       <div class="social-card">
         <h3>Cenários que já encontramos</h3>
@@ -496,7 +505,6 @@ footer{
       </div>
     </div>
 
-    <!-- Bloco 3 centralizado e destacado -->
     <div class="before-after">
       <h3>Antes e Depois</h3>
 
