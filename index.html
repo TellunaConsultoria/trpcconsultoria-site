@@ -13,6 +13,10 @@
   --cinza:#f4f6f9;
   --preto:#1c1c1c;
   --branco:#ffffff;
+
+  /* dourado sofisticado */
+  --dourado:#d4b15f;
+  --dourado-escuro:#b8923f;
 }
 
 *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,Helvetica,sans-serif;}
@@ -27,8 +31,7 @@ header{
   justify-content:space-between;
   align-items:center;
   gap:22px;
-  border-bottom: 2px solid #e6e6e6; /* opcional – dá acabamento elegante */
-
+  border-bottom:2px solid #e6e6e6;
 }
 
 .brand{
@@ -44,41 +47,25 @@ header{
   flex:0 0 auto;
 }
 
-.brand-text{
-  display:inline-block;
-  min-width:0;
-}
+.brand-text{display:inline-block;min-width:0;}
 
-/* Linha única: TR&PC CONSULTORIA */
 .brand-title{
   font-weight:900;
   letter-spacing:1px;
   line-height:1;
-  font-size:50px;         
-  white-space:nowrap;     /* garante 1 linha */
-  display:inline-block;   /* permite medir a largura */
+  font-size:84px;         /* 75–90px */
+  white-space:nowrap;
+  display:inline-block;
+  color:var(--azul-escuro);
 }
 
-/* Slogan abaixo, com largura "travada" ao título para não ultrapassar */
 .brand-slogan{
   margin-top:6px;
   font-weight:700;
-  font-size:15px;         
+  font-size:46px;         /* 40–50px */
   line-height:1.05;
-  opacity:0.95;
-
-  display:block;
-  width:fit-content;      /* fica do tamanho do texto por padrão */
-  max-width:100%;         /* segurança */
-}
-
-/* Vamos garantir que o slogan não ultrapasse a largura do título
-   colocando ambos dentro do mesmo container e limitando o slogan ao título */
-.brand-text{
-  display:inline-block;
-}
-.brand-text .brand-slogan{
-  max-width:100%;
+  opacity:.95;
+  color:var(--azul-escuro);
 }
 
 /* NAV */
@@ -89,11 +76,10 @@ nav{
   flex-wrap:wrap;
   justify-content:flex-end;
 }
-
 nav a{
   color:var(--azul-escuro);
   text-decoration:none;
-  font-weight:700;
+  font-weight:800;
   font-size:14px;
   opacity:.95;
 }
@@ -142,6 +128,48 @@ section{padding:70px 10%;}
 h2{color:var(--azul-escuro);margin-bottom:18px;font-size:30px;}
 p.lead{max-width:980px;color:#2a2a2a;}
 
+/* PROVA DE AUTORIDADE */
+.authority{
+  background:var(--azul-escuro);
+  color:var(--branco);
+  padding:60px 10%;
+}
+
+.authority h2{
+  color:var(--branco);
+  font-size:34px;
+  margin-bottom:12px;
+}
+
+.authority p{
+  max-width:980px;
+  font-size:18px;
+  opacity:.95;
+  margin-top:10px;
+}
+
+.authority .highlight{
+  margin-top:28px;
+  background:var(--azul-claro);
+  border-radius:14px;
+  padding:22px 26px;
+  max-width:1000px;
+  margin-left:auto;
+  margin-right:auto;
+  text-align:center;
+
+  /* visual mais "premium" parecido com o exemplo */
+  box-shadow:0 14px 30px rgba(0,0,0,0.25);
+  border:1px solid rgba(255,255,255,0.22);
+}
+
+.authority .highlight span{
+  color:var(--dourado);
+  font-weight:900;
+  font-size:22px;
+  letter-spacing:0.2px;
+}
+
 /* METODO */
 .metodo-wrap{margin-top:18px;}
 
@@ -149,7 +177,7 @@ p.lead{max-width:980px;color:#2a2a2a;}
   display:grid;
   grid-template-columns:repeat(5, minmax(180px, 1fr));
   gap:10px;
-  row-gap:26px;     /* mais espaço entre linhas */
+  row-gap:26px;
   margin-top:16px;
   overflow:visible;
 }
@@ -164,7 +192,6 @@ p.lead{max-width:980px;color:#2a2a2a;}
   border-radius:10px;
   overflow:visible;
 }
-
 .metodo-item:hover{transform:translateY(-2px);}
 
 .metodo-item .title{
@@ -173,7 +200,6 @@ p.lead{max-width:980px;color:#2a2a2a;}
   font-size:18px;
 }
 
-/* Tooltip para cima (não fica escondido) */
 .metodo-item .tooltip{
   visibility:hidden;
   opacity:0;
@@ -193,7 +219,6 @@ p.lead{max-width:980px;color:#2a2a2a;}
   z-index:9999;
   pointer-events:none;
 }
-
 .metodo-item .tooltip::after{
   content:"";
   position:absolute;
@@ -204,7 +229,6 @@ p.lead{max-width:980px;color:#2a2a2a;}
   border-style:solid;
   border-color:#0f172a transparent transparent transparent;
 }
-
 .metodo-item:hover .tooltip{
   visibility:visible;
   opacity:1;
@@ -244,13 +268,12 @@ footer{
 @media (max-width: 860px){
   header{flex-direction:column;align-items:flex-start;}
   nav{justify-content:flex-start;}
-  .brand-title{
-    font-size:54px;
-    white-space:normal;  /* em mobile pode quebrar */
-  }
+  .brand-title{font-size:54px;white-space:normal;}
   .brand-slogan{font-size:26px;}
-  color: var(--azul-escuro);
   .hero h1{font-size:30px;}
+  .authority h2{font-size:28px;}
+  .authority p{font-size:16px;}
+  .authority .highlight span{font-size:18px;}
 }
 </style>
 </head>
@@ -275,15 +298,33 @@ footer{
 
 <section class="hero">
   <h1>Consultoria estratégica que transforma atendimento através de pessoas.</h1>
-  <p>Estruturamos atendimento e cultura com método, clareza e acompanhamento — para sua equipe resolver de verdade, fidelizar clientes e gerar resultado.</p>
+  <p>Estruturamos atendimento e cultura com método, clareza e acompanhamento para sua equipe resolver de verdade, fidelizar clientes e gerar resultado.</p>
   <a href="planos.html" class="btn">Conheça nossos Planos</a>
 </section>
 
+<!-- ✅ PROVA DE AUTORIDADE (NOVO BLOCO) -->
+<section class="authority" id="autoridade">
+  <h2>Experiência que sustenta resultado</h2>
+
+  <p><strong>+40 anos de experiência combinada em Gestão de Pessoas e Gestão Comercial.</strong></p>
+
+  <p>
+    Ao longo de duas décadas de atuação em recrutamento, liderança e atendimento, desenvolvemos equipes,
+    estruturamos processos e acompanhamos resultados na prática.
+  </p>
+
+  <div class="highlight">
+    <span>A TR&amp;PC nasce dessa vivência transformando experiência real em método estratégico aplicado.</span>
+  </div>
+</section>
+
+<!-- SOLUÇÕES + MÉTODO -->
 <section class="section-light" id="solucoes">
   <h2>Nossas Soluções</h2>
 
   <p class="lead">
-    A TR&amp;PC atua com um método próprio para transformar o atendimento na prática: unimos desenvolvimento de pessoas, organização de processos e acompanhamento por métricas, garantindo consistência, humanização e resultados sustentáveis ao longo do tempo.
+    A TR&amp;PC atua com um método próprio para transformar o atendimento na prática: unimos desenvolvimento de pessoas,
+    organização de processos e acompanhamento por métricas, garantindo consistência, humanização e resultados sustentáveis ao longo do tempo.
   </p>
 
   <div class="metodo-wrap">
@@ -347,7 +388,7 @@ footer{
 
 <section id="contato">
   <h2>Pronto para transformar sua empresa?</h2>
-  <p class="lead">Agende um diagnóstico e descubra onde sua operação está perdendo clientes — e como virar esse jogo com pessoas, processo e método.</p>
+  <p class="lead">Agende um diagnóstico e descubra onde sua operação está perdendo clientes e como virar esse jogo com pessoas, processo e método.</p>
   <div style="margin-top:18px;">
     <a href="https://wa.me/5516992005854" class="btn">Agende seu Diagnóstico</a>
   </div>
