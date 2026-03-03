@@ -256,15 +256,19 @@ p.lead{max-width:980px;color:#2a2a2a;}
 }
 
 /* =======================
-   ANTES E DEPOIS (AJUSTADO)
-   Fundo claro + letra azul marinho
-   Menos espaço vazio + conteúdo mais central
+   ANTES E DEPOIS (AJUSTADO 2)
+   - Remove espaço vazio
+   - Centraliza conteúdo verticalmente
+   - Deixa caixas internas “cheias”
    ======================= */
 .before-after{
-  margin-top:26px;
+  margin-top:22px;
   background:rgba(79,163,247,0.18);
   border-radius:16px;
-  padding:22px 20px;
+
+  /* menos "ar" em volta */
+  padding:16px 16px;
+
   color:var(--azul-marinho);
   border:1px solid rgba(11,42,74,0.12);
   box-shadow:0 10px 26px rgba(0,0,0,0.08);
@@ -273,26 +277,38 @@ p.lead{max-width:980px;color:#2a2a2a;}
 .before-after h3{
   font-size:22px;
   font-weight:900;
-  margin-bottom:14px;
+
+  /* reduz espaço do título */
+  margin:0 0 10px 0;
+
   text-align:center;
   color:var(--azul-marinho);
 }
 
+/* grade sem sobra */
 .ba-grid{
   display:grid;
   grid-template-columns:repeat(2, minmax(240px, 1fr));
-  gap:14px;
-  margin-top:10px;
+  gap:12px;
+  margin-top:0;
 }
 
+/* caixas internas mais compactas e com conteúdo central */
 .ba-col{
   background:#ffffff;
   border:1px solid rgba(11,42,74,0.14);
   border-radius:14px;
-  padding:16px 16px;
+
+  /* remove espaço vazio interno */
+  padding:12px 14px;
+
   display:flex;
   flex-direction:column;
   justify-content:center;
+  align-items:flex-start;
+
+  /* mantém alturas iguais e evita sensação de “vazio” */
+  min-height:150px;
 }
 
 .ba-col .label{
@@ -300,14 +316,17 @@ p.lead{max-width:980px;color:#2a2a2a;}
   letter-spacing:0.6px;
   font-size:14px;
   text-transform:uppercase;
-  margin-bottom:10px;
-  opacity:.95;
+
+  /* reduz espaço abaixo do label */
+  margin:0 0 8px 0;
+
   color:var(--azul-marinho);
 }
 
+/* lista mais central (menos recuo e sem margens) */
 .ba-col ul{
   margin:0;
-  padding-left:16px;
+  padding-left:14px;
 }
 
 .ba-col li{
@@ -406,6 +425,7 @@ footer{
   .metodo-grid{grid-template-columns:repeat(2, minmax(180px, 1fr));}
   .social-grid{grid-template-columns:1fr;}
   .ba-grid{grid-template-columns:1fr;}
+  .ba-col{min-height:auto;}
 }
 
 @media (max-width: 860px){
