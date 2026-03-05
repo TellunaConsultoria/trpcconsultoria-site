@@ -256,59 +256,52 @@ p.lead{max-width:980px;color:#2a2a2a;}
 }
 
 /* =======================
-   ANTES E DEPOIS (NOVO AJUSTE)
-   - Mantém azul claro (sólido)
-   - Centraliza conteúdo dentro dos blocos
+   ANTES E DEPOIS (AJUSTE FINAL)
+   - Tudo em fundo azul claro (sem branco)
+   - Texto centralizado dentro de cada caixa
    - Remove espaços excedentes
    ======================= */
 .before-after{
-  margin-top:22px;
-  background:var(--azul-claro);      /* ✅ mantém azul claro sólido */
+  margin-top:18px;
+  background:var(--azul-claro);
   border-radius:16px;
-  padding:14px;                     /* ✅ menos espaço externo */
+  padding:12px; /* reduz espaço externo */
   color:var(--azul-marinho);
   border:1px solid rgba(11,42,74,0.14);
   box-shadow:0 10px 26px rgba(0,0,0,0.10);
 }
 
-/* título com menos espaço */
 .before-after h3{
   font-size:22px;
   font-weight:900;
-  margin:6px 0 12px 0;
+  margin:6px 0 10px 0;
   text-align:center;
   color:var(--azul-marinho);
 }
 
-/* grade mais “fechada” */
+/* grade mais compacta */
 .ba-grid{
   display:grid;
   grid-template-columns:repeat(2, minmax(240px, 1fr));
-  gap:12px;
+  gap:10px;
   margin:0;
 }
 
-/* blocos internos com conteúdo centralizado */
+/* caixas internas também em azul claro (sem branco) */
 .ba-col{
-  background:#ffffff;
-  border:1px solid rgba(11,42,74,0.16);
+  background:var(--azul-claro);
+  border:1px solid rgba(255,255,255,0.35);
   border-radius:14px;
+  padding:10px 12px; /* remove espaço excedente */
 
-  /* remove espaço vazio */
-  padding:12px 14px;
-
-  /* centraliza conteúdo */
   display:flex;
   flex-direction:column;
   align-items:center;
   justify-content:center;
   text-align:center;
-
-  /* força “cheio” e reduz sobras perceptíveis */
-  min-height:0;
 }
 
-/* label central */
+/* label centralizado */
 .ba-col .label{
   font-weight:900;
   letter-spacing:0.6px;
@@ -318,14 +311,13 @@ p.lead{max-width:980px;color:#2a2a2a;}
   color:var(--azul-marinho);
 }
 
-/* lista central, sem recuo grande */
+/* lista centralizada e compacta */
 .ba-col ul{
   margin:0;
   padding:0;
-  list-style-position:inside; /* bullets dentro, alinhados ao centro */
+  list-style-position:inside;
 }
 
-/* itens mais compactos */
 .ba-col li{
   margin:6px 0;
   font-weight:800;
