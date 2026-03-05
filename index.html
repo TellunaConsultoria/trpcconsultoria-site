@@ -256,82 +256,79 @@ p.lead{max-width:980px;color:#2a2a2a;}
 }
 
 /* =======================
-   ANTES E DEPOIS (AJUSTADO 2)
-   - Remove espaço vazio
-   - Centraliza conteúdo verticalmente
-   - Deixa caixas internas “cheias”
+   ANTES E DEPOIS (NOVO AJUSTE)
+   - Mantém azul claro (sólido)
+   - Centraliza conteúdo dentro dos blocos
+   - Remove espaços excedentes
    ======================= */
 .before-after{
   margin-top:22px;
-  background:rgba(79,163,247,0.18);
+  background:var(--azul-claro);      /* ✅ mantém azul claro sólido */
   border-radius:16px;
-
-  /* menos "ar" em volta */
-  padding:16px 16px;
-
+  padding:14px;                     /* ✅ menos espaço externo */
   color:var(--azul-marinho);
-  border:1px solid rgba(11,42,74,0.12);
-  box-shadow:0 10px 26px rgba(0,0,0,0.08);
+  border:1px solid rgba(11,42,74,0.14);
+  box-shadow:0 10px 26px rgba(0,0,0,0.10);
 }
 
+/* título com menos espaço */
 .before-after h3{
   font-size:22px;
   font-weight:900;
-
-  /* reduz espaço do título */
-  margin:0 0 10px 0;
-
+  margin:6px 0 12px 0;
   text-align:center;
   color:var(--azul-marinho);
 }
 
-/* grade sem sobra */
+/* grade mais “fechada” */
 .ba-grid{
   display:grid;
   grid-template-columns:repeat(2, minmax(240px, 1fr));
   gap:12px;
-  margin-top:0;
+  margin:0;
 }
 
-/* caixas internas mais compactas e com conteúdo central */
+/* blocos internos com conteúdo centralizado */
 .ba-col{
   background:#ffffff;
-  border:1px solid rgba(11,42,74,0.14);
+  border:1px solid rgba(11,42,74,0.16);
   border-radius:14px;
 
-  /* remove espaço vazio interno */
+  /* remove espaço vazio */
   padding:12px 14px;
 
+  /* centraliza conteúdo */
   display:flex;
   flex-direction:column;
+  align-items:center;
   justify-content:center;
-  align-items:flex-start;
+  text-align:center;
 
-  /* mantém alturas iguais e evita sensação de “vazio” */
-  min-height:150px;
+  /* força “cheio” e reduz sobras perceptíveis */
+  min-height:0;
 }
 
+/* label central */
 .ba-col .label{
   font-weight:900;
   letter-spacing:0.6px;
   font-size:14px;
   text-transform:uppercase;
-
-  /* reduz espaço abaixo do label */
   margin:0 0 8px 0;
-
   color:var(--azul-marinho);
 }
 
-/* lista mais central (menos recuo e sem margens) */
+/* lista central, sem recuo grande */
 .ba-col ul{
   margin:0;
-  padding-left:14px;
+  padding:0;
+  list-style-position:inside; /* bullets dentro, alinhados ao centro */
 }
 
+/* itens mais compactos */
 .ba-col li{
   margin:6px 0;
-  font-weight:700;
+  font-weight:800;
   color:var(--azul-marinho);
 }
 
@@ -425,7 +422,6 @@ footer{
   .metodo-grid{grid-template-columns:repeat(2, minmax(180px, 1fr));}
   .social-grid{grid-template-columns:1fr;}
   .ba-grid{grid-template-columns:1fr;}
-  .ba-col{min-height:auto;}
 }
 
 @media (max-width: 860px){
