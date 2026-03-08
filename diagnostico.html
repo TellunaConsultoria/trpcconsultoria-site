@@ -1,1 +1,290 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diagnóstico TR&PC</title>
 
+  <style>
+    :root{
+      --azul-escuro:#1f4e8c;
+      --azul-medio:#2c6ecb;
+      --azul-claro:#4fa3f7;
+      --azul-marinho:#0B2A4A;
+      --branco:#ffffff;
+      --cinza:#f4f6f9;
+      --texto:#1c1c1c;
+      --borda:#e6ebf2;
+      --sombra:0 12px 28px rgba(0,0,0,0.10);
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, Helvetica, sans-serif;
+    }
+
+    body{
+      background:var(--cinza);
+      color:var(--texto);
+      line-height:1.6;
+    }
+
+    .page{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:50px 20px;
+    }
+
+    .card{
+      width:100%;
+      max-width:860px;
+      background:var(--branco);
+      border-radius:18px;
+      padding:42px 36px;
+      box-shadow:var(--sombra);
+      border:1px solid var(--borda);
+    }
+
+    .top-link{
+      display:inline-block;
+      margin-bottom:20px;
+      text-decoration:none;
+      color:var(--azul-escuro);
+      font-weight:800;
+      font-size:14px;
+    }
+
+    h1{
+      font-size:38px;
+      color:var(--azul-escuro);
+      text-align:center;
+      font-weight:900;
+      margin-bottom:14px;
+    }
+
+    .intro{
+      max-width:720px;
+      margin:0 auto 24px auto;
+      text-align:center;
+      font-size:18px;
+      color:#304358;
+    }
+
+    .benefits{
+      background:var(--azul-claro);
+      border-radius:14px;
+      padding:20px 22px;
+      margin:0 auto 26px auto;
+      max-width:760px;
+    }
+
+    .benefits h2{
+      text-align:center;
+      color:var(--azul-marinho);
+      font-size:22px;
+      font-weight:900;
+      margin-bottom:12px;
+    }
+
+    .benefits ul{
+      list-style:none;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:10px 18px;
+    }
+
+    .benefits li{
+      color:var(--azul-marinho);
+      font-weight:800;
+      font-size:16px;
+    }
+
+    form{
+      margin-top:10px;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+    }
+
+    .field{
+      display:flex;
+      flex-direction:column;
+    }
+
+    .field.full{
+      grid-column:1 / -1;
+    }
+
+    label{
+      font-weight:800;
+      color:var(--azul-escuro);
+      margin-bottom:6px;
+      font-size:15px;
+    }
+
+    input, select{
+      padding:14px 14px;
+      border-radius:10px;
+      border:1px solid #cfd8e6;
+      font-size:15px;
+      outline:none;
+      transition:.2s;
+      background:#fff;
+    }
+
+    input:focus, select:focus{
+      border-color:var(--azul-medio);
+      box-shadow:0 0 0 3px rgba(44,110,203,0.12);
+    }
+
+    .cta{
+      margin-top:26px;
+      text-align:center;
+    }
+
+    .btn{
+      background:var(--azul-medio);
+      color:var(--branco);
+      padding:18px 34px;
+      border:none;
+      border-radius:10px;
+      font-size:20px;
+      font-weight:900;
+      cursor:pointer;
+      transition:.25s;
+      text-decoration:none;
+      display:inline-block;
+    }
+
+    .btn:hover{
+      background:var(--azul-escuro);
+      transform:translateY(-2px);
+    }
+
+    .note{
+      margin-top:14px;
+      text-align:center;
+      font-size:14px;
+      color:#4f6277;
+    }
+
+    @media (max-width: 760px){
+      .card{
+        padding:28px 20px;
+      }
+
+      h1{
+        font-size:30px;
+      }
+
+      .intro{
+        font-size:16px;
+      }
+
+      .grid,
+      .benefits ul{
+        grid-template-columns:1fr;
+      }
+
+      .btn{
+        width:100%;
+        font-size:18px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="page">
+  <div class="card">
+    <a class="top-link" href="index.html">← Voltar para o site</a>
+
+    <h1>Faça seu diagnóstico TR&PC</h1>
+
+    <p class="intro">
+      Em poucos minutos, você vai identificar o nível atual do atendimento da sua empresa e entender onde estão os principais gargalos que comprometem consistência, experiência do cliente e resultado.
+    </p>
+
+    <div class="benefits">
+      <h2>O que esse diagnóstico vai apresentar</h2>
+      <ul>
+        <li>✔ Nível atual do atendimento</li>
+        <li>✔ Principais fragilidades da operação</li>
+        <li>✔ Grau de estrutura da equipe</li>
+        <li>✔ Clareza de processos e padrão</li>
+        <li>✔ Maturidade do atendimento</li>
+        <li>✔ Próximo passo recomendado</li>
+      </ul>
+    </div>
+
+    <form action="#" method="get">
+      <div class="grid">
+        <div class="field">
+          <label for="nome">Nome</label>
+          <input type="text" id="nome" name="nome" placeholder="Seu nome" required>
+        </div>
+
+        <div class="field">
+          <label for="empresa">Nome da empresa</label>
+          <input type="text" id="empresa" name="empresa" placeholder="Nome da empresa" required>
+        </div>
+
+        <div class="field">
+          <label for="email">E-mail</label>
+          <input type="email" id="email" name="email" placeholder="seuemail@empresa.com" required>
+        </div>
+
+        <div class="field">
+          <label for="whatsapp">WhatsApp</label>
+          <input type="tel" id="whatsapp" name="whatsapp" placeholder="(00) 00000-0000" required>
+        </div>
+
+        <div class="field">
+          <label for="segmento">Segmento</label>
+          <select id="segmento" name="segmento" required>
+            <option value="">Selecione</option>
+            <option>Comércio</option>
+            <option>Serviços</option>
+            <option>Clínica / Saúde</option>
+            <option>Educação</option>
+            <option>Indústria</option>
+            <option>E-commerce</option>
+            <option>Atendimento técnico / suporte</option>
+            <option>Outro</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="colaboradores">Número de colaboradores</label>
+          <select id="colaboradores" name="colaboradores" required>
+            <option value="">Selecione</option>
+            <option>1 a 5</option>
+            <option>6 a 15</option>
+            <option>16 a 30</option>
+            <option>31 a 50</option>
+            <option>51 a 100</option>
+            <option>Mais de 100</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="cta">
+        <a href="#" class="btn">Iniciar</a>
+      </div>
+
+      <p class="note">
+        Na próxima etapa, você responderá o questionário diagnóstico da TR&PC.
+      </p>
+    </form>
+  </div>
+</div>
+
+</body>
+</html>
