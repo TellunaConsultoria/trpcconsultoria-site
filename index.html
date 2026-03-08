@@ -1,552 +1,544 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TR&PC Consultoria</title>
-
-<style>
-:root{
-  --azul-escuro:#1f4e8c;
-  --azul-medio:#2c6ecb;
-  --azul-claro:#4fa3f7;
-  --azul-marinho:#0B2A4A;
-  --branco:#ffffff;
-  --cinza:#f4f6f9;
-  --cinza-claro:#eef2f7;
-  --texto:#1c1c1c;
-  --borda:#e6ebf2;
-  --sombra:0 12px 28px rgba(0,0,0,0.10);
-}
-
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:Arial, Helvetica, sans-serif;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
-body{
-  background:var(--branco);
-  color:var(--texto);
-  line-height:1.6;
-}
-
-section{
-  padding:78px 10%;
-}
-
-.container{
-  max-width:1120px;
-  margin:0 auto;
-}
-
-h2{
-  font-size:36px;
-  font-weight:900;
-  margin-bottom:16px;
-  color:var(--azul-escuro);
-  text-align:center;
-}
-
-.section-intro{
-  max-width:900px;
-  margin:0 auto 28px auto;
-  text-align:center;
-  font-size:18px;
-  color:#2d3c50;
-}
-
-/* HEADER */
-header{
-  background:var(--branco);
-  padding:18px 10%;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:20px;
-  border-bottom:1px solid var(--borda);
-}
-
-.brand{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  min-width:0;
-}
-
-.brand img{
-  height:56px;
-  width:auto;
-}
-
-.brand-title{
-  font-size:48px;
-  font-weight:900;
-  color:var(--azul-escuro);
-  line-height:1;
-  white-space:nowrap;
-}
-
-.brand-slogan{
-  font-size:15px;
-  font-weight:700;
-  color:var(--azul-escuro);
-  margin-top:6px;
-  line-height:1.1;
-}
-
-nav{
-  display:flex;
-  gap:20px;
-  flex-wrap:wrap;
-  justify-content:flex-end;
-}
-
-nav a{
-  text-decoration:none;
-  color:var(--azul-escuro);
-  font-weight:800;
-  font-size:14px;
-}
-
-nav a:hover{
-  text-decoration:underline;
-}
-
-/* ANIMAÇÕES */
-@keyframes pulseGlow{
-  0%,100%{transform:translateY(0); box-shadow:0 0 0 rgba(0,0,0,0);}
-  50%{transform:translateY(-2px); box-shadow:0 14px 30px rgba(79,163,247,0.30);}
-}
-
-@keyframes blinkSoft{
-  0%,100%{opacity:1;}
-  50%{opacity:.82;}
-}
-
-.pulse{animation:pulseGlow 1.5s infinite;}
-.blink{animation:blinkSoft 1.3s infinite;}
-
-/* BOTÃO */
-.btn{
-  background:var(--azul-medio);
-  color:var(--branco);
-  padding:18px 36px;
-  font-weight:900;
-  text-decoration:none;
-  border-radius:10px;
-  display:inline-block;
-  transition:.25s;
-  font-size:20px;
-  border:1px solid rgba(255,255,255,0.20);
-}
-.btn:hover{
-  background:var(--azul-escuro);
-  transform:translateY(-2px);
-}
-
-/* FRASE DE DESTAQUE */
-.highlight-box{
-  max-width:920px;
-  margin:30px auto 0 auto;
-  background:var(--azul-claro);
-  padding:22px 26px;
-  border-radius:14px;
-  text-align:center;
-  box-shadow:0 12px 24px rgba(0,0,0,0.10);
-}
-
-.highlight-box p{
-  color:var(--azul-marinho);
-  font-size:22px;
-  font-weight:900;
-  line-height:1.45;
-  margin:0;
-}
-
-/* HERO */
-.hero{
-  background:
-    linear-gradient(rgba(11,42,74,0.78),rgba(11,42,74,0.78)),
-    url("https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1900&q=80");
-  background-size:cover;
-  background-position:center;
-  color:var(--branco);
-  text-align:center;
-  padding:140px 10%;
-}
-
-.hero-content{
-  max-width:920px;
-  margin:0 auto;
-}
-
-.hero h1{
-  font-size:54px;
-  line-height:1.1;
-  font-weight:900;
-  margin-bottom:16px;
-}
-
-.hero p{
-  font-size:18px;
-  max-width:760px;
-  margin:0 auto 28px auto;
-  opacity:.96;
-}
-
-/* PROBLEMA REAL */
-.problem-real{
-  background:var(--branco);
-}
-
-.problem-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:22px;
-  margin-top:12px;
-}
-
-.problem-card{
-  background:var(--branco);
-  border:1px solid var(--borda);
-  border-radius:16px;
-  padding:26px 24px;
-  box-shadow:var(--sombra);
-}
-
-.problem-card h3{
-  color:var(--azul-escuro);
-  font-size:24px;
-  font-weight:900;
-  margin-bottom:16px;
-  text-align:center;
-}
-
-.problem-list{
-  list-style:none;
-  display:flex;
-  flex-direction:column;
-  gap:12px;
-}
-
-.problem-list li{
-  display:flex;
-  align-items:flex-start;
-  gap:12px;
-  color:var(--azul-marinho);
-  font-size:18px;
-  font-weight:700;
-  line-height:1.35;
-}
-
-.icon{
-  width:28px;
-  height:28px;
-  min-width:28px;
-  border-radius:999px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:18px;
-  font-weight:900;
-  margin-top:1px;
-}
-
-.icon-neg{
-  background:rgba(225,0,0,0.10);
-  color:#c41717;
-  border:1px solid rgba(225,0,0,0.18);
-}
-
-.icon-pos{
-  background:rgba(79,163,247,0.12);
-  color:var(--azul-escuro);
-  border:1px solid rgba(31,78,140,0.18);
-}
-
-/* AUTORIDADE */
-.authority{
-  background:var(--azul-escuro);
-  color:var(--branco);
-}
-
-.authority-inner{
-  max-width:920px;
-  margin:0 auto;
-}
-
-.authority h2{
-  color:var(--branco);
-  text-align:left;
-  margin-bottom:18px;
-}
-
-.authority p{
-  font-size:18px;
-  margin-top:12px;
-  opacity:.96;
-  text-align:left;
-}
-
-.authority-highlight{
-  max-width:920px;
-  margin:34px auto 0 auto;
-  background:var(--azul-claro);
-  padding:28px 34px;
-  border-radius:14px;
-  text-align:center;
-  box-shadow:0 12px 24px rgba(0,0,0,0.12);
-}
-
-.authority-highlight p{
-  color:var(--azul-marinho);
-  font-size:22px;
-  font-weight:900;
-  line-height:1.5;
-  margin:0;
-  text-align:center;
-}
-
-/* O QUE FAZEMOS */
-.what-we-do{
-  background:
-    linear-gradient(rgba(245,248,252,0.84),rgba(245,248,252,0.84)),
-    url("https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1900&q=80");
-  background-size:cover;
-  background-position:center;
-}
-
-.what-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:22px;
-}
-
-.what-card{
-  background:rgba(255,255,255,0.95);
-  border:1px solid rgba(31,78,140,0.10);
-  border-radius:16px;
-  padding:26px 24px;
-  box-shadow:0 14px 28px rgba(0,0,0,0.08);
-}
-
-.what-card h3{
-  color:var(--azul-escuro);
-  text-align:center;
-  font-size:24px;
-  font-weight:900;
-  margin-bottom:18px;
-}
-
-.what-list{
-  list-style:none;
-  display:flex;
-  flex-direction:column;
-  gap:14px;
-}
-
-.what-list li{
-  display:flex;
-  align-items:flex-start;
-  gap:12px;
-  color:var(--azul-marinho);
-  font-size:18px;
-  font-weight:800;
-  line-height:1.35;
-}
-
-/* MÉTODO */
-.method{
-  background:var(--cinza);
-}
-
-.metodo-wrap{
-  margin-top:18px;
-}
-
-.metodo-grid{
-  display:grid;
-  grid-template-columns:repeat(5, minmax(180px, 1fr));
-  gap:10px;
-  row-gap:26px;
-  margin-top:16px;
-  overflow:visible;
-}
-
-.metodo-item{
-  padding:26px 18px;
-  color:var(--branco);
-  text-align:center;
-  cursor:default;
-  position:relative;
-  transition:transform .18s ease;
-  border-radius:10px;
-  overflow:visible;
-}
-
-.metodo-item:hover{
-  transform:translateY(-2px);
-}
-
-.metodo-item .title{
-  display:block;
-  font-weight:900;
-  font-size:18px;
-}
-
-.metodo-item .tooltip{
-  visibility:hidden;
-  opacity:0;
-  position:absolute;
-  bottom:calc(100% + 12px);
-  left:50%;
-  transform:translateX(-50%);
-  background:#0f172a;
-  color:#fff;
-  padding:12px 12px;
-  border-radius:8px;
-  width:240px;
-  font-size:13px;
-  line-height:1.35;
-  box-shadow:0 10px 22px rgba(0,0,0,0.25);
-  transition:opacity .18s ease;
-  z-index:9999;
-  pointer-events:none;
-}
-
-.metodo-item .tooltip::after{
-  content:"";
-  position:absolute;
-  top:100%;
-  left:50%;
-  transform:translateX(-50%);
-  border-width:8px;
-  border-style:solid;
-  border-color:#0f172a transparent transparent transparent;
-}
-
-.metodo-item:hover .tooltip{
-  visibility:visible;
-  opacity:1;
-}
-
-/* CTA FINAL */
-.final-cta{
-  background:var(--azul-escuro);
-  color:var(--branco);
-  text-align:center;
-}
-
-.final-cta h2{
-  color:var(--branco);
-}
-
-/* FOOTER */
-footer{
-  background:var(--azul-escuro);
-  color:var(--branco);
-  text-align:center;
-  padding:26px;
-}
-
-/* WHATSAPP */
-.whatsapp{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  width:64px;
-  height:64px;
-  border-radius:999px;
-  background:#25d366;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  box-shadow:0 12px 26px rgba(0,0,0,0.20);
-  text-decoration:none;
-  z-index:9999;
-}
-
-.whatsapp svg{
-  width:34px;
-  height:34px;
-  fill:#ffffff;
-}
-
-/* RESPONSIVO */
-@media (max-width: 1100px){
-  .problem-grid,
-  .what-grid{
-    grid-template-columns:1fr;
-  }
-
-  .metodo-grid{
-    grid-template-columns:repeat(2, minmax(180px, 1fr));
-  }
-}
-
-@media (max-width: 900px){
-  .hero{
-    padding:90px 8%;
-  }
-
-  .hero h1{
-    font-size:36px;
-  }
-
-  .brand-title{
-    font-size:34px;
-    white-space:normal;
-  }
-
-  nav{
-    justify-content:flex-start;
-  }
-}
-
-@media (max-width: 860px){
-  header{
-    flex-direction:column;
-    align-items:flex-start;
-  }
-
-  .brand-slogan{
-    font-size:16px;
-  }
-
-  h2{
-    font-size:28px;
-  }
-
-  .hero p,
-  .section-intro,
-  .authority p{
-    font-size:16px;
-  }
-
-  .highlight-box p,
-  .authority-highlight p{
-    font-size:18px;
-  }
-
-  .problem-card h3,
-  .what-card h3{
-    font-size:22px;
-  }
-
-  .problem-list li,
-  .what-list li{
-    font-size:16px;
-  }
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TR&PC Consultoria</title>
+
+  <style>
+    :root{
+      --azul-escuro:#1f4e8c;
+      --azul-medio:#2c6ecb;
+      --azul-claro:#4fa3f7;
+      --azul-marinho:#0B2A4A;
+      --branco:#ffffff;
+      --cinza:#f4f6f9;
+      --texto:#1c1c1c;
+      --borda:#e6ebf2;
+      --sombra:0 12px 28px rgba(0,0,0,0.10);
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, Helvetica, sans-serif;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      background:var(--branco);
+      color:var(--texto);
+      line-height:1.6;
+    }
+
+    section{
+      padding:78px 10%;
+    }
+
+    .container{
+      max-width:1120px;
+      margin:0 auto;
+    }
+
+    h2{
+      font-size:36px;
+      font-weight:900;
+      margin-bottom:16px;
+      color:var(--azul-escuro);
+      text-align:center;
+    }
+
+    .section-intro{
+      max-width:900px;
+      margin:0 auto 28px auto;
+      text-align:center;
+      font-size:18px;
+      color:#2d3c50;
+    }
+
+    header{
+      background:var(--branco);
+      padding:18px 10%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:20px;
+      border-bottom:1px solid var(--borda);
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width:0;
+    }
+
+    .brand img{
+      height:56px;
+      width:auto;
+    }
+
+    .brand-title{
+      font-size:48px;
+      font-weight:900;
+      color:var(--azul-escuro);
+      line-height:1;
+      white-space:nowrap;
+    }
+
+    .brand-slogan{
+      font-size:15px;
+      font-weight:700;
+      color:var(--azul-escuro);
+      margin-top:6px;
+      line-height:1.1;
+    }
+
+    nav{
+      display:flex;
+      gap:20px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+
+    nav a{
+      text-decoration:none;
+      color:var(--azul-escuro);
+      font-weight:800;
+      font-size:14px;
+    }
+
+    nav a:hover{
+      text-decoration:underline;
+    }
+
+    @keyframes pulseGlow{
+      0%,100%{transform:translateY(0); box-shadow:0 0 0 rgba(0,0,0,0);}
+      50%{transform:translateY(-2px); box-shadow:0 14px 30px rgba(79,163,247,0.30);}
+    }
+
+    @keyframes blinkSoft{
+      0%,100%{opacity:1;}
+      50%{opacity:.82;}
+    }
+
+    .pulse{animation:pulseGlow 1.5s infinite;}
+    .blink{animation:blinkSoft 1.3s infinite;}
+
+    .btn{
+      background:var(--azul-medio);
+      color:var(--branco);
+      padding:18px 36px;
+      font-weight:900;
+      text-decoration:none;
+      border-radius:10px;
+      display:inline-block;
+      transition:.25s;
+      font-size:20px;
+      border:1px solid rgba(255,255,255,0.20);
+      text-align:center;
+    }
+
+    .btn:hover{
+      background:var(--azul-escuro);
+      transform:translateY(-2px);
+    }
+
+    .highlight-box{
+      max-width:920px;
+      margin:30px auto 0 auto;
+      background:var(--azul-claro);
+      padding:22px 26px;
+      border-radius:14px;
+      text-align:center;
+      box-shadow:0 12px 24px rgba(0,0,0,0.10);
+    }
+
+    .highlight-box p{
+      color:var(--azul-marinho);
+      font-size:22px;
+      font-weight:900;
+      line-height:1.45;
+      margin:0;
+    }
+
+    .hero{
+      background:
+        linear-gradient(rgba(11,42,74,0.78),rgba(11,42,74,0.78)),
+        url("https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1900&q=80");
+      background-size:cover;
+      background-position:center;
+      color:var(--branco);
+      text-align:center;
+      padding:140px 10%;
+    }
+
+    .hero-content{
+      max-width:920px;
+      margin:0 auto;
+    }
+
+    .hero h1{
+      font-size:54px;
+      line-height:1.1;
+      font-weight:900;
+      margin-bottom:16px;
+    }
+
+    .hero p{
+      font-size:18px;
+      max-width:760px;
+      margin:0 auto 28px auto;
+      opacity:.96;
+    }
+
+    .problem-real{
+      background:var(--branco);
+    }
+
+    .problem-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:22px;
+      margin-top:12px;
+    }
+
+    .problem-card{
+      background:var(--branco);
+      border:1px solid var(--borda);
+      border-radius:16px;
+      padding:26px 24px;
+      box-shadow:var(--sombra);
+    }
+
+    .problem-card h3{
+      color:var(--azul-escuro);
+      font-size:24px;
+      font-weight:900;
+      margin-bottom:16px;
+      text-align:center;
+    }
+
+    .problem-list{
+      list-style:none;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+
+    .problem-list li{
+      display:flex;
+      align-items:flex-start;
+      gap:12px;
+      color:var(--azul-marinho);
+      font-size:18px;
+      font-weight:700;
+      line-height:1.35;
+    }
+
+    .icon{
+      width:28px;
+      height:28px;
+      min-width:28px;
+      border-radius:999px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:18px;
+      font-weight:900;
+      margin-top:1px;
+    }
+
+    .icon-neg{
+      background:rgba(225,0,0,0.10);
+      color:#c41717;
+      border:1px solid rgba(225,0,0,0.18);
+    }
+
+    .icon-pos{
+      background:rgba(79,163,247,0.12);
+      color:var(--azul-escuro);
+      border:1px solid rgba(31,78,140,0.18);
+    }
+
+    .authority{
+      background:var(--azul-escuro);
+      color:var(--branco);
+    }
+
+    .authority-inner{
+      max-width:920px;
+      margin:0 auto;
+    }
+
+    .authority h2{
+      color:var(--branco);
+      text-align:left;
+      margin-bottom:18px;
+    }
+
+    .authority p{
+      font-size:18px;
+      margin-top:12px;
+      opacity:.96;
+      text-align:left;
+    }
+
+    .authority-highlight{
+      max-width:920px;
+      margin:34px auto 0 auto;
+      background:var(--azul-claro);
+      padding:28px 34px;
+      border-radius:14px;
+      text-align:center;
+      box-shadow:0 12px 24px rgba(0,0,0,0.12);
+    }
+
+    .authority-highlight p{
+      color:var(--azul-marinho);
+      font-size:22px;
+      font-weight:900;
+      line-height:1.5;
+      margin:0;
+      text-align:center;
+    }
+
+    .what-we-do{
+      background:
+        linear-gradient(rgba(245,248,252,0.84),rgba(245,248,252,0.84)),
+        url("https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1900&q=80");
+      background-size:cover;
+      background-position:center;
+    }
+
+    .what-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:22px;
+    }
+
+    .what-card{
+      background:rgba(255,255,255,0.95);
+      border:1px solid rgba(31,78,140,0.10);
+      border-radius:16px;
+      padding:26px 24px;
+      box-shadow:0 14px 28px rgba(0,0,0,0.08);
+    }
+
+    .what-card h3{
+      color:var(--azul-escuro);
+      text-align:center;
+      font-size:24px;
+      font-weight:900;
+      margin-bottom:18px;
+    }
+
+    .what-list{
+      list-style:none;
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+    }
+
+    .what-list li{
+      display:flex;
+      align-items:flex-start;
+      gap:12px;
+      color:var(--azul-marinho);
+      font-size:18px;
+      font-weight:800;
+      line-height:1.35;
+    }
+
+    .method{
+      background:var(--cinza);
+    }
+
+    .metodo-wrap{
+      margin-top:18px;
+    }
+
+    .metodo-grid{
+      display:grid;
+      grid-template-columns:repeat(5, minmax(180px, 1fr));
+      gap:10px;
+      row-gap:26px;
+      margin-top:16px;
+      overflow:visible;
+    }
+
+    .metodo-item{
+      padding:26px 18px;
+      color:var(--branco);
+      text-align:center;
+      cursor:default;
+      position:relative;
+      transition:transform .18s ease;
+      border-radius:10px;
+      overflow:visible;
+    }
+
+    .metodo-item:hover{
+      transform:translateY(-2px);
+    }
+
+    .metodo-item .title{
+      display:block;
+      font-weight:900;
+      font-size:18px;
+    }
+
+    .metodo-item .tooltip{
+      visibility:hidden;
+      opacity:0;
+      position:absolute;
+      bottom:calc(100% + 12px);
+      left:50%;
+      transform:translateX(-50%);
+      background:#0f172a;
+      color:#fff;
+      padding:12px 12px;
+      border-radius:8px;
+      width:240px;
+      font-size:13px;
+      line-height:1.35;
+      box-shadow:0 10px 22px rgba(0,0,0,0.25);
+      transition:opacity .18s ease;
+      z-index:9999;
+      pointer-events:none;
+    }
+
+    .metodo-item .tooltip::after{
+      content:"";
+      position:absolute;
+      top:100%;
+      left:50%;
+      transform:translateX(-50%);
+      border-width:8px;
+      border-style:solid;
+      border-color:#0f172a transparent transparent transparent;
+    }
+
+    .metodo-item:hover .tooltip{
+      visibility:visible;
+      opacity:1;
+    }
+
+    .final-cta{
+      background:var(--azul-escuro);
+      color:var(--branco);
+      text-align:center;
+    }
+
+    .final-cta h2{
+      color:var(--branco);
+    }
+
+    footer{
+      background:var(--azul-escuro);
+      color:var(--branco);
+      text-align:center;
+      padding:26px;
+    }
+
+    .whatsapp{
+      position:fixed;
+      bottom:20px;
+      right:20px;
+      width:64px;
+      height:64px;
+      border-radius:999px;
+      background:#25d366;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      box-shadow:0 12px 26px rgba(0,0,0,0.20);
+      text-decoration:none;
+      z-index:9999;
+    }
+
+    .whatsapp svg{
+      width:34px;
+      height:34px;
+      fill:#ffffff;
+    }
+
+    @media (max-width: 1100px){
+      .problem-grid,
+      .what-grid{
+        grid-template-columns:1fr;
+      }
+
+      .metodo-grid{
+        grid-template-columns:repeat(2, minmax(180px, 1fr));
+      }
+    }
+
+    @media (max-width: 900px){
+      .hero{
+        padding:90px 8%;
+      }
+
+      .hero h1{
+        font-size:36px;
+      }
+
+      .brand-title{
+        font-size:34px;
+        white-space:normal;
+      }
+
+      nav{
+        justify-content:flex-start;
+      }
+    }
+
+    @media (max-width: 860px){
+      header{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+
+      .brand-slogan{
+        font-size:16px;
+      }
+
+      h2{
+        font-size:28px;
+      }
+
+      .hero p,
+      .section-intro,
+      .authority p{
+        font-size:16px;
+      }
+
+      .highlight-box p,
+      .authority-highlight p{
+        font-size:18px;
+      }
+
+      .problem-card h3,
+      .what-card h3{
+        font-size:22px;
+      }
+
+      .problem-list li,
+      .what-list li{
+        font-size:16px;
+      }
+
+      .btn{
+        font-size:18px;
+        padding:16px 28px;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
 <header>
@@ -561,6 +553,7 @@ footer{
   <nav>
     <a href="planos.html">Planos</a>
     <a href="#solucoes">Soluções</a>
+    <a href="diagnostico.html">Diagnóstico</a>
     <a href="#contato">Contato</a>
   </nav>
 </header>
@@ -571,8 +564,8 @@ footer{
     <p>
       A TR&amp;PC estrutura pessoas, processos e cultura para transformar atendimento em resultado real dentro da sua empresa.
     </p>
-    <a href="https://wa.me/5516992005854" class="btn pulse blink" target="_blank" rel="noopener">
-      Agendar Diagnóstico
+    <a href="diagnostico.html" class="btn pulse blink">
+      Faça seu diagnóstico agora
     </a>
   </div>
 </section>
@@ -598,7 +591,7 @@ footer{
       <div class="problem-card">
         <h3>O que a empresa passa a ter</h3>
         <ul class="problem-list">
-          <li><span class="icon icon-pos">+</span><span>Mais segurança na experiência do cliente</span></li>
+          <li><span class="icon icon-pos">+</span><span>Mais consistência na experiência do cliente</span></li>
           <li><span class="icon icon-pos">+</span><span>Processos organizados e consistentes</span></li>
           <li><span class="icon icon-pos">+</span><span>Comunicação mais segura entre equipe e cliente</span></li>
           <li><span class="icon icon-pos">+</span><span>Lideranças com mais clareza e direção</span></li>
@@ -675,7 +668,6 @@ footer{
       <h2 style="margin-top:22px;">Método T.R.A.N.S.F.O.R.M.A.</h2>
 
       <div class="metodo-grid">
-
         <div class="metodo-item" style="background:var(--azul-escuro);">
           <span class="title">T - Treinamento</span>
           <div class="tooltip">Capacitação prática para atendimento e vendas consultivas, com foco em comportamento, postura, comunicação e experiência do cliente.</div>
@@ -725,7 +717,6 @@ footer{
           <span class="title">A - Acompanhamento</span>
           <div class="tooltip">Suporte contínuo e ajustes ao longo do tempo para evolução sustentável, evitando que o padrão caia após o treinamento.</div>
         </div>
-
       </div>
     </div>
   </div>
@@ -735,10 +726,12 @@ footer{
   <div class="container">
     <h2>Pronto para transformar sua empresa?</h2>
     <p class="section-intro" style="color:#ffffff; max-width:900px;">
-      Agende um diagnóstico e descubra onde sua operação está perdendo clientes e como virar esse jogo com pessoas, processo e método.
+      Descubra o nível atual do atendimento da sua empresa e entenda onde estão os pontos de melhoria mais urgentes.
     </p>
     <div style="margin-top:18px;text-align:center;">
-      <a href="https://wa.me/5516992005854" class="btn pulse blink" target="_blank" rel="noopener">Agende seu Diagnóstico</a>
+      <a href="diagnostico.html" class="btn pulse blink">
+        Faça seu diagnóstico agora
+      </a>
     </div>
   </div>
 </section>
