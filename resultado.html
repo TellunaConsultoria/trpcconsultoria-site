@@ -1,1 +1,345 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resultado do Diagnóstico | TR&PC</title>
 
+  <style>
+    :root{
+      --azul-escuro:#1f4e8c;
+      --azul-medio:#2c6ecb;
+      --azul-claro:#4fa3f7;
+      --azul-marinho:#0B2A4A;
+      --branco:#ffffff;
+      --cinza:#f4f6f9;
+      --texto:#1c1c1c;
+      --borda:#e6ebf2;
+      --sombra:0 12px 28px rgba(0,0,0,0.10);
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, Helvetica, sans-serif;
+    }
+
+    body{
+      background:var(--cinza);
+      color:var(--texto);
+      line-height:1.6;
+    }
+
+    .page{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:50px 20px;
+    }
+
+    .card{
+      width:100%;
+      max-width:920px;
+      background:var(--branco);
+      border-radius:18px;
+      padding:42px 36px;
+      box-shadow:var(--sombra);
+      border:1px solid var(--borda);
+    }
+
+    .top-link{
+      display:inline-block;
+      margin-bottom:20px;
+      text-decoration:none;
+      color:var(--azul-escuro);
+      font-weight:800;
+      font-size:14px;
+    }
+
+    h1{
+      font-size:38px;
+      color:var(--azul-escuro);
+      text-align:center;
+      font-weight:900;
+      margin-bottom:12px;
+    }
+
+    .intro{
+      max-width:760px;
+      margin:0 auto 24px auto;
+      text-align:center;
+      font-size:18px;
+      color:#304358;
+    }
+
+    .score-box{
+      background:var(--azul-claro);
+      border-radius:16px;
+      padding:26px 22px;
+      text-align:center;
+      margin-bottom:24px;
+      box-shadow:0 10px 22px rgba(0,0,0,0.08);
+    }
+
+    .score-box .label{
+      color:var(--azul-marinho);
+      font-size:16px;
+      font-weight:800;
+      margin-bottom:6px;
+    }
+
+    .score-box .level{
+      color:var(--azul-marinho);
+      font-size:34px;
+      font-weight:900;
+      line-height:1.2;
+      margin-bottom:8px;
+    }
+
+    .score-box .points{
+      color:var(--azul-marinho);
+      font-size:18px;
+      font-weight:800;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+      margin-top:20px;
+    }
+
+    .panel{
+      background:#fff;
+      border:1px solid var(--borda);
+      border-radius:14px;
+      padding:22px 20px;
+      box-shadow:0 8px 18px rgba(0,0,0,0.06);
+    }
+
+    .panel h2{
+      color:var(--azul-escuro);
+      font-size:22px;
+      margin-bottom:12px;
+      font-weight:900;
+    }
+
+    .panel p{
+      color:#2a3f56;
+      font-size:16px;
+      margin-bottom:12px;
+    }
+
+    .panel ul{
+      list-style:none;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+
+    .panel li{
+      color:var(--azul-marinho);
+      font-weight:700;
+      font-size:16px;
+    }
+
+    .cta-box{
+      margin-top:24px;
+      background:var(--azul-escuro);
+      border-radius:16px;
+      padding:28px 24px;
+      text-align:center;
+    }
+
+    .cta-box h3{
+      color:#fff;
+      font-size:28px;
+      font-weight:900;
+      margin-bottom:10px;
+    }
+
+    .cta-box p{
+      color:#eef5ff;
+      max-width:700px;
+      margin:0 auto 20px auto;
+      font-size:17px;
+    }
+
+    .btn{
+      background:var(--azul-claro);
+      color:var(--azul-marinho);
+      padding:18px 34px;
+      border:none;
+      border-radius:10px;
+      font-size:20px;
+      font-weight:900;
+      cursor:pointer;
+      transition:.25s;
+      text-decoration:none;
+      display:inline-block;
+    }
+
+    .btn:hover{
+      transform:translateY(-2px);
+      opacity:.95;
+    }
+
+    @media (max-width: 760px){
+      .card{
+        padding:28px 20px;
+      }
+
+      h1{
+        font-size:30px;
+      }
+
+      .grid{
+        grid-template-columns:1fr;
+      }
+
+      .score-box .level{
+        font-size:28px;
+      }
+
+      .btn{
+        width:100%;
+        font-size:18px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="page">
+  <div class="card">
+    <a class="top-link" href="iniciar.html">← Voltar para as perguntas</a>
+
+    <h1>Seu resultado TR&PC</h1>
+    <p class="intro" id="introText">
+      Aqui está o diagnóstico do nível atual do atendimento da sua empresa.
+    </p>
+
+    <div class="score-box">
+      <div class="label">Nível atual do atendimento</div>
+      <div class="level" id="levelName">Carregando...</div>
+      <div class="points" id="scoreText">Pontuação: --</div>
+    </div>
+
+    <div class="grid">
+      <div class="panel">
+        <h2>O que esse resultado indica</h2>
+        <p id="diagnosisText">Carregando diagnóstico...</p>
+      </div>
+
+      <div class="panel">
+        <h2>O que geralmente está acontecendo</h2>
+        <ul id="issuesList"></ul>
+      </div>
+    </div>
+
+    <div class="cta-box">
+      <h3>Pronto para avançar?</h3>
+      <p>
+        A TR&PC pode ajudar sua empresa a transformar atendimento em estrutura, clareza e resultado. Solicite a consultoria e dê o próximo passo.
+      </p>
+      <a href="agradecimento.html" class="btn" id="ctaConsultoria">Solicitar consultoria</a>
+    </div>
+  </div>
+</div>
+
+<script>
+function getResultData(score){
+  if(score >= 20 && score <= 34){
+    return {
+      level: 'Atendimento Improvisado',
+      diagnosis: 'Sua empresa apresenta sinais claros de atendimento baseado em esforço individual e não em estrutura. Isso normalmente gera inconsistência, insegurança no cliente e retrabalho interno.',
+      issues: [
+        'Falta de padrão claro no atendimento',
+        'Dependência excessiva da iniciativa de cada colaborador',
+        'Dificuldade em manter consistência entre canais',
+        'Maior risco de perda silenciosa de clientes'
+      ]
+    };
+  }
+
+  if(score >= 35 && score <= 49){
+    return {
+      level: 'Atendimento Instável',
+      diagnosis: 'Sua empresa já demonstra alguma intenção de organização, mas ainda opera com fragilidades importantes. O atendimento funciona em alguns momentos, mas não sustenta consistência.',
+      issues: [
+        'Comunicação interna com ruídos',
+        'Orientações que existem, mas não se sustentam na prática',
+        'Equipe sem alinhamento total',
+        'Liderança ainda apagando incêndio'
+      ]
+    };
+  }
+
+  if(score >= 50 && score <= 64){
+    return {
+      level: 'Atendimento em Organização',
+      diagnosis: 'Sua empresa já possui uma base relevante, mas ainda há pontos que impedem o atendimento de virar uma vantagem competitiva. O cenário pede estruturação mais firme.',
+      issues: [
+        'Padrões ainda não totalmente consolidados',
+        'Treinamento ou supervisão pouco contínuos',
+        'Dificuldade em medir evolução com clareza',
+        'Processos que funcionam, mas ainda dependem demais da equipe'
+      ]
+    };
+  }
+
+  if(score >= 65 && score <= 74){
+    return {
+      level: 'Atendimento Estruturado',
+      diagnosis: 'Sua empresa já apresenta um nível de atendimento bem organizado. Existe base sólida, mas ainda há espaço para refinamento estratégico e fortalecimento cultural.',
+      issues: [
+        'Aprimorar indicadores e leitura de desempenho',
+        'Refinar experiência do cliente',
+        'Fortalecer cultura de atendimento',
+        'Ganhar ainda mais consistência entre equipe e liderança'
+      ]
+    };
+  }
+
+  return {
+    level: 'Atendimento Estratégico',
+    diagnosis: 'Sua empresa demonstra alta maturidade no atendimento. O cenário indica estrutura, consistência e boa base de gestão. O próximo passo é evoluir para excelência sustentada.',
+    issues: [
+      'Refinamento contínuo de performance',
+      'Fortalecimento de diferenciais competitivos',
+      'Acompanhamento estratégico de métricas',
+      'Escala com manutenção de qualidade'
+    ]
+  };
+}
+
+const leadData = JSON.parse(localStorage.getItem('trpc_lead') || '{}');
+const score = parseInt(localStorage.getItem('trpc_score') || '0', 10);
+const result = getResultData(score);
+
+const companyName = leadData.empresa ? ` da ${leadData.empresa}` : '';
+const personName = leadData.nome ? `${leadData.nome}, ` : '';
+
+document.getElementById('introText').textContent =
+  `${personName}aqui está o diagnóstico do nível atual do atendimento${companyName}.`;
+
+document.getElementById('levelName').textContent = result.level;
+document.getElementById('scoreText').textContent = `Pontuação: ${score} de 80`;
+document.getElementById('diagnosisText').textContent = result.diagnosis;
+
+const issuesList = document.getElementById('issuesList');
+result.issues.forEach(item => {
+  const li = document.createElement('li');
+  li.textContent = `• ${item}`;
+  issuesList.appendChild(li);
+});
+
+document.getElementById('ctaConsultoria').addEventListener('click', function(){
+  localStorage.setItem('trpc_consultoria_solicitada', 'sim');
+});
+</script>
+
+</body>
+</html>
