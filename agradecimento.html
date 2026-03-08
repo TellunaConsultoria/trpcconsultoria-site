@@ -1,1 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agradecimento | TR&PC</title>
 
+  <style>
+    :root{
+      --azul-escuro:#1f4e8c;
+      --azul-medio:#2c6ecb;
+      --azul-claro:#4fa3f7;
+      --azul-marinho:#0B2A4A;
+      --branco:#ffffff;
+      --cinza:#f4f6f9;
+      --borda:#e6ebf2;
+      --sombra:0 12px 28px rgba(0,0,0,0.10);
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, Helvetica, sans-serif;
+    }
+
+    body{
+      background:var(--cinza);
+      color:#1c1c1c;
+      line-height:1.6;
+    }
+
+    .page{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:40px 20px;
+    }
+
+    .card{
+      width:100%;
+      max-width:860px;
+      background:var(--branco);
+      border-radius:18px;
+      padding:44px 34px;
+      box-shadow:var(--sombra);
+      border:1px solid var(--borda);
+      text-align:center;
+    }
+
+    h1{
+      font-size:38px;
+      color:var(--azul-escuro);
+      font-weight:900;
+      margin-bottom:16px;
+    }
+
+    p{
+      max-width:720px;
+      margin:0 auto 16px auto;
+      font-size:18px;
+      color:#304358;
+    }
+
+    .highlight{
+      margin:24px auto 0 auto;
+      max-width:760px;
+      background:var(--azul-claro);
+      border-radius:14px;
+      padding:22px 24px;
+    }
+
+    .highlight p{
+      margin:0;
+      color:var(--azul-marinho);
+      font-size:22px;
+      font-weight:900;
+      line-height:1.45;
+    }
+
+    .actions{
+      margin-top:28px;
+      display:flex;
+      justify-content:center;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      background:var(--azul-medio);
+      color:var(--branco);
+      padding:16px 28px;
+      border-radius:10px;
+      text-decoration:none;
+      font-size:18px;
+      font-weight:900;
+      transition:.25s;
+      display:inline-block;
+    }
+
+    .btn:hover{
+      background:var(--azul-escuro);
+      transform:translateY(-2px);
+    }
+
+    .btn-secondary{
+      background:#eef4ff;
+      color:var(--azul-escuro);
+      border:1px solid #d9e5fb;
+    }
+
+    .btn-secondary:hover{
+      background:#e5efff;
+    }
+
+    @media (max-width: 760px){
+      .card{
+        padding:30px 20px;
+      }
+
+      h1{
+        font-size:30px;
+      }
+
+      p{
+        font-size:16px;
+      }
+
+      .highlight p{
+        font-size:18px;
+      }
+
+      .actions{
+        flex-direction:column;
+      }
+
+      .btn{
+        width:100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="page">
+  <div class="card">
+    <h1>Obrigada pela sua participação</h1>
+
+    <p>
+      Recebemos seu interesse e sua solicitação foi registrada com sucesso.
+    </p>
+
+    <p>
+      Em breve, um consultor da TR&PC entrará em contato para entender melhor o seu cenário e mostrar como podemos fortalecer o seu atendimento.
+    </p>
+
+    <div class="highlight">
+      <p>
+        Nosso objetivo é ajudar sua empresa a melhorar o atendimento, gerar mais consistência e fazer você se tornar referência no seu setor.
+      </p>
+    </div>
+
+    <div class="actions">
+      <a class="btn" href="index.html">Voltar para o site</a>
+      <a class="btn btn-secondary" href="https://wa.me/5516992005854" target="_blank" rel="noopener">Falar no WhatsApp</a>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
