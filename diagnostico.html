@@ -41,7 +41,7 @@
 
     .card{
       width:100%;
-      max-width:860px;
+      max-width:900px;
       background:var(--branco);
       border-radius:18px;
       padding:42px 36px;
@@ -67,7 +67,7 @@
     }
 
     .intro{
-      max-width:720px;
+      max-width:760px;
       margin:0 auto 24px auto;
       text-align:center;
       font-size:18px;
@@ -77,9 +77,10 @@
     .benefits{
       background:var(--azul-claro);
       border-radius:14px;
-      padding:20px 22px;
+      padding:22px;
       margin:0 auto 26px auto;
-      max-width:760px;
+      max-width:800px;
+      box-shadow:0 10px 22px rgba(0,0,0,0.08);
     }
 
     .benefits h2{
@@ -116,10 +117,6 @@
     .field{
       display:flex;
       flex-direction:column;
-    }
-
-    .field.full{
-      grid-column:1 / -1;
     }
 
     label{
@@ -159,8 +156,6 @@
       font-weight:900;
       cursor:pointer;
       transition:.25s;
-      text-decoration:none;
-      display:inline-block;
     }
 
     .btn:hover{
@@ -209,7 +204,7 @@
     <h1>Faça seu diagnóstico TR&PC</h1>
 
     <p class="intro">
-      Em poucos minutos, você vai identificar o nível atual do atendimento da sua empresa e entender onde estão os principais gargalos que comprometem consistência, experiência do cliente e resultado.
+      Em poucos minutos, você vai descobrir o nível atual do atendimento da sua empresa e entender onde estão os principais gargalos que comprometem consistência, experiência do cliente e resultado.
     </p>
 
     <div class="benefits">
@@ -224,7 +219,7 @@
       </ul>
     </div>
 
-    <form action="#" method="get">
+    <form id="leadForm">
       <div class="grid">
         <div class="field">
           <label for="nome">Nome</label>
@@ -276,7 +271,7 @@
       </div>
 
       <div class="cta">
-        <a href="#" class="btn">Iniciar</a>
+        <button type="submit" class="btn">Iniciar</button>
       </div>
 
       <p class="note">
@@ -285,6 +280,24 @@
     </form>
   </div>
 </div>
+
+<script>
+document.getElementById('leadForm').addEventListener('submit', function(e){
+  e.preventDefault();
+
+  const leadData = {
+    nome: document.getElementById('nome').value.trim(),
+    empresa: document.getElementById('empresa').value.trim(),
+    email: document.getElementById('email').value.trim(),
+    whatsapp: document.getElementById('whatsapp').value.trim(),
+    segmento: document.getElementById('segmento').value,
+    colaboradores: document.getElementById('colaboradores').value
+  };
+
+  localStorage.setItem('trpc_lead', JSON.stringify(leadData));
+  window.location.href = 'iniciar.html';
+});
+</script>
 
 </body>
 </html>
