@@ -14,7 +14,8 @@
       --branco:#ffffff;
       --cinza:#f4f6f9;
       --texto:#1c1c1c;
-      --borda:#e6ebf2;
+      --borda:#d3dceb;
+      --erro:#c62828;
       --sombra:0 12px 28px rgba(0,0,0,0.10);
     }
 
@@ -41,12 +42,12 @@
 
     .card{
       width:100%;
-      max-width:900px;
+      max-width:920px;
       background:var(--branco);
       border-radius:18px;
       padding:42px 36px;
       box-shadow:var(--sombra);
-      border:1px solid var(--borda);
+      border:1px solid #e6ebf2;
     }
 
     .top-link{
@@ -126,10 +127,15 @@
       font-size:15px;
     }
 
+    .required{
+      color:var(--erro);
+      margin-left:4px;
+    }
+
     input, select{
       padding:14px 14px;
-      border-radius:10px;
-      border:1px solid #cfd8e6;
+      border-radius:12px;
+      border:1px solid var(--borda);
       font-size:15px;
       outline:none;
       transition:.2s;
@@ -139,6 +145,18 @@
     input:focus, select:focus{
       border-color:var(--azul-medio);
       box-shadow:0 0 0 3px rgba(44,110,203,0.12);
+    }
+
+    input:invalid:focus,
+    select:invalid:focus{
+      border-color:var(--erro);
+      box-shadow:0 0 0 3px rgba(198,40,40,0.12);
+    }
+
+    .helper{
+      margin-top:6px;
+      font-size:12px;
+      color:#5c6f84;
     }
 
     .cta{
@@ -168,6 +186,17 @@
       text-align:center;
       font-size:14px;
       color:#4f6277;
+    }
+
+    .alert{
+      margin-top:18px;
+      padding:12px 14px;
+      border-radius:10px;
+      background:#fff7e6;
+      border:1px solid #ffe2a8;
+      color:#8a5a00;
+      font-size:14px;
+      text-align:center;
     }
 
     @media (max-width: 760px){
@@ -219,32 +248,73 @@
       </ul>
     </div>
 
-    <form id="leadForm">
+    <form
+      id="leadForm"
+      action="https://formsubmit.co/trpc2025@gmail.com"
+      method="POST"
+    >
+      <input type="hidden" name="_subject" value="Novo lead do Diagnóstico TR&PC">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_next" value="https://trpcconsultoria.com.br/iniciar.html">
+
       <div class="grid">
         <div class="field">
-          <label for="nome">Nome</label>
-          <input type="text" id="nome" name="nome" placeholder="Seu nome" required>
+          <label for="nome">Nome <span class="required">*</span></label>
+          <input
+            type="text"
+            id="nome"
+            name="Nome"
+            placeholder="Seu nome"
+            required
+            minlength="3"
+            autocomplete="name"
+          >
         </div>
 
         <div class="field">
-          <label for="empresa">Nome da empresa</label>
-          <input type="text" id="empresa" name="empresa" placeholder="Nome da empresa" required>
+          <label for="empresa">Nome da empresa <span class="required">*</span></label>
+          <input
+            type="text"
+            id="empresa"
+            name="Empresa"
+            placeholder="Nome da empresa"
+            required
+            minlength="2"
+            autocomplete="organization"
+          >
         </div>
 
         <div class="field">
-          <label for="email">E-mail</label>
-          <input type="email" id="email" name="email" placeholder="seuemail@empresa.com" required>
+          <label for="email">E-mail <span class="required">*</span></label>
+          <input
+            type="email"
+            id="email"
+            name="Email"
+            placeholder="seuemail@empresa.com"
+            required
+            autocomplete="email"
+          >
         </div>
 
         <div class="field">
-          <label for="whatsapp">WhatsApp</label>
-          <input type="tel" id="whatsapp" name="whatsapp" placeholder="(00) 00000-0000" required>
+          <label for="whatsapp">WhatsApp <span class="required">*</span></label>
+          <input
+            type="tel"
+            id="whatsapp"
+            name="WhatsApp"
+            placeholder="(00) 00000-0000"
+            required
+            minlength="10"
+            autocomplete="tel"
+          >
+          <div class="helper">Informe um número válido com DDD.</div>
         </div>
 
         <div class="field">
-          <label for="segmento">Segmento</label>
-          <select id="segmento" name="segmento" required>
-            <option value="">Selecione</option>
+          <label for="segmento">Segmento <span class="required">*</span></label>
+          <select id="segmento" name="Segmento" required>
+            <option value="" disabled selected>Selecione</option>
             <option>Comércio</option>
             <option>Serviços</option>
             <option>Clínica / Saúde</option>
@@ -257,9 +327,9 @@
         </div>
 
         <div class="field">
-          <label for="colaboradores">Número de colaboradores</label>
-          <select id="colaboradores" name="colaboradores" required>
-            <option value="">Selecione</option>
+          <label for="colaboradores">Número de colaboradores <span class="required">*</span></label>
+          <select id="colaboradores" name="Número de colaboradores" required>
+            <option value="" disabled selected>Selecione</option>
             <option>1 a 5</option>
             <option>6 a 15</option>
             <option>16 a 30</option>
@@ -275,28 +345,35 @@
       </div>
 
       <p class="note">
-        Na próxima etapa, você responderá o questionário diagnóstico da TR&PC.
+        Todos os campos são obrigatórios para iniciar o diagnóstico.
       </p>
+
+      <div class="alert">
+        Os dados preenchidos serão enviados para o e-mail da TR&PC e também usados para dar continuidade ao seu diagnóstico.
+      </div>
     </form>
   </div>
 </div>
 
 <script>
-document.getElementById('leadForm').addEventListener('submit', function(e){
-  e.preventDefault();
+  const form = document.getElementById('leadForm');
 
-  const leadData = {
-    nome: document.getElementById('nome').value.trim(),
-    empresa: document.getElementById('empresa').value.trim(),
-    email: document.getElementById('email').value.trim(),
-    whatsapp: document.getElementById('whatsapp').value.trim(),
-    segmento: document.getElementById('segmento').value,
-    colaboradores: document.getElementById('colaboradores').value
-  };
+  form.addEventListener('submit', function(e){
+    if(!form.checkValidity()){
+      return;
+    }
 
-  localStorage.setItem('trpc_lead', JSON.stringify(leadData));
-  window.location.href = 'iniciar.html';
-});
+    const leadData = {
+      nome: document.getElementById('nome').value.trim(),
+      empresa: document.getElementById('empresa').value.trim(),
+      email: document.getElementById('email').value.trim(),
+      whatsapp: document.getElementById('whatsapp').value.trim(),
+      segmento: document.getElementById('segmento').value,
+      colaboradores: document.getElementById('colaboradores').value
+    };
+
+    localStorage.setItem('trpc_lead', JSON.stringify(leadData));
+  });
 </script>
 
 </body>
