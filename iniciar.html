@@ -1,1 +1,418 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iniciar Diagnóstico | TR&PC</title>
 
+  <style>
+    :root{
+      --azul-escuro:#1f4e8c;
+      --azul-medio:#2c6ecb;
+      --azul-claro:#4fa3f7;
+      --azul-marinho:#0B2A4A;
+      --branco:#ffffff;
+      --cinza:#f4f6f9;
+      --texto:#1c1c1c;
+      --borda:#e6ebf2;
+      --sombra:0 12px 28px rgba(0,0,0,0.10);
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, Helvetica, sans-serif;
+    }
+
+    body{
+      background:var(--cinza);
+      color:var(--texto);
+      line-height:1.6;
+    }
+
+    .page{
+      padding:40px 20px 60px 20px;
+    }
+
+    .card{
+      width:100%;
+      max-width:980px;
+      margin:0 auto;
+      background:var(--branco);
+      border-radius:18px;
+      padding:36px 30px;
+      box-shadow:var(--sombra);
+      border:1px solid var(--borda);
+    }
+
+    .top-link{
+      display:inline-block;
+      margin-bottom:20px;
+      text-decoration:none;
+      color:var(--azul-escuro);
+      font-weight:800;
+      font-size:14px;
+    }
+
+    h1{
+      font-size:34px;
+      color:var(--azul-escuro);
+      text-align:center;
+      font-weight:900;
+      margin-bottom:12px;
+    }
+
+    .intro{
+      max-width:760px;
+      margin:0 auto 24px auto;
+      text-align:center;
+      font-size:17px;
+      color:#304358;
+    }
+
+    .question{
+      border:1px solid var(--borda);
+      border-radius:14px;
+      padding:22px 20px;
+      margin-bottom:18px;
+      background:#fff;
+    }
+
+    .question h2{
+      color:var(--azul-escuro);
+      font-size:20px;
+      margin-bottom:14px;
+      font-weight:900;
+      line-height:1.35;
+    }
+
+    .options{
+      display:grid;
+      gap:10px;
+    }
+
+    .option{
+      border:1px solid #d6dfeb;
+      border-radius:10px;
+      padding:12px 14px;
+      transition:.2s;
+      cursor:pointer;
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+    }
+
+    .option:hover{
+      border-color:var(--azul-medio);
+      background:#f8fbff;
+    }
+
+    .option input{
+      margin-top:3px;
+      accent-color:var(--azul-medio);
+    }
+
+    .option span{
+      font-size:15px;
+      color:#24384d;
+      font-weight:700;
+    }
+
+    .cta{
+      margin-top:26px;
+      text-align:center;
+    }
+
+    .btn{
+      background:var(--azul-medio);
+      color:var(--branco);
+      padding:18px 34px;
+      border:none;
+      border-radius:10px;
+      font-size:20px;
+      font-weight:900;
+      cursor:pointer;
+      transition:.25s;
+    }
+
+    .btn:hover{
+      background:var(--azul-escuro);
+      transform:translateY(-2px);
+    }
+
+    .note{
+      margin-top:14px;
+      text-align:center;
+      font-size:14px;
+      color:#4f6277;
+    }
+
+    @media (max-width:760px){
+      .card{
+        padding:24px 16px;
+      }
+
+      h1{
+        font-size:28px;
+      }
+
+      .question h2{
+        font-size:18px;
+      }
+
+      .btn{
+        width:100%;
+        font-size:18px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="page">
+  <div class="card">
+    <a class="top-link" href="diagnostico.html">← Voltar</a>
+
+    <h1>Diagnóstico de Atendimento TR&PC</h1>
+    <p class="intro">
+      Responda às perguntas com base na realidade atual da sua empresa. Ao final, você verá seu resultado e o nível atual do atendimento.
+    </p>
+
+    <form id="quizForm">
+
+      <div class="question">
+        <h2>1. A empresa possui um padrão claro de atendimento?</h2>
+        <div class="options">
+          <label class="option"><input type="radio" name="q1" value="1" required><span>A. Não existe padrão; cada colaborador atende do seu jeito</span></label>
+          <label class="option"><input type="radio" name="q1" value="2"><span>B. Existe uma orientação informal, mas não documentada</span></label>
+          <label class="option"><input type="radio" name="q1" value="3"><span>C. Existe um padrão parcial, usado apenas por parte da equipe</span></label>
+          <label class="option"><input type="radio" name="q1" value="4"><span>D. Existe um padrão claro, documentado e aplicado por todos</span></label>
+        </div>
+      </div>
+
+      <div class="question">
+        <h2>2. Como a equipe responde às dúvidas dos clientes?</h2>
+        <div class="options">
+          <label class="option"><input type="radio" name="q2" value="1" required><span>A. Cada pessoa responde do jeito que acha melhor</span></label>
+          <label class="option"><input type="radio" name="q2" value="2"><span>B. Existe alguma referência, mas sem consistência</span></label>
+          <label class="option"><input type="radio" name="q2" value="3"><span>C. A maioria segue uma linha parecida</span></label>
+          <label class="option"><input type="radio" name="q2" value="4"><span>D. As respostas seguem um padrão claro e alinhado</span></label>
+        </div>
+      </div>
+
+      <div class="question">
+        <h2>3. O atendimento da empresa transmite segurança ao cliente?</h2>
+        <div class="options">
+          <label class="option"><input type="radio" name="q3" value="1" required><span>A. Frequentemente gera insegurança ou respostas contraditórias</span></label>
+          <label class="option"><input type="radio" name="q3" value="2"><span>B. Em alguns casos transmite segurança, em outros não</span></label>
+          <label class="option"><input type="radio" name="q3" value="3"><span>C. Na maior parte das vezes transmite segurança</span></label>
+          <label class="option"><input type="radio" name="q3" value="4"><span>D. Transmite segurança, clareza e consistência em todos os canais</span></label>
+        </div>
+      </div>
+
+      <div class="question">
+        <h2>4. Como você avalia o alinhamento da equipe em relação ao atendimento?</h2>
+        <div class="options">
+          <label class="option"><input type="radio" name="q4" value="1" required><span>A. Muito desalinhado</span></label>
+          <label class="option"><input type="radio" name="q4" value="2"><span>B. Parcialmente alinhado</span></label>
+          <label class="option"><input type="radio" name="q4" value="3"><span>C. Bem alinhado em alguns setores</span></label>
+          <label class="option"><input type="radio" name="q4" value="4"><span>D. Totalmente alinhado</span></label>
+        </div>
+      </div>
+
+      <div class="question">
+        <h2>5. A empresa treina a equipe para atender melhor?</h2>
+        <div class="options">
+          <label class="option"><input type="radio" name="q5" value="1" required><span>A. Não realiza treinamentos</span></label>
+          <label class="option"><input type="radio" name="q5" value="2"><span>B. Treina apenas quando surge problema</span></label>
+          <label class="option"><input type="radio" name="q5" value="3"><span>C. Realiza treinamentos pontuais</span></label>
+          <label class="option"><input type="radio" name="q5" value="4"><span>D. Possui treinamento estruturado e contínuo</span></label>
+        </div>
+      </div>
+
+      <div class="question">
+        <h2>6. Existe acompanhamento da qualidade do atendimento?</h2>
+        <div class="options">
+          <label class="option"><input type="radio" name="q6" value="1" required><span>A. Não existe acompanhamento</span></label>
+          <label class="option"><input type="radio" name="q6" value="2"><span>B. Só acontece em situações críticas</span></label>
+          <label class="option"><input type="radio" name="q6" value="3"><span>C. Existe acompanhamento ocasional</span></label>
+          <label class="option"><input type="radio" name="q6" value="4"><span>D. Existe acompanhamento frequente com critérios claros</span></label>
+        </div>
+      </div>
+
+      <div class="question">
+        <h2>7. A liderança participa ativamente da melhoria do atendimento?</h2>
+        <div class="options">
+          <label class="option"><input type="radio" name="q7" value="1" required><span>A. Não participa</span></label>
+          <label class="option"><input type="radio" name="q7" value="2"><span>B. Participa apenas quando há reclamações</span></label>
+          <label class="option"><input type="radio" name="q7" value="3"><span>C. Participa em momentos específicos</span></label>
+          <label class="option"><input type="radio" name="q7" value="4"><span>D. Atua de forma ativa e estratégica</span></label>
+        </div>
+      </div>
+
+      <div class="question">
+        <h2>8. Como a empresa lida com reclamações de clientes?</h2>
+        <div class="options">
+          <label class="option"><input type="radio" name="q8" value="1" required><span>A. De forma improvisada</span></label>
+          <label class="option"><input type="radio" name="q8" value="2"><span>B. Resolve caso a caso sem padrão</span></label>
+          <label class="option"><input type="radio" name="q8" value="3"><span>C. Existe alguma lógica de resposta</span></label>
+          <label class="option"><input type="radio" name="q8" value="4"><span>D. Existe um processo claro de tratativa e aprendizado</span></label>
+        </div>
+      </div>
+
+      <div class="question">
+        <h2>9. O atendimento varia muito de acordo com o colaborador?</h2>
+        <div class="options">
+          <label class="option"><input type="radio" name="q9" value="1" required><span>A. Sim, varia bastante</span></label>
+          <label class="option"><input type="radio" name="q9" value="2"><span>B. Sim, mas dentro de certo limite</span></label>
+          <label class="option"><input type="radio" name="q9" value="3"><span>C. Varia pouco</span></label>
+          <label class="option"><input type="radio" name="q9" value="4"><span>D. Não, há consistência entre os atendentes</span></label>
+        </div>
+      </div>
+
+      <div class="question">
+        <h2>10. A empresa possui canais de atendimento bem organizados?</h2>
+        <div class="options">
+          <label class="option"><input type="radio" name="q10" value="1" required><span>A. Não, os canais são confusos</span></label>
+          <label class="option"><input type="radio" name="q10" value="2"><span>B. Parcialmente organizados</span></label>
+          <label class="option"><input type="radio" name="q10" value="3"><span>C. Organizados, mas com falhas</span></label>
+          <label class="option"><input type="radio" name="q10" value="4"><span>D. Bem organizados e integrados</span></label>
+        </div>
+      </div>
+
+      <div class="question">
+        <h2>11. Como é a comunicação entre atendimento, comercial e demais áreas?</h2>
+        <div class="options">
+          <label class="option"><input type="radio" name="q11" value="1" required><span>A. Desalinhada e falha</span></label>
+          <label class="option"><input type="radio" name="q11" value="2"><span>B. Funciona parcialmente</span></label>
+          <label class="option"><input type="radio" name="q11" value="3"><span>C. Razoável, com alguns ruídos</span></label>
+          <label class="option"><input type="radio" name="q11" value="4"><span>D. Clara, objetiva e integrada</span></label>
+        </div>
+      </div>
+
+      <div class="question">
+        <h2>12. A empresa mede a satisfação dos clientes?</h2>
+        <div class="options">
+          <label class="option"><input type="radio" name="q12" value="1" required><span>A. Não mede</span></label>
+          <label class="option"><input type="radio" name="q12" value="2"><span>B. Mede raramente</span></label>
+          <label class="option"><input type="radio" name="q12" value="3"><span>C. Mede de forma pontual</span></label>
+          <label class="option"><input type="radio" name="q12" value="4"><span>D. Mede com frequência e usa os dados para melhorar</span></label>
+        </div>
+      </div>
+
+      <div class="question">
+        <h2>13. A equipe sabe exatamente como agir em situações difíceis?</h2>
+        <div class="options">
+          <label class="option"><input type="radio" name="q13" value="1" required><span>A. Não sabe</span></label>
+          <label class="option"><input type="radio" name="q13" value="2"><span>B. Depende da pessoa</span></label>
+          <label class="option"><input type="radio" name="q13" value="3"><span>C. Em parte sabe</span></label>
+          <label class="option"><input type="radio" name="q13" value="4"><span>D. Sabe e age com segurança</span></label>
+        </div>
+      </div>
+
+      <div class="question">
+        <h2>14. O processo de contratação considera perfil para atendimento?</h2>
+        <div class="options">
+          <label class="option"><input type="radio" name="q14" value="1" required><span>A. Não considera</span></label>
+          <label class="option"><input type="radio" name="q14" value="2"><span>B. Considera pouco</span></label>
+          <label class="option"><input type="radio" name="q14" value="3"><span>C. Considera em alguns casos</span></label>
+          <label class="option"><input type="radio" name="q14" value="4"><span>D. Considera de forma estratégica e consistente</span></label>
+        </div>
+      </div>
+
+      <div class="question">
+        <h2>15. A empresa consegue identificar rapidamente falhas no atendimento?</h2>
+        <div class="options">
+          <label class="option"><input type="radio" name="q15" value="1" required><span>A. Não consegue</span></label>
+          <label class="option"><input type="radio" name="q15" value="2"><span>B. Só percebe quando o problema já ficou grande</span></label>
+          <label class="option"><input type="radio" name="q15" value="3"><span>C. Consegue em alguns casos</span></label>
+          <label class="option"><input type="radio" name="q15" value="4"><span>D. Consegue com rapidez e clareza</span></label>
+        </div>
+      </div>
+
+      <div class="question">
+        <h2>16. O atendimento contribui para retenção de clientes?</h2>
+        <div class="options">
+          <label class="option"><input type="radio" name="q16" value="1" required><span>A. Não contribui</span></label>
+          <label class="option"><input type="radio" name="q16" value="2"><span>B. Contribui pouco</span></label>
+          <label class="option"><input type="radio" name="q16" value="3"><span>C. Contribui em parte</span></label>
+          <label class="option"><input type="radio" name="q16" value="4"><span>D. Contribui claramente para retenção e fidelização</span></label>
+        </div>
+      </div>
+
+      <div class="question">
+        <h2>17. O cliente recebe a mesma qualidade de atendimento em todos os canais?</h2>
+        <div class="options">
+          <label class="option"><input type="radio" name="q17" value="1" required><span>A. Não</span></label>
+          <label class="option"><input type="radio" name="q17" value="2"><span>B. Raramente</span></label>
+          <label class="option"><input type="radio" name="q17" value="3"><span>C. Na maior parte das vezes</span></label>
+          <label class="option"><input type="radio" name="q17" value="4"><span>D. Sim, com consistência</span></label>
+        </div>
+      </div>
+
+      <div class="question">
+        <h2>18. Como a empresa lida com retrabalho causado por falhas de atendimento?</h2>
+        <div class="options">
+          <label class="option"><input type="radio" name="q18" value="1" required><span>A. É frequente e não controlado</span></label>
+          <label class="option"><input type="radio" name="q18" value="2"><span>B. Acontece com frequência moderada</span></label>
+          <label class="option"><input type="radio" name="q18" value="3"><span>C. Acontece pouco</span></label>
+          <label class="option"><input type="radio" name="q18" value="4"><span>D. É raro e rapidamente corrigido</span></label>
+        </div>
+      </div>
+
+      <div class="question">
+        <h2>19. O atendimento da empresa é mais reativo ou estratégico?</h2>
+        <div class="options">
+          <label class="option"><input type="radio" name="q19" value="1" required><span>A. Totalmente reativo</span></label>
+          <label class="option"><input type="radio" name="q19" value="2"><span>B. Mais reativo do que estratégico</span></label>
+          <label class="option"><input type="radio" name="q19" value="3"><span>C. Equilibrado</span></label>
+          <label class="option"><input type="radio" name="q19" value="4"><span>D. Estratégico e orientado por processo</span></label>
+        </div>
+      </div>
+
+      <div class="question">
+        <h2>20. Hoje, o atendimento da empresa está em qual estágio?</h2>
+        <div class="options">
+          <label class="option"><input type="radio" name="q20" value="1" required><span>A. Improvisado</span></label>
+          <label class="option"><input type="radio" name="q20" value="2"><span>B. Em organização</span></label>
+          <label class="option"><input type="radio" name="q20" value="3"><span>C. Estruturado parcialmente</span></label>
+          <label class="option"><input type="radio" name="q20" value="4"><span>D. Estruturado e consistente</span></label>
+        </div>
+      </div>
+
+      <div class="cta">
+        <button type="submit" class="btn">Ver meu resultado</button>
+      </div>
+
+      <p class="note">Você será direcionado para o resultado do seu diagnóstico.</p>
+    </form>
+  </div>
+</div>
+
+<script>
+document.getElementById('quizForm').addEventListener('submit', function(e){
+  e.preventDefault();
+
+  let total = 0;
+  const answers = {};
+
+  for(let i = 1; i <= 20; i++){
+    const selected = document.querySelector(`input[name="q${i}"]:checked`);
+    if(!selected){
+      alert('Por favor, responda todas as perguntas antes de continuar.');
+      return;
+    }
+    total += parseInt(selected.value, 10);
+    answers[`q${i}`] = selected.value;
+  }
+
+  localStorage.setItem('trpc_answers', JSON.stringify(answers));
+  localStorage.setItem('trpc_score', total);
+
+  window.location.href = 'resultado.html';
+});
+</script>
+
+</body>
+</html>
