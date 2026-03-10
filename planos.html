@@ -57,12 +57,20 @@
       margin-bottom:14px;
     }
 
+    .section-title.white{
+      color:var(--branco);
+    }
+
     .section-intro{
       max-width:900px;
       margin:0 auto;
       text-align:center;
       font-size:18px;
       color:#304358;
+    }
+
+    .section-intro.white{
+      color:#eef5ff;
     }
 
     .btn{
@@ -86,13 +94,13 @@
 
     .btn-outline{
       background:transparent;
-      color:var(--azul-escuro);
-      border:2px solid var(--azul-escuro);
+      color:var(--branco);
+      border:2px solid var(--branco);
     }
 
     .btn-outline:hover{
-      background:var(--azul-escuro);
-      color:var(--branco);
+      background:var(--branco);
+      color:var(--azul-escuro);
     }
 
     .highlight-box{
@@ -172,16 +180,12 @@
       text-decoration:underline;
     }
 
-    /* HERO */
+    /* HERO SUPERIOR AZUL */
     .hero{
-      background:
-        linear-gradient(rgba(11,42,74,0.78), rgba(11,42,74,0.78)),
-        url("https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1900&q=80");
-      background-size:cover;
-      background-position:center;
+      background:var(--azul-escuro);
       color:var(--branco);
       text-align:center;
-      padding:110px 10%;
+      padding:95px 10%;
     }
 
     .hero h1{
@@ -205,9 +209,14 @@
       margin-top:10px;
     }
 
-    /* PLANOS */
+    /* PLANOS COM IMAGEM AO FUNDO */
     .plans-section{
-      background:var(--cinza);
+      background:
+        linear-gradient(rgba(245,248,252,0.88), rgba(245,248,252,0.88)),
+        url("https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1900&q=80");
+      background-size:cover;
+      background-position:center;
+      background-repeat:no-repeat;
     }
 
     .plans-grid{
@@ -219,7 +228,7 @@
     }
 
     .plan-card{
-      background:var(--branco);
+      background:rgba(255,255,255,0.97);
       border-radius:18px;
       padding:30px 26px;
       box-shadow:var(--sombra);
@@ -307,7 +316,7 @@
       text-align:center;
     }
 
-    /* COMPARAÇÃO */
+    /* BRANCO */
     .compare{
       background:var(--branco);
     }
@@ -366,13 +375,9 @@
       font-size:18px;
     }
 
-    /* COMO FUNCIONA */
+    /* AZUL */
     .process{
-      background:
-        linear-gradient(rgba(245,248,252,0.90), rgba(245,248,252,0.90)),
-        url("https://images.unsplash.com/photo-1521790797524-b2497295b8a0?auto=format&fit=crop&w=1900&q=80");
-      background-size:cover;
-      background-position:center;
+      background:var(--azul-escuro);
     }
 
     .steps{
@@ -418,15 +423,15 @@
       font-weight:700;
     }
 
-    /* OBSERVAÇÕES */
+    /* BRANCO */
     .notes{
-      background:var(--cinza);
+      background:var(--branco);
     }
 
     .notes-box{
       max-width:1040px;
       margin:30px auto 0 auto;
-      background:var(--branco);
+      background:var(--cinza);
       border-radius:16px;
       padding:28px 26px;
       box-shadow:var(--sombra);
@@ -464,7 +469,7 @@
       font-weight:900;
     }
 
-    /* CTA FINAL */
+    /* AZUL */
     .final-cta{
       background:var(--azul-escuro);
       color:var(--branco);
@@ -485,7 +490,6 @@
       font-size:18px;
     }
 
-    /* FOOTER */
     footer{
       background:var(--azul-escuro);
       color:var(--branco);
@@ -494,7 +498,6 @@
       border-top:1px solid rgba(255,255,255,0.15);
     }
 
-    /* RESPONSIVO */
     @media (max-width: 1100px){
       .plans-grid{
         grid-template-columns:1fr;
@@ -753,8 +756,8 @@
 
 <section class="process">
   <div class="container">
-    <h2 class="section-title">Como funciona a implantação</h2>
-    <p class="section-intro">
+    <h2 class="section-title white">Como funciona a implantação</h2>
+    <p class="section-intro white">
       Independentemente do plano escolhido, o objetivo é sempre o mesmo: transformar atendimento em estrutura e resultado.
     </p>
 
@@ -812,7 +815,7 @@
   <div class="container">
     <h2>Antes de escolher o plano, faça seu diagnóstico</h2>
     <p>
-      O diagnóstico ajuda a entender o estágio atual do seu atendimento e mostra com mais clareza qual nível de implantação faz sentido para sua empresa hoje.
+      O diagnóstico ajuda a entender o estágio atual do seu atendimento e mostra com mais clareza qual nível de implantação faz mais sentido para sua empresa hoje.
     </p>
     <a href="diagnostico.html" class="btn">Faça seu diagnóstico agora</a>
   </div>
