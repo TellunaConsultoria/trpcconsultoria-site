@@ -15,7 +15,7 @@
       --cinza:#f4f6f9;
       --texto:#1c1c1c;
       --borda:#e6ebf2;
-      --sombra:0 12px 28px rgba(0,0,0,0.10);
+      --sombra:0 20px 45px rgba(0,0,0,0.18);
     }
 
     *{
@@ -26,9 +26,15 @@
     }
 
     body{
-      background:var(--cinza);
+      background:
+        linear-gradient(rgba(11,42,74,0.85), rgba(11,42,74,0.85)),
+        url("https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1900&q=80");
+      background-size:cover;
+      background-position:center;
+      background-attachment:fixed;
       color:var(--texto);
       line-height:1.6;
+      min-height:100vh;
     }
 
     .page{
@@ -39,11 +45,12 @@
       width:100%;
       max-width:980px;
       margin:0 auto;
-      background:var(--branco);
-      border-radius:18px;
+      background:rgba(255,255,255,0.97);
+      border-radius:20px;
       padding:36px 30px;
       box-shadow:var(--sombra);
-      border:1px solid var(--borda);
+      border:1px solid rgba(255,255,255,0.25);
+      backdrop-filter:blur(2px);
     }
 
     .top-link{
@@ -55,8 +62,12 @@
       font-size:14px;
     }
 
+    .top-link:hover{
+      text-decoration:underline;
+    }
+
     h1{
-      font-size:34px;
+      font-size:36px;
       color:var(--azul-escuro);
       text-align:center;
       font-weight:900;
@@ -71,12 +82,30 @@
       color:#304358;
     }
 
+    .lead-box{
+      max-width:880px;
+      margin:0 auto 26px auto;
+      background:var(--azul-claro);
+      border-radius:14px;
+      padding:18px 20px;
+      box-shadow:0 10px 22px rgba(0,0,0,0.08);
+    }
+
+    .lead-box p{
+      margin:0;
+      color:var(--azul-marinho);
+      font-weight:800;
+      text-align:center;
+      font-size:16px;
+    }
+
     .question{
       border:1px solid var(--borda);
       border-radius:14px;
       padding:22px 20px;
       margin-bottom:18px;
       background:#fff;
+      box-shadow:0 8px 18px rgba(0,0,0,0.04);
     }
 
     .question h2{
@@ -101,6 +130,7 @@
       display:flex;
       gap:10px;
       align-items:flex-start;
+      background:#fff;
     }
 
     .option:hover{
@@ -120,7 +150,7 @@
     }
 
     .cta{
-      margin-top:26px;
+      margin-top:28px;
       text-align:center;
     }
 
@@ -134,6 +164,7 @@
       font-weight:900;
       cursor:pointer;
       transition:.25s;
+      box-shadow:0 10px 20px rgba(31,78,140,0.18);
     }
 
     .btn:hover{
@@ -175,12 +206,18 @@
     <a class="top-link" href="diagnostico.html">← Voltar</a>
 
     <h1>Diagnóstico de Atendimento TR&PC</h1>
+
     <p class="intro">
-      Responda às perguntas com base na realidade atual da sua empresa. Ao final, você verá seu resultado e o nível atual do atendimento.
+      Responda às perguntas com base na realidade atual da sua empresa. Ao final, seu resultado será calculado automaticamente.
     </p>
 
-    <form id="quizForm">
+    <div class="lead-box">
+      <p>
+        Esse diagnóstico avalia estrutura, padrão, comunicação, acompanhamento e maturidade do atendimento da sua empresa.
+      </p>
+    </div>
 
+    <form id="quizForm">
       <div class="question">
         <h2>1. A empresa possui um padrão claro de atendimento?</h2>
         <div class="options">
@@ -382,36 +419,111 @@
       </div>
 
       <div class="cta">
-        <button type="submit" class="btn">Ver meu resultado</button>
+        <button type="submit" class="btn">Ver resultado</button>
       </div>
 
-      <p class="note">Você será direcionado para o resultado do seu diagnóstico.</p>
+      <p class="note">
+        Ao clicar em “Ver resultado”, o diagnóstico será registrado e você será direcionado para a análise final.
+      </p>
     </form>
   </div>
 </div>
 
 <script>
-document.getElementById('quizForm').addEventListener('submit', function(e){
-  e.preventDefault();
+  const form = document.getElementById('quizForm');
 
-  let total = 0;
-  const answers = {};
-
-  for(let i = 1; i <= 20; i++){
-    const selected = document.querySelector(`input[name="q${i}"]:checked`);
-    if(!selected){
-      alert('Por favor, responda todas as perguntas antes de continuar.');
-      return;
+  function classificarResultado(pontuacao) {
+    if (pontuacao >= 20 && pontuacao <= 34) {
+      return {
+        nivel: 'Atendimento Improvisado',
+        resumo: 'A operação depende mais de esforço individual do que de estrutura. Há alto risco de inconsistência e perda silenciosa de clientes.'
+      };
     }
-    total += parseInt(selected.value, 10);
-    answers[`q${i}`] = selected.value;
+
+    if (pontuacao >= 35 && pontuacao <= 49) {
+      return {
+        nivel: 'Atendimento Instável',
+        resumo: 'A empresa já demonstra intenção de organizar o atendimento, mas ainda enfrenta falhas importantes de padrão, alinhamento e consistência.'
+      };
+    }
+
+    if (pontuacao >= 50 && pontuacao <= 64) {
+      return {
+        nivel: 'Atendimento em Organização',
+        resumo: 'Existe uma base relevante, porém ainda há gargalos que impedem o atendimento de se tornar uma vantagem competitiva sustentável.'
+      };
+    }
+
+    if (pontuacao >= 65 && pontuacao <= 74) {
+      return {
+        nivel: 'Atendimento Estruturado',
+        resumo: 'A empresa já possui um atendimento bem organizado, com espaço para refinamento estratégico, fortalecimento cultural e maior previsibilidade.'
+      };
+    }
+
+    return {
+      nivel: 'Atendimento Estratégico',
+      resumo: 'A operação demonstra alta maturidade no atendimento, com estrutura consistente, clareza de processo e forte potencial de escala com qualidade.'
+    };
   }
 
-  localStorage.setItem('trpc_answers', JSON.stringify(answers));
-  localStorage.setItem('trpc_score', total);
+  form.addEventListener('submit', async function(e){
+    e.preventDefault();
 
-  window.location.href = 'resultado.html';
-});
+    for (let i = 1; i <= 20; i++) {
+      const checked = document.querySelector(`input[name="q${i}"]:checked`);
+      if (!checked) {
+        alert('Por favor, responda todas as perguntas antes de continuar.');
+        return;
+      }
+    }
+
+    let pontuacao = 0;
+    const respostas = {};
+
+    for (let i = 1; i <= 20; i++) {
+      const checked = document.querySelector(`input[name="q${i}"]:checked`);
+      const valor = parseInt(checked.value, 10);
+      pontuacao += valor;
+      respostas[`q${i}`] = valor;
+    }
+
+    const classificacao = classificarResultado(pontuacao);
+    const lead = JSON.parse(localStorage.getItem('trpc_lead') || '{}');
+
+    const resultadoFinal = {
+      pontuacao,
+      nivel: classificacao.nivel,
+      resumo: classificacao.resumo
+    };
+
+    localStorage.setItem('trpc_answers', JSON.stringify(respostas));
+    localStorage.setItem('trpc_resultado', JSON.stringify(resultadoFinal));
+
+    const formData = new FormData();
+    formData.append('access_key', 'aa15da2f-79b5-4969-bfbd-3b79ab7fe88b');
+    formData.append('subject', 'Lead qualificado - Resultado Diagnóstico TRPC');
+    formData.append('Nome', lead.nome || '');
+    formData.append('Empresa', lead.empresa || '');
+    formData.append('Email', lead.email || '');
+    formData.append('WhatsApp', lead.whatsapp || '');
+    formData.append('Segmento', lead.segmento || '');
+    formData.append('Colaboradores', lead.colaboradores || '');
+    formData.append('Pontuação', String(pontuacao));
+    formData.append('Nível do diagnóstico', classificacao.nivel);
+    formData.append('Resumo do diagnóstico', classificacao.resumo);
+
+    try {
+      await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData
+      });
+
+      window.location.href = 'resultado.html';
+    } catch (error) {
+      alert('Não foi possível registrar o diagnóstico agora. Tente novamente.');
+    }
+  });
 </script>
 
 </body>
