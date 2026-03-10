@@ -1,109 +1,826 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Planos TR&PC</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Planos TR&PC Consultoria</title>
 
-<style>
-body{font-family:Arial;margin:0;background:#f4f6f9;}
-header{background:#1f4e8c;color:white;padding:20px;text-align:center;}
+  <style>
+    :root{
+      --azul-escuro:#1f4e8c;
+      --azul-medio:#2c6ecb;
+      --azul-claro:#4fa3f7;
+      --azul-marinho:#0B2A4A;
+      --branco:#ffffff;
+      --cinza:#f4f6f9;
+      --cinza-claro:#eef2f7;
+      --texto:#1c1c1c;
+      --borda:#d9e3f0;
+      --sombra:0 18px 40px rgba(0,0,0,0.10);
+    }
 
-.planos{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-gap:30px;
-padding:60px 10%;
-}
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, Helvetica, sans-serif;
+    }
 
-.plano{
-background:white;
-padding:40px;
-border-radius:10px;
-box-shadow:0 5px 15px rgba(0,0,0,0.1);
-text-align:center;
-}
+    html{
+      scroll-behavior:smooth;
+    }
 
-.plano h2{color:#1f4e8c;}
+    body{
+      background:var(--branco);
+      color:var(--texto);
+      line-height:1.6;
+    }
 
-.plano ul{
-list-style:none;
-padding:0;
-text-align:left;
-margin:20px 0;
-}
+    section{
+      padding:78px 10%;
+    }
 
-.plano ul li{
-margin-bottom:10px;
-}
+    .container{
+      max-width:1180px;
+      margin:0 auto;
+    }
 
-.botao{
-display:inline-block;
-padding:15px 25px;
-background:#2c6ecb;
-color:white;
-text-decoration:none;
-border-radius:5px;
-font-weight:bold;
-animation:pulse 1.5s infinite;
-}
+    h1,h2,h3{
+      line-height:1.2;
+    }
 
-@keyframes pulse{
-0%{box-shadow:0 0 0 0 rgba(44,110,203,0.7);}
-70%{box-shadow:0 0 0 20px rgba(44,110,203,0);}
-100%{box-shadow:0 0 0 0 rgba(44,110,203,0);}
-}
+    .section-title{
+      font-size:40px;
+      font-weight:900;
+      text-align:center;
+      color:var(--azul-escuro);
+      margin-bottom:14px;
+    }
 
-.botao:hover{background:#1f4e8c;}
+    .section-intro{
+      max-width:900px;
+      margin:0 auto;
+      text-align:center;
+      font-size:18px;
+      color:#304358;
+    }
 
-</style>
+    .btn{
+      background:var(--azul-medio);
+      color:var(--branco);
+      padding:16px 28px;
+      border:none;
+      border-radius:10px;
+      font-size:18px;
+      font-weight:900;
+      text-decoration:none;
+      display:inline-block;
+      transition:.25s;
+      text-align:center;
+    }
+
+    .btn:hover{
+      background:var(--azul-escuro);
+      transform:translateY(-2px);
+    }
+
+    .btn-outline{
+      background:transparent;
+      color:var(--azul-escuro);
+      border:2px solid var(--azul-escuro);
+    }
+
+    .btn-outline:hover{
+      background:var(--azul-escuro);
+      color:var(--branco);
+    }
+
+    .highlight-box{
+      max-width:980px;
+      margin:28px auto 0 auto;
+      background:var(--azul-claro);
+      border-radius:16px;
+      padding:24px 26px;
+      text-align:center;
+      box-shadow:0 10px 20px rgba(0,0,0,0.08);
+    }
+
+    .highlight-box p{
+      color:var(--azul-marinho);
+      font-size:22px;
+      font-weight:900;
+      line-height:1.45;
+      margin:0;
+    }
+
+    /* HEADER */
+    header{
+      background:var(--branco);
+      padding:18px 10%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:20px;
+      border-bottom:1px solid var(--borda);
+      position:sticky;
+      top:0;
+      z-index:100;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width:0;
+    }
+
+    .brand img{
+      height:56px;
+      width:auto;
+    }
+
+    .brand-title{
+      font-size:42px;
+      font-weight:900;
+      color:var(--azul-escuro);
+      line-height:1;
+      white-space:nowrap;
+    }
+
+    .brand-slogan{
+      font-size:14px;
+      font-weight:700;
+      color:var(--azul-escuro);
+      margin-top:6px;
+      line-height:1.1;
+    }
+
+    nav{
+      display:flex;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    nav a{
+      text-decoration:none;
+      color:var(--azul-escuro);
+      font-weight:800;
+      font-size:14px;
+    }
+
+    nav a:hover{
+      text-decoration:underline;
+    }
+
+    /* HERO */
+    .hero{
+      background:
+        linear-gradient(rgba(11,42,74,0.78), rgba(11,42,74,0.78)),
+        url("https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1900&q=80");
+      background-size:cover;
+      background-position:center;
+      color:var(--branco);
+      text-align:center;
+      padding:110px 10%;
+    }
+
+    .hero h1{
+      font-size:54px;
+      font-weight:900;
+      margin-bottom:14px;
+    }
+
+    .hero p{
+      max-width:860px;
+      margin:0 auto 24px auto;
+      font-size:19px;
+      color:#eef5ff;
+    }
+
+    .hero-actions{
+      display:flex;
+      justify-content:center;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-top:10px;
+    }
+
+    /* PLANOS */
+    .plans-section{
+      background:var(--cinza);
+    }
+
+    .plans-grid{
+      margin-top:34px;
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:26px;
+      align-items:stretch;
+    }
+
+    .plan-card{
+      background:var(--branco);
+      border-radius:18px;
+      padding:30px 26px;
+      box-shadow:var(--sombra);
+      border:1px solid #e5edf8;
+      display:flex;
+      flex-direction:column;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .plan-card.featured{
+      border:2px solid var(--azul-claro);
+      transform:translateY(-4px);
+    }
+
+    .plan-badge{
+      position:absolute;
+      top:18px;
+      right:18px;
+      background:var(--azul-claro);
+      color:var(--azul-marinho);
+      font-size:12px;
+      font-weight:900;
+      padding:8px 10px;
+      border-radius:999px;
+      text-transform:uppercase;
+      letter-spacing:.4px;
+    }
+
+    .plan-title{
+      color:var(--azul-escuro);
+      font-size:20px;
+      font-weight:900;
+      margin-bottom:8px;
+      text-align:center;
+    }
+
+    .plan-subtitle{
+      color:#50657d;
+      font-size:15px;
+      text-align:center;
+      margin-bottom:22px;
+      min-height:48px;
+    }
+
+    .plan-list{
+      list-style:none;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      margin-bottom:24px;
+      flex:1;
+    }
+
+    .plan-list li{
+      display:flex;
+      align-items:flex-start;
+      gap:10px;
+      color:var(--azul-marinho);
+      font-size:16px;
+      font-weight:700;
+      line-height:1.35;
+    }
+
+    .plan-list li::before{
+      content:"✔";
+      color:var(--azul-medio);
+      font-weight:900;
+      margin-top:1px;
+    }
+
+    .plan-note{
+      background:#f5f9ff;
+      border:1px solid #e1ebfb;
+      border-radius:12px;
+      padding:14px 14px;
+      margin-bottom:20px;
+      color:#304358;
+      font-size:14px;
+      font-weight:700;
+      text-align:center;
+    }
+
+    .plan-actions{
+      text-align:center;
+    }
+
+    /* COMPARAÇÃO */
+    .compare{
+      background:var(--branco);
+    }
+
+    .compare-table-wrap{
+      overflow-x:auto;
+      margin-top:30px;
+    }
+
+    table.compare-table{
+      width:100%;
+      border-collapse:collapse;
+      min-width:920px;
+      background:var(--branco);
+      border-radius:18px;
+      overflow:hidden;
+      box-shadow:var(--sombra);
+    }
+
+    .compare-table th,
+    .compare-table td{
+      padding:18px 16px;
+      border-bottom:1px solid #e9eef6;
+      text-align:center;
+      font-size:15px;
+    }
+
+    .compare-table th:first-child,
+    .compare-table td:first-child{
+      text-align:left;
+      font-weight:800;
+      color:var(--azul-marinho);
+      width:34%;
+    }
+
+    .compare-table thead th{
+      background:var(--azul-escuro);
+      color:var(--branco);
+      font-size:17px;
+      font-weight:900;
+    }
+
+    .compare-table tbody tr:nth-child(even){
+      background:#f9fbff;
+    }
+
+    .yes{
+      color:#1e8a3d;
+      font-weight:900;
+      font-size:18px;
+    }
+
+    .partial{
+      color:var(--azul-escuro);
+      font-weight:900;
+      font-size:18px;
+    }
+
+    /* COMO FUNCIONA */
+    .process{
+      background:
+        linear-gradient(rgba(245,248,252,0.90), rgba(245,248,252,0.90)),
+        url("https://images.unsplash.com/photo-1521790797524-b2497295b8a0?auto=format&fit=crop&w=1900&q=80");
+      background-size:cover;
+      background-position:center;
+    }
+
+    .steps{
+      display:grid;
+      grid-template-columns:repeat(4, 1fr);
+      gap:20px;
+      margin-top:34px;
+    }
+
+    .step{
+      background:rgba(255,255,255,0.96);
+      border:1px solid #e5edf8;
+      border-radius:16px;
+      padding:24px 20px;
+      box-shadow:0 10px 22px rgba(0,0,0,0.06);
+      text-align:center;
+    }
+
+    .step-number{
+      width:48px;
+      height:48px;
+      margin:0 auto 14px auto;
+      border-radius:999px;
+      background:var(--azul-claro);
+      color:var(--azul-marinho);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:900;
+      font-size:20px;
+    }
+
+    .step h3{
+      color:var(--azul-escuro);
+      font-size:20px;
+      margin-bottom:10px;
+      font-weight:900;
+    }
+
+    .step p{
+      color:#41556c;
+      font-size:15px;
+      font-weight:700;
+    }
+
+    /* OBSERVAÇÕES */
+    .notes{
+      background:var(--cinza);
+    }
+
+    .notes-box{
+      max-width:1040px;
+      margin:30px auto 0 auto;
+      background:var(--branco);
+      border-radius:16px;
+      padding:28px 26px;
+      box-shadow:var(--sombra);
+      border:1px solid #e5edf8;
+    }
+
+    .notes-box h3{
+      color:var(--azul-escuro);
+      font-size:24px;
+      margin-bottom:16px;
+      font-weight:900;
+      text-align:center;
+    }
+
+    .notes-list{
+      list-style:none;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px 22px;
+    }
+
+    .notes-list li{
+      color:#304358;
+      font-size:15px;
+      font-weight:700;
+      line-height:1.4;
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+    }
+
+    .notes-list li::before{
+      content:"•";
+      color:var(--azul-medio);
+      font-weight:900;
+    }
+
+    /* CTA FINAL */
+    .final-cta{
+      background:var(--azul-escuro);
+      color:var(--branco);
+      text-align:center;
+    }
+
+    .final-cta h2{
+      color:var(--branco);
+      font-size:40px;
+      font-weight:900;
+      margin-bottom:14px;
+    }
+
+    .final-cta p{
+      max-width:900px;
+      margin:0 auto 24px auto;
+      color:#eef5ff;
+      font-size:18px;
+    }
+
+    /* FOOTER */
+    footer{
+      background:var(--azul-escuro);
+      color:var(--branco);
+      text-align:center;
+      padding:24px 10%;
+      border-top:1px solid rgba(255,255,255,0.15);
+    }
+
+    /* RESPONSIVO */
+    @media (max-width: 1100px){
+      .plans-grid{
+        grid-template-columns:1fr;
+      }
+
+      .steps{
+        grid-template-columns:1fr 1fr;
+      }
+
+      .notes-list{
+        grid-template-columns:1fr;
+      }
+
+      .plan-card.featured{
+        transform:none;
+      }
+    }
+
+    @media (max-width: 860px){
+      header{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+
+      .brand-title{
+        font-size:34px;
+        white-space:normal;
+      }
+
+      .hero h1{
+        font-size:38px;
+      }
+
+      .section-title,
+      .final-cta h2{
+        font-size:30px;
+      }
+
+      .section-intro,
+      .hero p,
+      .final-cta p{
+        font-size:16px;
+      }
+
+      .steps{
+        grid-template-columns:1fr;
+      }
+
+      .highlight-box p{
+        font-size:18px;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
 <header>
-<h1>Nossos Planos de Transformação</h1>
+  <div class="brand">
+    <img src="assets/logo.png" alt="Logo TR&PC">
+    <div>
+      <div class="brand-title">TR&amp;PC CONSULTORIA</div>
+      <div class="brand-slogan">Atendimento que resolve. Cultura que sustenta resultados.</div>
+    </div>
+  </div>
+
+  <nav>
+    <a href="index.html">Início</a>
+    <a href="planos.html">Planos</a>
+    <a href="diagnostico.html">Diagnóstico</a>
+    <a href="index.html#contato">Contato</a>
+  </nav>
 </header>
 
-<section class="planos">
+<section class="hero">
+  <div class="container">
+    <h1>Nossos Planos de Transformação</h1>
+    <p>
+      Estruturamos atendimento, processos, liderança e acompanhamento para empresas que querem sair do improviso e transformar atendimento em resultado real.
+    </p>
 
-<div class="plano">
-<h2>Essencial</h2>
-<ul>
-<li>Diagnóstico Estratégico</li>
-<li>Treinamento Base</li>
-<li>Padronização de Atendimento</li>
-<li>Alinhamento com Liderança</li>
-<li>30 dias de suporte</li>
-</ul>
-<a href="https://wa.me/5516992005854" class="botao">Agende seu Diagnóstico</a>
-</div>
-
-<div class="plano">
-<h2>Estratégico</h2>
-<ul>
-<li>Diagnóstico Profundo</li>
-<li>Treinamentos Avançados</li>
-<li>Recrutamento Estratégico</li>
-<li>Desenvolvimento de Liderança</li>
-<li>Plano de 90 dias</li>
-</ul>
-<a href="https://wa.me/5516992005854" class="botao">Agende seu Diagnóstico</a>
-</div>
-
-<div class="plano">
-<h2>Transformação Completa</h2>
-<ul>
-<li>Diagnóstico 360°</li>
-<li>Redesenho de Atendimento</li>
-<li>Implantação de Cultura</li>
-<li>Acompanhamento Executivo</li>
-<li>Treinamento Contínuo</li>
-</ul>
-<a href="https://wa.me/5516992005854" class="botao">Agende seu Diagnóstico</a>
-</div>
-
+    <div class="hero-actions">
+      <a href="diagnostico.html" class="btn">Faça seu diagnóstico agora</a>
+      <a href="#comparacao" class="btn btn-outline">Comparar planos</a>
+    </div>
+  </div>
 </section>
+
+<section class="plans-section">
+  <div class="container">
+    <h2 class="section-title">Planos pensados para diferentes níveis de necessidade</h2>
+    <p class="section-intro">
+      Cada plano foi desenhado para empresas que dependem de atendimento presencial, online ou telefônico e precisam evoluir pessoas, processo e cultura com método.
+    </p>
+
+    <div class="highlight-box">
+      <p>Você não está contratando apenas treinamento. Está contratando diagnóstico, estrutura, implantação e acompanhamento.</p>
+    </div>
+
+    <div class="plans-grid">
+      <div class="plan-card">
+        <div class="plan-title">Plano Essencial</div>
+        <div class="plan-subtitle">
+          Para empresas que precisam organizar a base do atendimento e corrigir falhas iniciais com rapidez.
+        </div>
+
+        <ul class="plan-list">
+          <li>Diagnóstico dos principais problemas do atendimento</li>
+          <li>1 rodada de cliente oculto</li>
+          <li>Treinamento presencial de 4h</li>
+          <li>Roteiros, manuais e scripts personalizados</li>
+          <li>1 sessão de alinhamento com gestor</li>
+        </ul>
+
+        <div class="plan-note">
+          Indicado para quem precisa sair do improviso e implantar um padrão inicial com mais segurança.
+        </div>
+
+        <div class="plan-actions">
+          <a href="diagnostico.html" class="btn">Faça seu diagnóstico agora</a>
+        </div>
+      </div>
+
+      <div class="plan-card featured">
+        <div class="plan-badge">Mais estratégico</div>
+        <div class="plan-title">Plano Estruturação</div>
+        <div class="plan-subtitle">
+          Para empresas que já entenderam a dor e agora precisam estruturar atendimento com mais profundidade.
+        </div>
+
+        <ul class="plan-list">
+          <li>Inclui tudo do Plano Essencial</li>
+          <li>Consultoria de processos de atendimento</li>
+          <li>Implantação de indicadores de desempenho (KPIs)</li>
+          <li>Sessão de feedback final com plano de ação</li>
+          <li>Acompanhamento por 30 dias</li>
+        </ul>
+
+        <div class="plan-note">
+          Ideal para empresas que querem transformar atendimento em processo, previsibilidade e melhoria contínua.
+        </div>
+
+        <div class="plan-actions">
+          <a href="diagnostico.html" class="btn">Faça seu diagnóstico agora</a>
+        </div>
+      </div>
+
+      <div class="plan-card">
+        <div class="plan-title">Plano Transformação Completa</div>
+        <div class="plan-subtitle">
+          Para empresas que precisam de uma mudança mais ampla, com profundidade, consistência e acompanhamento.
+        </div>
+
+        <ul class="plan-list">
+          <li>Diagnóstico 360° do atendimento</li>
+          <li>4 rodadas de cliente oculto</li>
+          <li>Redesenho da operação de atendimento</li>
+          <li>Implantação de cultura e rotina de acompanhamento</li>
+          <li>Treinamento contínuo e suporte ampliado</li>
+        </ul>
+
+        <div class="plan-note">
+          Recomendado para operações que querem reposicionar atendimento como diferencial competitivo real.
+        </div>
+
+        <div class="plan-actions">
+          <a href="diagnostico.html" class="btn">Faça seu diagnóstico agora</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="compare" id="comparacao">
+  <div class="container">
+    <h2 class="section-title">Comparação dos planos</h2>
+    <p class="section-intro">
+      Aqui você visualiza com mais clareza o nível de profundidade de cada implantação.
+    </p>
+
+    <div class="compare-table-wrap">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>Entregas</th>
+            <th>Essencial</th>
+            <th>Estruturação</th>
+            <th>Transformação Completa</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Diagnóstico dos problemas</td>
+            <td><span class="yes">✔</span></td>
+            <td><span class="yes">✔</span></td>
+            <td><span class="yes">✔</span></td>
+          </tr>
+          <tr>
+            <td>Cliente oculto</td>
+            <td><span class="partial">1 rodada</span></td>
+            <td><span class="partial">1 rodada</span></td>
+            <td><span class="partial">4 rodadas</span></td>
+          </tr>
+          <tr>
+            <td>Treinamento presencial</td>
+            <td><span class="yes">✔</span></td>
+            <td><span class="yes">✔</span></td>
+            <td><span class="yes">✔</span></td>
+          </tr>
+          <tr>
+            <td>Roteiros, manuais e scripts personalizados</td>
+            <td><span class="yes">✔</span></td>
+            <td><span class="yes">✔</span></td>
+            <td><span class="yes">✔</span></td>
+          </tr>
+          <tr>
+            <td>Alinhamento com gestor</td>
+            <td><span class="yes">✔</span></td>
+            <td><span class="yes">✔</span></td>
+            <td><span class="yes">✔</span></td>
+          </tr>
+          <tr>
+            <td>Consultoria de processos de atendimento</td>
+            <td>—</td>
+            <td><span class="yes">✔</span></td>
+            <td><span class="yes">✔</span></td>
+          </tr>
+          <tr>
+            <td>Implantação de indicadores de desempenho (KPIs)</td>
+            <td>—</td>
+            <td><span class="yes">✔</span></td>
+            <td><span class="yes">✔</span></td>
+          </tr>
+          <tr>
+            <td>Feedback final com plano de ação</td>
+            <td>—</td>
+            <td><span class="yes">✔</span></td>
+            <td><span class="yes">✔</span></td>
+          </tr>
+          <tr>
+            <td>Acompanhamento por 30 dias</td>
+            <td>—</td>
+            <td><span class="yes">✔</span></td>
+            <td><span class="yes">✔</span></td>
+          </tr>
+          <tr>
+            <td>Suporte contínuo e acompanhamento ampliado</td>
+            <td>—</td>
+            <td>Parcial</td>
+            <td><span class="yes">✔</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="process">
+  <div class="container">
+    <h2 class="section-title">Como funciona a implantação</h2>
+    <p class="section-intro">
+      Independentemente do plano escolhido, o objetivo é sempre o mesmo: transformar atendimento em estrutura e resultado.
+    </p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-number">1</div>
+        <h3>Diagnóstico</h3>
+        <p>Entendemos o cenário atual, identificamos gargalos e lemos os pontos críticos da operação.</p>
+      </div>
+
+      <div class="step">
+        <div class="step-number">2</div>
+        <h3>Estruturação</h3>
+        <p>Organizamos padrão de atendimento, comunicação, scripts, liderança e rotina de execução.</p>
+      </div>
+
+      <div class="step">
+        <div class="step-number">3</div>
+        <h3>Implantação</h3>
+        <p>Aplicamos treinamento, alinhamos a equipe e colocamos o método em prática dentro da operação.</p>
+      </div>
+
+      <div class="step">
+        <div class="step-number">4</div>
+        <h3>Acompanhamento</h3>
+        <p>Medimos evolução, corrigimos falhas e sustentamos o que foi implantado com mais consistência.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="notes">
+  <div class="container">
+    <h2 class="section-title">Observações importantes</h2>
+    <p class="section-intro">
+      Algumas definições podem variar de acordo com cidade, estrutura da equipe e profundidade da implantação.
+    </p>
+
+    <div class="notes-box">
+      <h3>Condições gerais dos planos</h3>
+
+      <ul class="notes-list">
+        <li>Deslocamento incluso dentro da cidade. Para cidades vizinhas, o adicional pode ser consultado.</li>
+        <li>Entrega de materiais em formato digital, com possibilidade de apoio complementar conforme necessidade.</li>
+        <li>Treinamentos podem ser ajustados para horário comercial ou em horários específicos, mediante alinhamento.</li>
+        <li>O acompanhamento pode incluir suporte remoto, esclarecimento de dúvidas e reforço dos métodos implantados.</li>
+        <li>O diagnóstico inicial ajuda a indicar qual plano faz mais sentido para o estágio atual da empresa.</li>
+        <li>A escolha do plano ideal depende menos do porte e mais do nível de estrutura atual do atendimento.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="final-cta">
+  <div class="container">
+    <h2>Antes de escolher o plano, faça seu diagnóstico</h2>
+    <p>
+      O diagnóstico ajuda a entender o estágio atual do seu atendimento e mostra com mais clareza qual nível de implantação faz sentido para sua empresa hoje.
+    </p>
+    <a href="diagnostico.html" class="btn">Faça seu diagnóstico agora</a>
+  </div>
+</section>
+
+<footer>
+  © 2026 TR&amp;PC Consultoria
+</footer>
 
 </body>
 </html>
