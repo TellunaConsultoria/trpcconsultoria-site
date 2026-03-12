@@ -25,9 +25,7 @@
       font-family:Arial, Helvetica, sans-serif;
     }
 
-    html{
-      scroll-behavior:smooth;
-    }
+    html{scroll-behavior:smooth;}
 
     body{
       background:var(--branco);
@@ -35,14 +33,8 @@
       line-height:1.6;
     }
 
-    section{
-      padding:78px 10%;
-    }
-
-    .container{
-      max-width:1120px;
-      margin:0 auto;
-    }
+    section{padding:78px 10%;}
+    .container{max-width:1120px;margin:0 auto;}
 
     h2{
       font-size:36px;
@@ -68,6 +60,9 @@
       align-items:center;
       gap:20px;
       border-bottom:1px solid var(--borda);
+      position:sticky;
+      top:0;
+      z-index:100;
     }
 
     .brand{
@@ -80,6 +75,8 @@
     .brand img{
       height:56px;
       width:auto;
+      display:block;
+      flex:0 0 auto;
     }
 
     .brand-title{
@@ -112,9 +109,7 @@
       font-size:14px;
     }
 
-    nav a:hover{
-      text-decoration:underline;
-    }
+    nav a:hover{text-decoration:underline;}
 
     @keyframes pulseGlow{
       0%,100%{transform:translateY(0); box-shadow:0 0 0 rgba(0,0,0,0);}
@@ -177,10 +172,7 @@
       padding:140px 10%;
     }
 
-    .hero-content{
-      max-width:920px;
-      margin:0 auto;
-    }
+    .hero-content{max-width:920px;margin:0 auto;}
 
     .hero h1{
       font-size:54px;
@@ -196,9 +188,7 @@
       opacity:.96;
     }
 
-    .problem-real{
-      background:var(--branco);
-    }
+    .problem-real{background:var(--branco);}
 
     .problem-grid{
       display:grid;
@@ -354,13 +344,8 @@
       line-height:1.35;
     }
 
-    .method{
-      background:var(--cinza);
-    }
-
-    .metodo-wrap{
-      margin-top:18px;
-    }
+    .method{background:var(--cinza);}
+    .metodo-wrap{margin-top:18px;}
 
     .metodo-grid{
       display:grid;
@@ -382,9 +367,7 @@
       overflow:visible;
     }
 
-    .metodo-item:hover{
-      transform:translateY(-2px);
-    }
+    .metodo-item:hover{transform:translateY(-2px);}
 
     .metodo-item .title{
       display:block;
@@ -401,7 +384,7 @@
       transform:translateX(-50%);
       background:#0f172a;
       color:#fff;
-      padding:12px 12px;
+      padding:12px;
       border-radius:8px;
       width:240px;
       font-size:13px;
@@ -434,9 +417,7 @@
       text-align:center;
     }
 
-    .final-cta h2{
-      color:var(--branco);
-    }
+    .final-cta h2{color:var(--branco);}
 
     footer{
       background:var(--azul-escuro);
@@ -468,74 +449,26 @@
     }
 
     @media (max-width: 1100px){
-      .problem-grid,
-      .what-grid{
-        grid-template-columns:1fr;
-      }
-
-      .metodo-grid{
-        grid-template-columns:repeat(2, minmax(180px, 1fr));
-      }
+      .problem-grid,.what-grid{grid-template-columns:1fr;}
+      .metodo-grid{grid-template-columns:repeat(2, minmax(180px, 1fr));}
     }
 
     @media (max-width: 900px){
-      .hero{
-        padding:90px 8%;
-      }
-
-      .hero h1{
-        font-size:36px;
-      }
-
-      .brand-title{
-        font-size:34px;
-        white-space:normal;
-      }
-
-      nav{
-        justify-content:flex-start;
-      }
+      .hero{padding:90px 8%;}
+      .hero h1{font-size:36px;}
+      .brand-title{font-size:34px;white-space:normal;}
+      nav{justify-content:flex-start;}
     }
 
     @media (max-width: 860px){
-      header{
-        flex-direction:column;
-        align-items:flex-start;
-      }
-
-      .brand-slogan{
-        font-size:16px;
-      }
-
-      h2{
-        font-size:28px;
-      }
-
-      .hero p,
-      .section-intro,
-      .authority p{
-        font-size:16px;
-      }
-
-      .highlight-box p,
-      .authority-highlight p{
-        font-size:18px;
-      }
-
-      .problem-card h3,
-      .what-card h3{
-        font-size:22px;
-      }
-
-      .problem-list li,
-      .what-list li{
-        font-size:16px;
-      }
-
-      .btn{
-        font-size:18px;
-        padding:16px 28px;
-      }
+      header{flex-direction:column;align-items:flex-start;}
+      .brand-slogan{font-size:16px;}
+      h2{font-size:28px;}
+      .hero p,.section-intro,.authority p{font-size:16px;}
+      .highlight-box p,.authority-highlight p{font-size:18px;}
+      .problem-card h3,.what-card h3{font-size:22px;}
+      .problem-list li,.what-list li{font-size:16px;}
+      .btn{font-size:18px;padding:16px 28px;}
     }
   </style>
 </head>
@@ -543,7 +476,7 @@
 
 <header>
   <div class="brand">
-    <img src="assets/logo.png" alt="Logo TR&PC">
+    <img src="logo.png" alt="Logo TR&PC">
     <div>
       <div class="brand-title">TR&amp;PC CONSULTORIA</div>
       <div class="brand-slogan">Atendimento que resolve. Cultura que sustenta resultados.</div>
@@ -564,9 +497,7 @@
     <p>
       A TR&amp;PC estrutura pessoas, processos e cultura para transformar atendimento em resultado real dentro da sua empresa.
     </p>
-    <a href="diagnostico.html" class="btn pulse blink">
-      Faça seu diagnóstico agora
-    </a>
+    <a href="diagnostico.html" class="btn pulse blink">Faça seu diagnóstico agora</a>
   </div>
 </section>
 
@@ -609,12 +540,8 @@
   <div class="authority-inner">
     <h2>Experiência que sustenta resultado</h2>
     <p><strong>+20 anos de experiência combinada em Gestão de Pessoas e Gestão Comercial.</strong></p>
-    <p>
-      Ao longo de duas décadas desenvolvendo equipes e estruturando processos, acompanhamos de perto os desafios reais das empresas.
-    </p>
-    <p>
-      Rotatividade, falhas de comunicação, atendimento improvisado e perda de clientes por falta de padrão.
-    </p>
+    <p>Ao longo de duas décadas desenvolvendo equipes e estruturando processos, acompanhamos de perto os desafios reais das empresas.</p>
+    <p>Rotatividade, falhas de comunicação, atendimento improvisado e perda de clientes por falta de padrão.</p>
 
     <div class="authority-highlight pulse blink">
       <p>A TR&amp;PC nasce dessa vivência transformando experiência real em método estratégico aplicado.</p>
@@ -729,9 +656,7 @@
       Descubra o nível atual do atendimento da sua empresa e entenda onde estão os pontos de melhoria mais urgentes.
     </p>
     <div style="margin-top:18px;text-align:center;">
-      <a href="diagnostico.html" class="btn pulse blink">
-        Faça seu diagnóstico agora
-      </a>
+      <a href="diagnostico.html" class="btn pulse blink">Faça seu diagnóstico agora</a>
     </div>
   </div>
 </section>
