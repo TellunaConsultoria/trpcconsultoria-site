@@ -26,9 +26,7 @@
       font-family:Arial, Helvetica, sans-serif;
     }
 
-    html{
-      scroll-behavior:smooth;
-    }
+    html{scroll-behavior:smooth;}
 
     body{
       background:var(--branco);
@@ -36,18 +34,9 @@
       line-height:1.6;
     }
 
-    section{
-      padding:78px 10%;
-    }
-
-    .container{
-      max-width:1180px;
-      margin:0 auto;
-    }
-
-    h1,h2,h3{
-      line-height:1.2;
-    }
+    section{padding:78px 10%;}
+    .container{max-width:1180px;margin:0 auto;}
+    h1,h2,h3{line-height:1.2;}
 
     .section-title{
       font-size:40px;
@@ -57,9 +46,7 @@
       margin-bottom:14px;
     }
 
-    .section-title.white{
-      color:var(--branco);
-    }
+    .section-title.white{color:var(--branco);}
 
     .section-intro{
       max-width:900px;
@@ -69,9 +56,7 @@
       color:#304358;
     }
 
-    .section-intro.white{
-      color:#eef5ff;
-    }
+    .section-intro.white{color:#eef5ff;}
 
     .btn{
       background:var(--azul-medio);
@@ -144,6 +129,8 @@
     .brand img{
       height:56px;
       width:auto;
+      display:block;
+      flex:0 0 auto;
     }
 
     .brand-title{
@@ -175,9 +162,7 @@
       font-size:14px;
     }
 
-    nav a:hover{
-      text-decoration:underline;
-    }
+    nav a:hover{text-decoration:underline;}
 
     .hero{
       background:var(--azul-escuro);
@@ -207,7 +192,6 @@
       margin-top:10px;
     }
 
-    /* MAIS ESCURO / MAIS AZUL */
     .plans-section{
       background:
         linear-gradient(rgba(15, 46, 86, 0.68), rgba(15, 46, 86, 0.68)),
@@ -302,7 +286,7 @@
       background:#f5f9ff;
       border:1px solid #e1ebfb;
       border-radius:12px;
-      padding:14px 14px;
+      padding:14px;
       margin-bottom:20px;
       color:#304358;
       font-size:14px;
@@ -310,14 +294,9 @@
       text-align:center;
     }
 
-    .plan-actions{
-      text-align:center;
-    }
+    .plan-actions{text-align:center;}
 
-    .compare{
-      background:var(--branco);
-    }
-
+    .compare{background:var(--branco);}
     .compare-table-wrap{
       overflow-x:auto;
       margin-top:30px;
@@ -356,9 +335,7 @@
       font-weight:900;
     }
 
-    .compare-table tbody tr:nth-child(even){
-      background:#f9fbff;
-    }
+    .compare-table tbody tr:nth-child(even){background:#f9fbff;}
 
     .yes{
       color:#1e8a3d;
@@ -372,9 +349,7 @@
       font-size:18px;
     }
 
-    .process{
-      background:var(--azul-escuro);
-    }
+    .process{background:var(--azul-escuro);}
 
     .steps{
       display:grid;
@@ -419,9 +394,7 @@
       font-weight:700;
     }
 
-    .notes{
-      background:var(--branco);
-    }
+    .notes{background:var(--branco);}
 
     .notes-box{
       max-width:1040px;
@@ -493,56 +466,20 @@
     }
 
     @media (max-width: 1100px){
-      .plans-grid{
-        grid-template-columns:1fr;
-      }
-
-      .steps{
-        grid-template-columns:1fr 1fr;
-      }
-
-      .notes-list{
-        grid-template-columns:1fr;
-      }
-
-      .plan-card.featured{
-        transform:none;
-      }
+      .plans-grid{grid-template-columns:1fr;}
+      .steps{grid-template-columns:1fr 1fr;}
+      .notes-list{grid-template-columns:1fr;}
+      .plan-card.featured{transform:none;}
     }
 
     @media (max-width: 860px){
-      header{
-        flex-direction:column;
-        align-items:flex-start;
-      }
-
-      .brand-title{
-        font-size:34px;
-        white-space:normal;
-      }
-
-      .hero h1{
-        font-size:38px;
-      }
-
-      .section-title,
-      .final-cta h2{
-        font-size:30px;
-      }
-
-      .section-intro,
-      .hero p,
-      .final-cta p{
-        font-size:16px;
-      }
-
-      .steps{
-        grid-template-columns:1fr;
-      }
-
-      .highlight-box p{
-        font-size:18px;
-      }
+      header{flex-direction:column;align-items:flex-start;}
+      .brand-title{font-size:34px;white-space:normal;}
+      .hero h1{font-size:38px;}
+      .section-title,.final-cta h2{font-size:30px;}
+      .section-intro,.hero p,.final-cta p{font-size:16px;}
+      .steps{grid-template-columns:1fr;}
+      .highlight-box p{font-size:18px;}
     }
   </style>
 </head>
@@ -550,7 +487,7 @@
 
 <header>
   <div class="brand">
-    <img src="assets/logo.png" alt="Logo TR&PC">
+    <img src="logo.png" alt="Logo TR&PC">
     <div>
       <div class="brand-title">TR&amp;PC CONSULTORIA</div>
       <div class="brand-slogan">Atendimento que resolve. Cultura que sustenta resultados.</div>
@@ -792,7 +729,6 @@
 
     <div class="notes-box">
       <h3>Condições gerais dos planos</h3>
-
       <ul class="notes-list">
         <li>Deslocamento incluso dentro da cidade. Para cidades vizinhas, o adicional pode ser consultado.</li>
         <li>Entrega de materiais em formato digital, com possibilidade de apoio complementar conforme necessidade.</li>
@@ -815,9 +751,7 @@
   </div>
 </section>
 
-<footer>
-  © 2026 TR&amp;PC Consultoria
-</footer>
+<footer>© 2026 TR&amp;PC Consultoria</footer>
 
 </body>
 </html>
