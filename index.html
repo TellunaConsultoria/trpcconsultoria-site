@@ -5,540 +5,670 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TR&PC Consultoria</title>
 
-  <!-- Fonte Raleway -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-
   <style>
     :root{
-      --azul-principal:#2E5D98;
-      --azul-marinho:#17385F;
-      --azul-hover:#244C7E;
-      --azul-claro:#5E95D8;
-
-      --verde-consultivo:#7D8F78;
-      --verde-hover:#6D7E68;
-      --verde-claro:#A8B7A2;
-
-      --off-white:#F8F9F7;
-      --cinza-gelo:#EEF1EE;
-      --cinza-borda:#D9DFDA;
-      --cinza-texto:#4B5B54;
-      --branco:#FFFFFF;
-
-      --sombra-suave:0 8px 22px rgba(23,56,95,0.08);
-      --sombra-media:0 14px 34px rgba(23,56,95,0.10);
-      --radius:18px;
-      --container:1180px;
-      --transicao:.25s ease;
+      --azul-escuro:#1f4e8c;
+      --azul-medio:#2c6ecb;
+      --azul-claro:#4fa3f7;
+      --azul-marinho:#0B2A4A;
+      --branco:#ffffff;
+      --cinza:#f4f6f9;
+      --texto:#1c1c1c;
+      --borda:#e6ebf2;
+      --sombra:0 12px 28px rgba(0,0,0,0.10);
     }
 
     *{
       margin:0;
       padding:0;
       box-sizing:border-box;
+      font-family:Arial, Helvetica, sans-serif;
     }
 
-    html{
-      scroll-behavior:smooth;
-    }
+    html{scroll-behavior:smooth;}
 
     body{
-      font-family:'Raleway', sans-serif;
-      background:var(--off-white);
-      color:var(--cinza-texto);
-      line-height:1.6;
-      -webkit-font-smoothing:antialiased;
-      text-rendering:optimizeLegibility;
-    }
-
-    img{
-      max-width:100%;
-      display:block;
-    }
-
-    a{
-      text-decoration:none;
-    }
-
-    .container{
-      width:min(var(--container), calc(100% - 40px));
-      margin:0 auto;
-    }
-
-    .section{
-      padding:84px 0;
-    }
-
-    .section-light{
-      background:var(--off-white);
-    }
-
-    .section-white{
       background:var(--branco);
+      color:var(--texto);
+      line-height:1.6;
     }
 
-    .section-blue{
-      background:var(--azul-marinho);
-      color:var(--branco);
-    }
+    section{padding:78px 10%;}
+    .container{max-width:1120px;margin:0 auto;}
 
-    .section-title{
-      font-size:clamp(30px, 4vw, 46px);
-      font-weight:800;
-      letter-spacing:.3px;
-      line-height:1.15;
+    h2{
+      font-size:36px;
+      font-weight:900;
+      margin-bottom:16px;
+      color:var(--azul-escuro);
       text-align:center;
-      color:var(--azul-marinho);
-      margin-bottom:14px;
     }
 
-    .section-title.light{
-      color:var(--branco);
-    }
-
-    .section-text{
-      max-width:860px;
-      margin:0 auto;
+    .section-intro{
+      max-width:900px;
+      margin:0 auto 28px auto;
       text-align:center;
       font-size:18px;
-      color:var(--cinza-texto);
+      color:#2d3c50;
     }
 
-    .section-text.light{
-      color:#E7EEF7;
-    }
-
-    .eyebrow{
-      display:inline-flex;
+    header{
+      background:var(--branco);
+      padding:18px 10%;
+      display:flex;
+      justify-content:space-between;
       align-items:center;
-      gap:8px;
-      padding:8px 14px;
-      border-radius:999px;
-      background:rgba(125,143,120,0.12);
-      color:var(--verde-hover);
-      font-size:12px;
-      font-weight:800;
-      letter-spacing:1px;
-      text-transform:uppercase;
-      margin-bottom:16px;
-    }
-
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      min-height:54px;
-      padding:0 28px;
-      border-radius:12px;
-      font-size:16px;
-      font-weight:800;
-      letter-spacing:.2px;
-      transition:var(--transicao);
-      border:1px solid transparent;
-      cursor:pointer;
-    }
-
-    .btn-primary{
-      background:var(--azul-principal);
-      color:var(--branco);
-      box-shadow:var(--sombra-suave);
-    }
-
-    .btn-primary:hover{
-      background:var(--azul-hover);
-      transform:translateY(-2px);
-    }
-
-    .btn-secondary{
-      background:var(--verde-consultivo);
-      color:var(--branco);
-      box-shadow:var(--sombra-suave);
-    }
-
-    .btn-secondary:hover{
-      background:var(--verde-hover);
-      transform:translateY(-2px);
-    }
-
-    .btn-outline{
-      background:transparent;
-      color:var(--azul-marinho);
-      border-color:rgba(23,56,95,0.16);
-    }
-
-    .btn-outline:hover{
-      background:rgba(23,56,95,0.05);
-      transform:translateY(-2px);
-    }
-
-    /* HEADER PREMIUM */
-    .site-header{
+      gap:20px;
+      border-bottom:1px solid var(--borda);
       position:sticky;
       top:0;
-      z-index:1000;
-      background:rgba(248,249,247,0.92);
-      backdrop-filter:blur(10px);
-      border-bottom:1px solid rgba(23,56,95,0.08);
-    }
-
-    .header-inner{
-      min-height:92px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:24px;
+      z-index:100;
     }
 
     .brand{
       display:flex;
       align-items:center;
-      gap:14px;
+      gap:12px;
       min-width:0;
     }
 
-    .brand-logo{
-      width:auto;
+    .brand img{
       height:56px;
-      object-fit:contain;
+      width:auto;
+      display:block;
       flex:0 0 auto;
     }
 
-    .brand-copy{
-      min-width:0;
-    }
-
     .brand-title{
-      font-family:'Raleway', sans-serif;
-      font-size:clamp(28px, 3.2vw, 34px);
+      font-size:48px;
+      font-weight:900;
+      color:var(--azul-escuro);
       line-height:1;
-      font-weight:800;
-      letter-spacing:1.1px;
-      color:var(--azul-principal);
       white-space:nowrap;
     }
 
-    .brand-subtitle{
-      margin-top:5px;
-      font-size:13px;
-      line-height:1.2;
-      font-weight:700;
-      color:var(--azul-marinho);
-      letter-spacing:.15px;
-    }
-
-    .nav{
-      display:flex;
-      align-items:center;
-      gap:24px;
-      flex-wrap:wrap;
-    }
-
-    .nav a{
-      position:relative;
-      color:var(--azul-marinho);
-      font-size:14px;
-      font-weight:800;
-      letter-spacing:.2px;
-      transition:var(--transicao);
-    }
-
-    .nav a::after{
-      content:"";
-      position:absolute;
-      left:0;
-      bottom:-6px;
-      width:0;
-      height:2px;
-      background:var(--verde-consultivo);
-      transition:var(--transicao);
-    }
-
-    .nav a:hover{
-      color:var(--azul-principal);
-    }
-
-    .nav a:hover::after{
-      width:100%;
-    }
-
-    /* HERO PREMIUM */
-    .hero{
-      position:relative;
-      overflow:hidden;
-      background:
-        linear-gradient(rgba(23,56,95,0.78), rgba(23,56,95,0.82)),
-        url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1800&q=80') center/cover no-repeat;
-      color:var(--branco);
-    }
-
-    .hero-inner{
-      padding:120px 0 110px;
-      text-align:center;
-    }
-
-    .hero h1{
-      max-width:980px;
-      margin:0 auto 18px;
-      font-size:clamp(38px, 6vw, 66px);
-      line-height:1.06;
-      font-weight:800;
-      letter-spacing:.2px;
-    }
-
-    .hero p{
-      max-width:860px;
-      margin:0 auto 28px;
-      font-size:18px;
-      color:#E7EEF7;
-    }
-
-    .hero-actions{
-      display:flex;
-      justify-content:center;
-      gap:14px;
-      flex-wrap:wrap;
-    }
-
-    /* CARDS */
-    .grid-3{
-      display:grid;
-      grid-template-columns:repeat(3, 1fr);
-      gap:24px;
-      margin-top:34px;
-    }
-
-    .card{
-      background:var(--branco);
-      border:1px solid rgba(23,56,95,0.08);
-      border-radius:var(--radius);
-      box-shadow:var(--sombra-suave);
-      padding:28px 24px;
-      transition:var(--transicao);
-    }
-
-    .card:hover{
-      transform:translateY(-4px);
-      box-shadow:var(--sombra-media);
-    }
-
-    .card h3{
-      font-size:24px;
-      line-height:1.2;
-      font-weight:800;
-      color:var(--azul-marinho);
-      margin-bottom:12px;
-      text-align:center;
-    }
-
-    .card p{
-      color:var(--cinza-texto);
-      font-size:16px;
-    }
-
-    .card ul{
-      list-style:none;
-      display:grid;
-      gap:10px;
-      margin-top:12px;
-    }
-
-    .card li{
-      display:flex;
-      gap:10px;
-      align-items:flex-start;
+    .brand-slogan{
       font-size:15px;
       font-weight:700;
-      color:var(--cinza-texto);
+      color:var(--azul-escuro);
+      margin-top:6px;
+      line-height:1.1;
     }
 
-    .card li::before{
-      content:"•";
-      color:var(--verde-consultivo);
+    nav{
+      display:flex;
+      gap:20px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+
+    nav a{
+      text-decoration:none;
+      color:var(--azul-escuro);
+      font-weight:800;
+      font-size:14px;
+    }
+
+    nav a:hover{text-decoration:underline;}
+
+    @keyframes pulseGlow{
+      0%,100%{transform:translateY(0); box-shadow:0 0 0 rgba(0,0,0,0);}
+      50%{transform:translateY(-2px); box-shadow:0 14px 30px rgba(79,163,247,0.30);}
+    }
+
+    @keyframes blinkSoft{
+      0%,100%{opacity:1;}
+      50%{opacity:.82;}
+    }
+
+    .pulse{animation:pulseGlow 1.5s infinite;}
+    .blink{animation:blinkSoft 1.3s infinite;}
+
+    .btn{
+      background:var(--azul-medio);
+      color:var(--branco);
+      padding:18px 36px;
       font-weight:900;
-      line-height:1;
-      margin-top:2px;
-    }
-
-    .card-badge{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding:8px 12px;
-      border-radius:999px;
-      background:rgba(94,149,216,0.12);
-      color:var(--azul-principal);
-      font-size:11px;
-      font-weight:900;
-      text-transform:uppercase;
-      letter-spacing:.8px;
-      margin-bottom:14px;
-    }
-
-    /* DESTAQUE */
-    .highlight-panel{
-      margin-top:30px;
-      background:linear-gradient(135deg, #6EA1DE 0%, #5A8FD0 100%);
-      border-radius:20px;
-      padding:28px;
-      box-shadow:var(--sombra-media);
+      text-decoration:none;
+      border-radius:10px;
+      display:inline-block;
+      transition:.25s;
+      font-size:20px;
+      border:1px solid rgba(255,255,255,0.20);
       text-align:center;
     }
 
-    .highlight-panel p{
+    .btn:hover{
+      background:var(--azul-escuro);
+      transform:translateY(-2px);
+    }
+
+    .highlight-box{
+      max-width:920px;
+      margin:30px auto 0 auto;
+      background:var(--azul-claro);
+      padding:22px 26px;
+      border-radius:14px;
+      text-align:center;
+      box-shadow:0 12px 24px rgba(0,0,0,0.10);
+    }
+
+    .highlight-box p{
       color:var(--azul-marinho);
       font-size:22px;
-      font-weight:800;
-      line-height:1.35;
+      font-weight:900;
+      line-height:1.45;
       margin:0;
     }
 
-    /* CTA FINAL */
-    .final-cta{
+    .hero{
+      background:
+        linear-gradient(rgba(11,42,74,0.78),rgba(11,42,74,0.78)),
+        url("https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1900&q=80");
+      background-size:cover;
+      background-position:center;
+      color:var(--branco);
+      text-align:center;
+      padding:140px 10%;
+    }
+
+    .hero-content{max-width:920px;margin:0 auto;}
+
+    .hero h1{
+      font-size:54px;
+      line-height:1.1;
+      font-weight:900;
+      margin-bottom:16px;
+    }
+
+    .hero p{
+      font-size:18px;
+      max-width:760px;
+      margin:0 auto 28px auto;
+      opacity:.96;
+    }
+
+    .problem-real{background:var(--branco);}
+
+    .problem-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:22px;
+      margin-top:12px;
+    }
+
+    .problem-card{
+      background:var(--branco);
+      border:1px solid var(--borda);
+      border-radius:16px;
+      padding:26px 24px;
+      box-shadow:var(--sombra);
+    }
+
+    .problem-card h3{
+      color:var(--azul-escuro);
+      font-size:24px;
+      font-weight:900;
+      margin-bottom:16px;
       text-align:center;
     }
 
-    .final-cta p{
-      max-width:820px;
-      margin:0 auto 24px;
+    .problem-list{
+      list-style:none;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
     }
 
-    @media (max-width: 1080px){
-      .grid-3{
-        grid-template-columns:1fr;
-      }
-
-      .header-inner{
-        flex-direction:column;
-        align-items:flex-start;
-        justify-content:center;
-        padding:14px 0;
-      }
-
-      .nav{
-        gap:18px;
-      }
+    .problem-list li{
+      display:flex;
+      align-items:flex-start;
+      gap:12px;
+      color:var(--azul-marinho);
+      font-size:18px;
+      font-weight:700;
+      line-height:1.35;
     }
 
-    @media (max-width: 780px){
-      .brand-logo{
-        height:50px;
-      }
+    .icon{
+      width:28px;
+      height:28px;
+      min-width:28px;
+      border-radius:999px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:18px;
+      font-weight:900;
+      margin-top:1px;
+    }
 
-      .brand-title{
-        white-space:normal;
-        font-size:30px;
-      }
+    .icon-neg{
+      background:rgba(225,0,0,0.10);
+      color:#c41717;
+      border:1px solid rgba(225,0,0,0.18);
+    }
 
-      .brand-subtitle{
-        font-size:12px;
-      }
+    .icon-pos{
+      background:rgba(79,163,247,0.12);
+      color:var(--azul-escuro);
+      border:1px solid rgba(31,78,140,0.18);
+    }
 
-      .hero-inner{
-        padding:88px 0 82px;
-      }
+    .authority{
+      background:var(--azul-escuro);
+      color:var(--branco);
+    }
 
-      .section{
-        padding:68px 0;
-      }
+    .authority-inner{
+      max-width:920px;
+      margin:0 auto;
+    }
 
-      .section-text{
-        font-size:16px;
-      }
+    .authority h2{
+      color:var(--branco);
+      text-align:left;
+      margin-bottom:18px;
+    }
 
-      .highlight-panel p{
-        font-size:18px;
-      }
+    .authority p{
+      font-size:18px;
+      margin-top:12px;
+      opacity:.96;
+      text-align:left;
+    }
 
-      .btn{
-        width:100%;
-      }
+    .authority-highlight{
+      max-width:920px;
+      margin:34px auto 0 auto;
+      background:var(--azul-claro);
+      padding:28px 34px;
+      border-radius:14px;
+      text-align:center;
+      box-shadow:0 12px 24px rgba(0,0,0,0.12);
+    }
 
-      .hero-actions{
-        flex-direction:column;
-      }
+    .authority-highlight p{
+      color:var(--azul-marinho);
+      font-size:22px;
+      font-weight:900;
+      line-height:1.5;
+      margin:0;
+      text-align:center;
+    }
+
+    .what-we-do{
+      background:
+        linear-gradient(rgba(245,248,252,0.84),rgba(245,248,252,0.84)),
+        url("https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1900&q=80");
+      background-size:cover;
+      background-position:center;
+    }
+
+    .what-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:22px;
+    }
+
+    .what-card{
+      background:rgba(255,255,255,0.95);
+      border:1px solid rgba(31,78,140,0.10);
+      border-radius:16px;
+      padding:26px 24px;
+      box-shadow:0 14px 28px rgba(0,0,0,0.08);
+    }
+
+    .what-card h3{
+      color:var(--azul-escuro);
+      text-align:center;
+      font-size:24px;
+      font-weight:900;
+      margin-bottom:18px;
+    }
+
+    .what-list{
+      list-style:none;
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+    }
+
+    .what-list li{
+      display:flex;
+      align-items:flex-start;
+      gap:12px;
+      color:var(--azul-marinho);
+      font-size:18px;
+      font-weight:800;
+      line-height:1.35;
+    }
+
+    .method{background:var(--cinza);}
+    .metodo-wrap{margin-top:18px;}
+
+    .metodo-grid{
+      display:grid;
+      grid-template-columns:repeat(5, minmax(180px, 1fr));
+      gap:10px;
+      row-gap:26px;
+      margin-top:16px;
+      overflow:visible;
+    }
+
+    .metodo-item{
+      padding:26px 18px;
+      color:var(--branco);
+      text-align:center;
+      cursor:default;
+      position:relative;
+      transition:transform .18s ease;
+      border-radius:10px;
+      overflow:visible;
+    }
+
+    .metodo-item:hover{transform:translateY(-2px);}
+
+    .metodo-item .title{
+      display:block;
+      font-weight:900;
+      font-size:18px;
+    }
+
+    .metodo-item .tooltip{
+      visibility:hidden;
+      opacity:0;
+      position:absolute;
+      bottom:calc(100% + 12px);
+      left:50%;
+      transform:translateX(-50%);
+      background:#0f172a;
+      color:#fff;
+      padding:12px;
+      border-radius:8px;
+      width:240px;
+      font-size:13px;
+      line-height:1.35;
+      box-shadow:0 10px 22px rgba(0,0,0,0.25);
+      transition:opacity .18s ease;
+      z-index:9999;
+      pointer-events:none;
+    }
+
+    .metodo-item .tooltip::after{
+      content:"";
+      position:absolute;
+      top:100%;
+      left:50%;
+      transform:translateX(-50%);
+      border-width:8px;
+      border-style:solid;
+      border-color:#0f172a transparent transparent transparent;
+    }
+
+    .metodo-item:hover .tooltip{
+      visibility:visible;
+      opacity:1;
+    }
+
+    .final-cta{
+      background:var(--azul-escuro);
+      color:var(--branco);
+      text-align:center;
+    }
+
+    .final-cta h2{color:var(--branco);}
+
+    footer{
+      background:var(--azul-escuro);
+      color:var(--branco);
+      text-align:center;
+      padding:26px;
+    }
+
+    .whatsapp{
+      position:fixed;
+      bottom:20px;
+      right:20px;
+      width:64px;
+      height:64px;
+      border-radius:999px;
+      background:#25d366;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      box-shadow:0 12px 26px rgba(0,0,0,0.20);
+      text-decoration:none;
+      z-index:9999;
+    }
+
+    .whatsapp svg{
+      width:34px;
+      height:34px;
+      fill:#ffffff;
+    }
+
+    @media (max-width: 1100px){
+      .problem-grid,.what-grid{grid-template-columns:1fr;}
+      .metodo-grid{grid-template-columns:repeat(2, minmax(180px, 1fr));}
+    }
+
+    @media (max-width: 900px){
+      .hero{padding:90px 8%;}
+      .hero h1{font-size:36px;}
+      .brand-title{font-size:34px;white-space:normal;}
+      nav{justify-content:flex-start;}
+    }
+
+    @media (max-width: 860px){
+      header{flex-direction:column;align-items:flex-start;}
+      .brand-slogan{font-size:16px;}
+      h2{font-size:28px;}
+      .hero p,.section-intro,.authority p{font-size:16px;}
+      .highlight-box p,.authority-highlight p{font-size:18px;}
+      .problem-card h3,.what-card h3{font-size:22px;}
+      .problem-list li,.what-list li{font-size:16px;}
+      .btn{font-size:18px;padding:16px 28px;}
     }
   </style>
 </head>
 <body>
 
-  <header class="site-header">
-    <div class="container header-inner">
-      <div class="brand">
-        <img src="logo.png" alt="Logo TR&PC" class="brand-logo">
-        <div class="brand-copy">
-          <div class="brand-title">TR&amp;PC CONSULTORIA</div>
-          <div class="brand-subtitle">Atendimento que resolve. Cultura que sustenta resultados.</div>
-        </div>
+<header>
+  <div class="brand">
+    <img src="logo.png" alt="Logo TR&PC">
+    <div>
+      <div class="brand-title">TR&amp;PC CONSULTORIA</div>
+      <div class="brand-slogan">Atendimento que resolve. Cultura que sustenta resultados.</div>
+    </div>
+  </div>
+
+  <nav>
+    <a href="planos.html">Planos</a>
+    <a href="#solucoes">Soluções</a>
+    <a href="diagnostico.html">Diagnóstico</a>
+    <a href="#contato">Contato</a>
+  </nav>
+</header>
+
+<section class="hero" id="topo">
+  <div class="hero-content">
+    <h1>Seu atendimento pode estar fazendo você perder clientes sem perceber.</h1>
+    <p>
+      A TR&amp;PC estrutura pessoas, processos e cultura para transformar atendimento em resultado real dentro da sua empresa.
+    </p>
+    <a href="diagnostico.html" class="btn pulse blink">Faça seu diagnóstico agora</a>
+  </div>
+</section>
+
+<section class="problem-real" id="problema-real">
+  <div class="container">
+    <h2>O problema quase nunca está só no atendimento</h2>
+    <p class="section-intro">
+      Quando o atendimento depende da pessoa e não de um processo, a empresa perde consistência, o cliente percebe insegurança e a liderança passa a trabalhar no modo apagar incêndio.
+    </p>
+
+    <div class="problem-grid">
+      <div class="problem-card">
+        <h3>O que acontece sem estrutura</h3>
+        <ul class="problem-list">
+          <li><span class="icon icon-neg">−</span><span>Cada colaborador atende de um jeito diferente</span></li>
+          <li><span class="icon icon-neg">−</span><span>Informações chegam incompletas ao cliente</span></li>
+          <li><span class="icon icon-neg">−</span><span>Líderes gastam energia resolvendo falhas operacionais</span></li>
+          <li><span class="icon icon-neg">−</span><span>O retrabalho aumenta e o atendimento perde consistência</span></li>
+        </ul>
       </div>
 
-      <nav class="nav">
-        <a href="planos.html">Planos</a>
-        <a href="index.html#solucoes">Soluções</a>
-        <a href="diagnostico.html">Diagnóstico</a>
-        <a href="index.html#contato">Contato</a>
-      </nav>
-    </div>
-  </header>
-
-  <section class="hero">
-    <div class="container hero-inner">
-      <span class="eyebrow">Consultoria estratégica</span>
-      <h1>Atendimento forte não nasce do improviso.</h1>
-      <p>
-        Estruturamos pessoas, processos e cultura para transformar atendimento em consistência, confiança e resultado.
-      </p>
-      <div class="hero-actions">
-        <a href="diagnostico.html" class="btn btn-primary">Faça seu diagnóstico agora</a>
-        <a href="planos.html" class="btn btn-secondary">Conheça os planos</a>
+      <div class="problem-card">
+        <h3>O que a empresa passa a ter</h3>
+        <ul class="problem-list">
+          <li><span class="icon icon-pos">+</span><span>Mais consistência na experiência do cliente</span></li>
+          <li><span class="icon icon-pos">+</span><span>Processos organizados e consistentes</span></li>
+          <li><span class="icon icon-pos">+</span><span>Comunicação mais segura entre equipe e cliente</span></li>
+          <li><span class="icon icon-pos">+</span><span>Lideranças com mais clareza e direção</span></li>
+        </ul>
       </div>
     </div>
-  </section>
 
-  <section class="section section-light">
-    <div class="container">
-      <h2 class="section-title">O que muda o jogo de uma consultoria premium</h2>
-      <p class="section-text">
-        Não é excesso visual. É clareza, ritmo, hierarquia, escolha de cor, fonte certa e consistência em toda a experiência.
-      </p>
+    <div class="highlight-box">
+      <p>Atendimento forte não nasce do improviso. Nasce de estrutura, clareza e acompanhamento.</p>
+    </div>
+  </div>
+</section>
 
-      <div class="grid-3">
-        <div class="card">
-          <span class="card-badge">Marca</span>
-          <h3>Tipografia mais refinada</h3>
-          <p>Raleway traz uma leitura mais elegante, moderna e consultiva sem perder força.</p>
-        </div>
+<section class="authority" id="autoridade">
+  <div class="authority-inner">
+    <h2>Experiência que sustenta resultado</h2>
+    <p><strong>+20 anos de experiência combinada em Gestão de Pessoas e Gestão Comercial.</strong></p>
+    <p>Ao longo de duas décadas desenvolvendo equipes e estruturando processos, acompanhamos de perto os desafios reais das empresas.</p>
+    <p>Rotatividade, falhas de comunicação, atendimento improvisado e perda de clientes por falta de padrão.</p>
 
-        <div class="card">
-          <span class="card-badge">Visual</span>
-          <h3>Paleta mais sofisticada</h3>
-          <p>Azul continua como base de autoridade, mas o verde consultivo passa a dar humanidade e diferenciação.</p>
-        </div>
+    <div class="authority-highlight pulse blink">
+      <p>A TR&amp;PC nasce dessa vivência transformando experiência real em método estratégico aplicado.</p>
+    </div>
+  </div>
+</section>
 
-        <div class="card">
-          <span class="card-badge">Percepção</span>
-          <h3>Mais premium de verdade</h3>
-          <p>O site deixa de parecer “corporativo padrão” e passa a transmitir estrutura, método e valor percebido maior.</p>
-        </div>
+<section class="what-we-do" id="o-que-fazemos">
+  <div class="container">
+    <h2>O que fazemos</h2>
+    <p class="section-intro">
+      Aplicamos estrutura prática para que empresas que dependem de atendimento presencial, online ou telefônico deixem de operar no improviso e passem a entregar consistência.
+    </p>
+
+    <div class="what-grid">
+      <div class="what-card">
+        <h3>Onde as empresas travam</h3>
+        <ul class="what-list">
+          <li><span class="icon icon-neg">−</span><span>Alta rotatividade</span></li>
+          <li><span class="icon icon-neg">−</span><span>Atendimento improvisado</span></li>
+          <li><span class="icon icon-neg">−</span><span>Falta de padrão</span></li>
+          <li><span class="icon icon-neg">−</span><span>Comunicação desalinhada</span></li>
+        </ul>
       </div>
 
-      <div class="highlight-panel">
-        <p>A combinação certa aqui é: azul como autoridade, verde como equilíbrio e off-white como sofisticação.</p>
+      <div class="what-card">
+        <h3>O que nós transformamos</h3>
+        <ul class="what-list">
+          <li><span class="icon icon-pos">+</span><span>Padrão claro de atendimento</span></li>
+          <li><span class="icon icon-pos">+</span><span>Processos estruturados</span></li>
+          <li><span class="icon icon-pos">+</span><span>Cultura alinhada</span></li>
+          <li><span class="icon icon-pos">+</span><span>Métricas acompanhadas</span></li>
+        </ul>
       </div>
     </div>
-  </section>
 
-  <section class="section section-white">
-    <div class="container final-cta">
-      <h2 class="section-title">Essa é a base visual que eu aplicaria no site inteiro</h2>
-      <p class="section-text">
-        Se você quiser, no próximo passo eu reescrevo a página que você escolher primeiro — index, planos, diagnóstico ou resultado — já com essa nova identidade premium completa.
-      </p>
-      <a href="index.html" class="btn btn-primary">Voltar ao site</a>
+    <div class="highlight-box">
+      <p>Quando pessoas, processo e cultura se alinham, o atendimento deixa de ser improviso e passa a gerar resultado.</p>
     </div>
-  </section>
+  </div>
+</section>
+
+<section class="method" id="solucoes">
+  <div class="container">
+    <h2>Nossas Soluções</h2>
+    <p class="section-intro">
+      A TR&amp;PC atua com um método próprio para transformar o atendimento na prática: unimos desenvolvimento de pessoas, organização de processos e acompanhamento por métricas, garantindo consistência, humanização e resultados sustentáveis ao longo do tempo.
+    </p>
+
+    <div class="metodo-wrap">
+      <h2 style="margin-top:22px;">Método T.R.A.N.S.F.O.R.M.A.</h2>
+
+      <div class="metodo-grid">
+        <div class="metodo-item" style="background:var(--azul-escuro);">
+          <span class="title">T - Treinamento</span>
+          <div class="tooltip">Capacitação prática para atendimento e vendas consultivas, com foco em comportamento, postura, comunicação e experiência do cliente.</div>
+        </div>
+
+        <div class="metodo-item" style="background:var(--azul-claro);">
+          <span class="title">R - Recrutamento</span>
+          <div class="tooltip">Seleção estratégica com base em perfil comportamental e aderência cultural, reduzindo rotatividade e melhorando o desempenho do time.</div>
+        </div>
+
+        <div class="metodo-item" style="background:var(--azul-escuro);">
+          <span class="title">A - Alinhamento</span>
+          <div class="tooltip">Alinha liderança e equipe sobre padrão, expectativas e responsabilidades, criando uma cultura de atendimento consistente.</div>
+        </div>
+
+        <div class="metodo-item" style="background:var(--azul-claro);">
+          <span class="title">N - Nível de Atendimento</span>
+          <div class="tooltip">Eleva o padrão de atendimento com diretrizes claras e práticas aplicáveis, sem robotizar a comunicação com o cliente.</div>
+        </div>
+
+        <div class="metodo-item" style="background:var(--azul-escuro);">
+          <span class="title">S - Supervisão</span>
+          <div class="tooltip">Acompanhamento estratégico para correções rápidas, reforço do padrão e consistência na rotina do atendimento.</div>
+        </div>
+
+        <div class="metodo-item" style="background:var(--azul-claro);">
+          <span class="title">F - Foco em Resultado</span>
+          <div class="tooltip">Transforma atendimento em performance: conversão, retenção, satisfação e redução de ruídos no processo.</div>
+        </div>
+
+        <div class="metodo-item" style="background:var(--azul-escuro);">
+          <span class="title">O - Organização</span>
+          <div class="tooltip">Define fluxos, padrões e rotinas para reduzir retrabalho, dar previsibilidade e aumentar eficiência operacional.</div>
+        </div>
+
+        <div class="metodo-item" style="background:var(--azul-claro);">
+          <span class="title">R - Relacionamento</span>
+          <div class="tooltip">Fortalece conexão com cliente e equipe com comunicação humana, empática e objetiva, focada em solução.</div>
+        </div>
+
+        <div class="metodo-item" style="background:var(--azul-escuro);">
+          <span class="title">M - Métricas</span>
+          <div class="tooltip">Cria indicadores simples e úteis (qualidade, tempo de resposta, satisfação, conversão) para orientar decisões.</div>
+        </div>
+
+        <div class="metodo-item" style="background:var(--azul-claro);">
+          <span class="title">A - Acompanhamento</span>
+          <div class="tooltip">Suporte contínuo e ajustes ao longo do tempo para evolução sustentável, evitando que o padrão caia após o treinamento.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="final-cta" id="contato">
+  <div class="container">
+    <h2>Pronto para transformar sua empresa?</h2>
+    <p class="section-intro" style="color:#ffffff; max-width:900px;">
+      Descubra o nível atual do atendimento da sua empresa e entenda onde estão os pontos de melhoria mais urgentes.
+    </p>
+    <div style="margin-top:18px;text-align:center;">
+      <a href="diagnostico.html" class="btn pulse blink">Faça seu diagnóstico agora</a>
+    </div>
+  </div>
+</section>
+
+<footer>© 2026 TR&amp;PC Consultoria</footer>
+
+<a class="whatsapp" href="https://wa.me/5516992005854" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 32 32" aria-hidden="true">
+    <path d="M19.11 17.53c-.27-.14-1.62-.8-1.87-.89-.25-.09-.43-.14-.61.14-.18.27-.7.89-.86 1.07-.16.18-.32.2-.59.07-.27-.14-1.13-.41-2.16-1.31-.8-.71-1.34-1.58-1.5-1.85-.16-.27-.02-.42.12-.56.13-.13.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.61-1.47-.84-2.01-.22-.54-.45-.47-.61-.48l-.52-.01c-.18 0-.48.07-.73.34-.25.27-.95.93-.95 2.27 0 1.34.98 2.64 1.12 2.82.14.18 1.93 2.95 4.67 4.13.65.28 1.16.45 1.56.58.66.21 1.26.18 1.73.11.53-.08 1.62-.66 1.85-1.3.23-.64.23-1.18.16-1.3-.07-.12-.25-.2-.52-.34z"/>
+    <path d="M26.67 5.33A14.55 14.55 0 0016.02 1.1C8.17 1.1 1.8 7.48 1.8 15.33c0 2.5.65 4.94 1.88 7.1L1.68 30.9l8.66-1.97a14.22 14.22 0 005.67 1.15h.01c7.85 0 14.22-6.38 14.22-14.22 0-3.8-1.48-7.38-4.17-10.53zM16.02 27.7h-.01a11.9 11.9 0 01-5.12-1.15l-.37-.17-5.14 1.17 1.1-5.01-.24-.39a11.9 11.9 0 01-1.83-6.82c0-6.57 5.35-11.92 11.93-11.92 3.18 0 6.17 1.24 8.42 3.5a11.83 11.83 0 013.5 8.43c0 6.57-5.35 11.92-11.94 11.92z"/>
+  </svg>
+</a>
 
 </body>
 </html>
